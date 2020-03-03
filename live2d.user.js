@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      0.9.5
+// @version      1.0.0
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -4774,7 +4774,9 @@
                                         r.pose.updateParam(r.live2DModel)
                                     }) : r.pose = null, null != r.modelSetting.getLayout()) {
                                         var n = r.modelSetting.getLayout();
-                                        null != n.width && r.modelMatrix.setWidth(n.width), null != n.height && r.modelMatrix.setHeight(n.height), null != n.x && r.modelMatrix.setX(n.x), null != n.y && r.modelMatrix.setY(n.y), null != n.center_x && r.modelMatrix.centerX(n.center_x), null != n.center_y && r.modelMatrix.centerY(n.center_y), null != n.top && r.modelMatrix.top(n.top), null != n.bottom && r.modelMatrix.bottom(n.bottom), null != n.left && r.modelMatrix.left(n.left), null != n.right && r.modelMatrix.right(n.right)
+                                        var hw=null != n.width ? n.width/2 : 1;
+                                        r.modelMatrix.height/document.getElementById("live2d").height>r.modelMatrix.width/document.getElementById("live2d").width?r.modelMatrix.setHeight(hw*2*document.getElementById("live2d").height/document.getElementById("live2d").width):r.modelMatrix.setWidth(2);
+                                        null != n.x && r.modelMatrix.setX(n.x), null != n.y && r.modelMatrix.setY(n.y), null != n.center_x && r.modelMatrix.centerX(n.center_x), null != n.center_y && r.modelMatrix.centerY(n.center_y), null != n.top && r.modelMatrix.top(n.top), null != n.bottom && r.modelMatrix.bottom(n.bottom), null != n.left && r.modelMatrix.left(n.left), null != n.right && r.modelMatrix.right(n.right)
                                     }
                                     if (null != r.modelSetting.getHitAreasCustom()) {
                                         var s = r.modelSetting.getHitAreasCustom();

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.0.0
+// @version      1.0.1
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -10,6 +10,7 @@
 // @require      https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js
 // @supportURL   https://blog.hclonely.com/posts/f09c9fef/
 // @homepage     https://blog.hclonely.com/posts/f09c9fef/
+// @updateURL    https://github.com/HCLonely/auto-task/raw/master/auto-task.user.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -27,8 +28,8 @@
 
     /**********************************************waifu.js**************************************************************/
     const live2d_conf = {
-        "modelAPI": "https://live2d.hclonely.com/",//备用api:https://live2d.fghrsh.net/api/
-        "staticAPI": "https://model.hclonely.com",//备用api:https://live2d.fghrsh.net/api
+        "modelAPI": "https://live2d.hclonely.com/",//可根据https://github.com/fghrsh/live2d_api自建api
+        "staticAPI": "https://model.hclonely.com",//备用api(建议中国大陆用户使用):https://hclonely-model-cn.oss-cn-shanghai.aliyuncs.com
         "tipsMessage": "waifu-tips.json",
         "hitokotoAPI": "rand",
         "modelId": 2,
@@ -71,7 +72,7 @@
 
     const setting_des = Array();
     setting_des['modelAPI']             = `自建 API 修改这里`;
-    setting_des['staticAPI']            = `模型 API 修改这里（自建 API 这里和上面相同，不要带最后的"/"）`;
+    setting_des['staticAPI']            = `模型 API 修改这里（不要带最后的"/", 建议中国大陆用户使用"https://hclonely-model-cn.oss-cn-shanghai.aliyuncs.com"）`;
     setting_des['tipsMessage']          = `同目录下可省略路径`;
     setting_des['hitokotoAPI']          = `一言 API，可选 'lwl12.com', 'hitokoto.cn', 'fghrsh.net', 'jinrishici.com'(古诗词), 'rand'(随机)`;
     setting_des['modelId']              = `默认模型 ID，可在 F12 控制台找到`;

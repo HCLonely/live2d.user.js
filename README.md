@@ -12,8 +12,8 @@
 
 - 后端接口
 
-  - `live2d_settings['modelAPI']`：看板娘 API 地址，默认值 `'https://live2d.hclonely.com/'`，可根据[live2d_api](https://github.com/fghrsh/live2d_api)自建api
-  - `'live2d_settings['staticAPI']`：看板娘 API 地址，默认值 `'https://model.hclonely.com'`，备用api(**建议中国大陆用户使用**):`https://hclonely-model-cn.oss-cn-shanghai.aliyuncs.com'`
+  - `live2d_settings['modelAPI']`：看板娘 API 地址，可根据[live2d_api](https://github.com/fghrsh/live2d_api)自建api
+  - `'live2d_settings['staticAPI']`：看板娘模型 API 地址，默认值 `'https://cdn.jsdelivr.net'`
   - `live2d_settings['tipsMessage']`：提示语读取路径，暂不可改
   - `live2d_settings['hitokotoAPI']`：一言 API 接口，可选 `'lwl12.com'`，`'hitokoto.cn'`，`'fghrsh.net'`，`'jinrishici.com'` (古诗词)，`'rand'` (随机)
 

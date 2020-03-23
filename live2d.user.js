@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.0.1
+// @version      1.1.0
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -10,7 +10,6 @@
 // @require      https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js
 // @supportURL   https://blog.hclonely.com/posts/f09c9fef/
 // @homepage     https://blog.hclonely.com/posts/f09c9fef/
-// @updateURL    https://github.com/HCLonely/auto-task/raw/master/auto-task.user.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -18,6 +17,8 @@
 // @run-at       document-end
 // @grant        GM_registerMenuCommand
 // @noframes
+// @connect      live2d.hclonely.com
+// @connect      cdn.jsdelivr.net
 // @connect      *
 // ==/UserScript==
 
@@ -29,7 +30,7 @@
     /**********************************************waifu.js**************************************************************/
     const live2d_conf = {
         "modelAPI": "https://live2d.hclonely.com/",//可根据https://github.com/fghrsh/live2d_api自建api
-        "staticAPI": "https://model.hclonely.com",//备用api(建议中国大陆用户使用):https://hclonely-model-cn.oss-cn-shanghai.aliyuncs.com
+        "staticAPI": "https://cdn.jsdelivr.net",
         "tipsMessage": "waifu-tips.json",
         "hitokotoAPI": "rand",
         "modelId": 2,
@@ -72,7 +73,7 @@
 
     const setting_des = Array();
     setting_des['modelAPI']             = `自建 API 修改这里`;
-    setting_des['staticAPI']            = `模型 API 修改这里（不要带最后的"/", 建议中国大陆用户使用"https://hclonely-model-cn.oss-cn-shanghai.aliyuncs.com"）`;
+    setting_des['staticAPI']            = `模型 API 修改这里（不要带最后的"/"）,如果你使用的默认api, 请自行替换成"https://cdn.jsdelivr.net"`;
     setting_des['tipsMessage']          = `同目录下可省略路径`;
     setting_des['hitokotoAPI']          = `一言 API，可选 'lwl12.com', 'hitokoto.cn', 'fghrsh.net', 'jinrishici.com'(古诗词), 'rand'(随机)`;
     setting_des['modelId']              = `默认模型 ID，可在 F12 控制台找到`;
@@ -997,7 +998,6 @@
                     u = parseFloat(h.regist),
                     p = parseFloat(h.mass);
                 a.setup($, u, p);
-                console.log(_);
                 for (var f = _.src, d = f.length, g = 0; g < d; g++) {
                     var y = f[g],
                         m = y.id,
@@ -1013,8 +1013,6 @@
                         m = E.id,
                         T = PhysicsHair.Target.TARGET_FROM_ANGLE,
                         P = E.ptype;
-                    console.log("angle" === P);
-                    console.log(P);
                     "angle" === P ? T = PhysicsHair.Target.TARGET_FROM_ANGLE : "angle_v" === P ? T = PhysicsHair.Target.TARGET_FROM_ANGLE_V : UtDebug("live2d", "Invalid parameter:PhysicsHair.Target");
                     var S = parseFloat(E.scale),
                         v = parseFloat(E.weight);

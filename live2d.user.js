@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.1.0
+// @version      1.1.1
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -70,6 +70,11 @@
     }
 
     window.live2d_settings = GM_getValue('live2d_settings')||{...live2d_conf};
+    
+    if(live2d_settings.staticAPI.includes('hclonely')){
+        live2d_settings.staticAPI='https://cdn.jsdelivr.net';
+        GM_setValue('live2d_settings',live2d_settings);
+    }
 
     const setting_des = Array();
     setting_des['modelAPI']             = `自建 API 修改这里`;

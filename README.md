@@ -104,6 +104,6 @@
 
 > 基于[live2d_demo源码](https://github.com/fghrsh/live2d_demo)
 
-> 模型来源:[live2d-widget-models](https://github.com/xiazeyu/live2d-widget-models), [live2d_api](https://github.com/fghrsh/live2d_api), [梦象](https://mx.paul.ren/page/1/), [Live2d-model](https://github.com/Eikanya/Live2d-model)
+> 模型来源:[live2d-widget-models](https://github.com/xiazeyu/live2d-widget-models), [梦象](https://mx.paul.ren/page/1/), [Live2d-model](https://github.com/Eikanya/Live2d-model)
 
 > [MIT License](https://github.com/HCLonely/live2d.user.js/blob/master/LICENSE)

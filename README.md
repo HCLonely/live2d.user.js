@@ -4,6 +4,10 @@
 
 给网页添加一个Live2D看板娘。
 
+## 模型预览
+
+[https://live2d.hclonely.com](https://live2d.hclonely.com)
+
 ## 详细设置
 
 ### 设置参数

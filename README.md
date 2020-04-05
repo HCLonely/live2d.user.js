@@ -6,7 +6,7 @@
 
 ## 模型预览
 
-[https://live2d.hclonely.com](https://live2d.hclonely.com)
+[https://live2d.hclonely.com/#preview](https://live2d.hclonely.com/#preview)
 
 ## 详细设置
 

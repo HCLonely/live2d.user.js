@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.1.2
+// @version      1.1.3
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -4950,7 +4950,7 @@
     }, o.prototype.setExpression = function (t) {
       var i = this.expressions[t]
       h
-        .default.DEBUG_LOG && console.log('Expression : ' + t), this.expressionManager.startMotion(i, !1)
+        .default.DEBUG_LOG && console.log('Expression : ' + t), this.expressionManager&&(this.expressionManager.startMotion(i, !1))
     }, o.prototype.draw = function (t) {
       $
         .default.push(), $

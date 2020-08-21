@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.1.3
+// @version      1.1.4
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -29,7 +29,7 @@
   if ($('.waifu').length > 0) return 0
 
   const live2d_conf = {
-    modelAPI: 'https://live2d.hclonely.com/', // 可根据https://github.com/fghrsh/live2d_api自建api
+    modelAPI: 'http://49.234.125.110:2333/', // 可根据https://github.com/HCLonely/live2d_api自建api
     staticAPI: 'https://cdn.jsdelivr.net',
     tipsMessage: 'waifu-tips.json',
     hitokotoAPI: 'rand',

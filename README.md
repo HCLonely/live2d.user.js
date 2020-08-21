@@ -6,7 +6,7 @@
 
 ## 模型预览
 
-[https://live2d.hclonely.com/#preview](https://live2d.hclonely.com/#preview)
+[预览地址](http://49.234.125.110:2333/#preview)
 
 ## 详细设置
 

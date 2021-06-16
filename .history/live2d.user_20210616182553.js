@@ -5377,11 +5377,11 @@
         transform: translate(0, 0) rotate(0);
     }
 }
-https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/
+
 @font-face {
     font-family: 'Flat-UI-Icons';
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot');
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff') format('woff'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
+  src: url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.eot');
+  src: url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.woff') format('woff'), url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
 }
 
 [class^="fui-"],

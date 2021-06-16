@@ -5377,7 +5377,7 @@
         transform: translate(0, 0) rotate(0);
     }
 }
-
+https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/
 @font-face {
     font-family: 'Flat-UI-Icons';
   src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot');

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.1.5
+// @version      1.1.6
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -73,6 +73,10 @@
 
   if (live2d_settings.staticAPI.includes('hclonely')) {
     live2d_settings.staticAPI = 'https://cdn.jsdelivr.net'
+    GM_setValue('live2d_settings', live2d_settings)
+  }
+  if (live2d_settings.modelAPI === 'http://49.234.125.110:2333/') {
+    live2d_settings.modelAPI = 'http://39.96.35.158:2333/'
     GM_setValue('live2d_settings', live2d_settings)
   }
 
@@ -4756,9 +4760,9 @@
     r.prototype.loadBytes = function (t, i) {
       GM_xmlhttpRequest({
         method: 'GET',
-        url: t.replace(/.*?\.\./, live2d_settings.staticAPI),
+        url: t.replace(live2d_settings.modelAPI + 'get/npm', live2d_settings.staticAPI + '/npm'),
         headers: {
-          Referer: 'https://live2d.hclonely.com/'
+          Referer: live2d_settings.modelAPI
         },
         responseType: 'arraybuffer',
         anonymous: true,
@@ -4784,9 +4788,9 @@
     }, r.prototype.loadTexture = function (t, i, e, r) {
       GM_xmlhttpRequest({
         method: 'GET',
-        url: e.replace(/.*?\.\./, live2d_settings.staticAPI),
+        url: e.replace(live2d_settings.modelAPI + 'get/npm', live2d_settings.staticAPI + '/npm'),
         headers: {
-          Referer: 'https://live2d.hclonely.com/'
+          Referer: live2d_settings.modelAPI
         },
         responseType: 'blob',
         anonymous: true,
@@ -5380,8 +5384,8 @@
 
 @font-face {
     font-family: 'Flat-UI-Icons';
-  src: url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.eot');
-  src: url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.woff') format('woff'), url('https://live2d-cdn.fghrsh.net/assets/1.4.2/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
+  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot');
+  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff') format('woff'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
 }
 
 [class^="fui-"],

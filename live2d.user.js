@@ -5,9 +5,9 @@
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
-// @require      https://greasyfork.org/scripts/388035-jquery/code/$jQuery.js?version=721233
-// @require      https://greasyfork.org/scripts/388036-jqueryui/code/$jQueryUI.js?version=722718
-// @require      https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js
+// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+// @require      https://cdn.jsdelivr.net/npm/jquery-ui@1.12.1/ui/widget.min.js
+// @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
 // @supportURL   https://blog.hclonely.com/posts/f09c9fef/
 // @homepage     https://blog.hclonely.com/posts/f09c9fef/
 // @grant        GM_xmlhttpRequest
@@ -18,12 +18,14 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_info
 // @noframes
-// @connect      live2d.hclonely.com
 // @connect      cdn.jsdelivr.net
 // @connect      *
 // ==/UserScript==
 
-(function ($) {
+/* eslint-disable camelcase,no-global-assign */
+/* global $,jQuery,swal,GM_setValue,GM_getValue,GM_addStyle,GM_xmlhttpRequest,GM_registerMenuCommand,GM_info */
+/* global waifuResize,loadlive2d,showWelcomeMessage,getActed,hitokotoTimer,hitokotoInterval */
+(function () {
   'use strict'
 
   if ($('.waifu').length > 0) return 0
@@ -69,7 +71,7 @@
     screenshotCaptureName: 'live2d.png'
   }
 
-  window.live2d_settings = GM_getValue('live2d_settings') || { ...live2d_conf }
+  const live2d_settings = GM_getValue('live2d_settings') || { ...live2d_conf }
 
   if (live2d_settings.staticAPI.includes('hclonely')) {
     live2d_settings.staticAPI = 'https://cdn.jsdelivr.net'
@@ -80,50 +82,51 @@
     GM_setValue('live2d_settings', live2d_settings)
   }
 
-  const setting_des = Array() // eslint-disable-line no-array-constructor
-  setting_des.modelAPI = '自建 API 修改这里'
-  setting_des.staticAPI = '模型 API 修改这里（不要带最后的"/"）,如果你使用的默认api, 请自行替换成"https://cdn.jsdelivr.net"'
-  setting_des.tipsMessage = '同目录下可省略路径'
-  setting_des.hitokotoAPI = '一言 API，可选 \'lwl12.com\', \'hitokoto.cn\', \'fghrsh.net\', \'jinrishici.com\'(古诗词), \'rand\'(随机)'
-  setting_des.modelId = '默认模型 ID，可在 F12 控制台找到'
-  setting_des.modelTexturesId = '默认材质 ID，可在 F12 控制台找到'
-  setting_des.showToolMenu = '显示 工具栏          ，可选 true(真), false(假)'
-  setting_des.canCloseLive2d = '显示 关闭看板娘  按钮，可选 true(真), false(假)'
-  setting_des.canSwitchModel = '显示 模型切换    按钮，可选 true(真), false(假)'
-  setting_des.canSwitchTextures = '显示 材质切换    按钮，可选 true(真), false(假)'
-  setting_des.canSwitchHitokoto = '显示 一言切换    按钮，可选 true(真), false(假)'
-  setting_des.canTakeScreenshot = '显示 看板娘截图  按钮，可选 true(真), false(假)'
-  setting_des.canTurnToHomePage = '显示 返回首页    按钮，可选 true(真), false(假)'
-  setting_des.canTurnToAboutPage = '显示 跳转关于页  按钮，可选 true(真), false(假)'
-  setting_des.modelStorage = '记录 ID (刷新后恢复)，可选 true(真), false(假)'
-  setting_des.modelRandMode = '模型切换，可选 \'rand\'(随机), \'switch\'(顺序)'
-  setting_des.modelTexturesRandMode = '材质切换，可选 \'rand\'(随机), \'switch\'(顺序)'
-  setting_des.showHitokoto = '显示一言'
-  setting_des.showF12Status = '显示加载状态'
-  setting_des.showF12Message = '显示看板娘消息'
-  setting_des.showF12OpenMsg = '显示控制台打开提示'
-  setting_des.showCopyMessage = '显示 复制内容 提示'
-  setting_des.showWelcomeMessage = '显示进入面页欢迎词'
-  setting_des.waifuSize = '看板娘大小，例如 \'280x250\', \'600x535\''
-  setting_des.waifuTipsSize = '提示框大小，例如 \'250x70\', \'570x150\''
-  setting_des.waifuFontSize = '提示框字体，例如 \'12px\', \'30px\''
-  setting_des.waifuToolFont = '工具栏字体，例如 \'14px\', \'36px\''
-  setting_des.waifuToolLine = '工具栏行高，例如 \'20px\', \'36px\''
-  setting_des.waifuToolTop = '工具栏顶部边距，例如 \'0px\', \'-60px\''
-  setting_des.waifuMinWidth = '面页小于 指定宽度 隐藏看板娘，例如 \'disable\'(禁用), \'768px\''
-  setting_des.waifuEdgeSide = '看板娘贴边方向，例如 \'left:0\'(靠左 0px), \'right:30\'(靠右 30px)'
-  setting_des.waifuDraggable = '拖拽样式，例如 \'disable\'(禁用), \'axis-x\'(只能水平拖拽), \'unlimited\'(自由拖拽)'
-  setting_des.waifuDraggableRevert = '松开鼠标还原拖拽位置，可选 true(真), false(假)'
-  setting_des.waifuDraggableSave = '是否保存拖拽后的位置，刷新后依然生效，需要将上面的选项和下面的选项都设置为false，可选 true(真), false(假)'
-  setting_des.waifuDraggableClear = '清空上次保存的位置，可选 true(真), false(假)'
-  setting_des.homePageUrl = '主页地址，可选 \'auto\'(自动), \'{URL 网址}\''
-  setting_des.aboutPageUrl = '关于页地址, \'{URL 网址}\''
-  setting_des.screenshotCaptureName = '看板娘截图文件名，例如 \'live2d.png\''
+  const setting_des = {
+    modelAPI: '自建 API 修改这里',
+    staticAPI: '模型 API 修改这里（不要带最后的"/"）,如果你使用的默认api, 请自行替换成"https://cdn.jsdelivr.net"',
+    tipsMessage: '同目录下可省略路径',
+    hitokotoAPI: '一言 API，可选 \'lwl12.com\', \'hitokoto.cn\', \'fghrsh.net\', \'jinrishici.com\'(古诗词), \'rand\'(随机)',
+    modelId: '默认模型 ID，可在 F12 控制台找到',
+    modelTexturesId: '默认材质 ID，可在 F12 控制台找到',
+    showToolMenu: '显示 工具栏 ，可选 true(真), false(假)',
+    canCloseLive2d: '显示 关闭看板娘 按钮，可选 true(真), false(假)',
+    canSwitchModel: '显示 模型切换 按钮，可选 true(真), false(假)',
+    canSwitchTextures: '显示 材质切换 按钮，可选 true(真), false(假)',
+    canSwitchHitokoto: '显示 一言切换 按钮，可选 true(真), false(假)',
+    canTakeScreenshot: '显示 看板娘截图 按钮，可选 true(真), false(假)',
+    canTurnToHomePage: '显示 返回首页 按钮，可选 true(真), false(假)',
+    canTurnToAboutPage: '显示 跳转关于页 按钮，可选 true(真), false(假)',
+    modelStorage: '记录 ID (刷新后恢复)，可选 true(真), false(假)',
+    modelRandMode: '模型切换，可选 \'rand\'(随机), \'switch\'(顺序)',
+    modelTexturesRandMode: '材质切换，可选 \'rand\'(随机), \'switch\'(顺序)',
+    showHitokoto: '显示一言',
+    showF12Status: '显示加载状态',
+    showF12Message: '显示看板娘消息',
+    showF12OpenMsg: '显示控制台打开提示',
+    showCopyMessage: '显示 复制内容 提示',
+    showWelcomeMessage: '显示进入面页欢迎词',
+    waifuSize: '看板娘大小，例如 \'280x250\', \'600x535\'',
+    waifuTipsSize: '提示框大小，例如 \'250x70\', \'570x150\'',
+    waifuFontSize: '提示框字体，例如 \'12px\', \'30px\'',
+    waifuToolFont: '工具栏字体，例如 \'14px\', \'36px\'',
+    waifuToolLine: '工具栏行高，例如 \'20px\', \'36px\'',
+    waifuToolTop: '工具栏顶部边距，例如 \'0px\', \'-60px\'',
+    waifuMinWidth: '面页小于 指定宽度 隐藏看板娘，例如 \'disable\'(禁用), \'768px\'',
+    waifuEdgeSide: '看板娘贴边方向，例如 \'left:0\'(靠左 0px), \'right:30\'(靠右 30px)',
+    waifuDraggable: '拖拽样式，例如 \'disable\'(禁用), \'axis-x\'(只能水平拖拽), \'unlimited\'(自由拖拽)',
+    waifuDraggableRevert: '松开鼠标还原拖拽位置，可选 true(真), false(假)',
+    waifuDraggableSave: '是否保存拖拽后的位置，刷新后依然生效，需要将上面的选项和下面的选项都设置为false，可选 true(真), false(假)',
+    waifuDraggableClear: '清空上次保存的位置，可选 true(真), false(假)',
+    homePageUrl: '主页地址，可选 \'auto\'(自动), \'{URL 网址}\'',
+    aboutPageUrl: '关于页地址, \'{URL 网址}\'',
+    screenshotCaptureName: '看板娘截图文件名，例如 \'live2d.png\''
+  }
 
   function userConf () {
     const conf = GM_getValue('live2d_settings') || live2d_conf
     let html = '<form id="l2d-conf"><table class="hclonely"><thead><tr><td>名称</td><td>值</td><td>描述</td></tr></thead><tbody>'
-    for (const e in setting_des) {
+    for (const e of Object.keys(setting_des)) {
       html += `<tr><th>${e}</th><th>${typeof conf[e] === 'boolean' || typeof conf[e] === 'undefined' ? `<input name="${e}" type="checkbox"${conf[e] ? ' checked="checked"' : ''} />` : `<input name="${e}" type="text" value="${conf[e]}" />`}</th><th>${setting_des[e]}</th></tr>`
     }
     html += '</tbody></table></form>'
@@ -140,6 +143,7 @@
         const l2d_conf = {}
         $('#l2d-conf').serializeArray().map((e, i) => {
           l2d_conf[e.name] = e.value === 'on' ? true : e.value
+          return e
         })
         GM_setValue('modelId', l2d_conf.modelId)
         GM_setValue('modelTexturesId', l2d_conf.modelTexturesId)
@@ -254,13 +258,13 @@
 
   /****************************************************************************************************/
 
-  String.prototype.render = function (context) {
-    let tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g
+  String.prototype.render = function (context) { // eslint-disable-line no-extend-native
+    const tokenReg = /(\\)?\{([^{}\\]+)(\\)?\}/g
 
     return this.replace(tokenReg, function (word, slash1, token, slash2) {
       if (slash1 || slash2) { return word.replace('\\', '') }
 
-      let variables = token.replace(/\s/g, '').split('.')
+      const variables = token.replace(/\s/g, '').split('.')
       let currentObject = context
       let i, length, variable
 
@@ -273,12 +277,12 @@
     })
   }
 
-  let re = /x/
+  const re = /x/
   console.log(re)
-  let x = document.createElement('div')
+  const x = document.createElement('div')
   console.debug(x)
 
-  function empty (obj) { return !!(typeof obj === 'undefined' || obj == null || obj == '') }
+  function empty (obj) { return !!(typeof obj === 'undefined' || obj == null || obj === '') }
   function getRandText (text) { return Array.isArray(text) ? text[Math.floor(Math.random() * text.length + 1) - 1] : text }
 
   function showMessage (text, timeout, flag) {
@@ -316,7 +320,7 @@
     for (const k in opt) {
       ret = new RegExp('(' + k + ')').exec(fmt)
       if (ret) {
-        fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, '0')))
+        fmt = fmt.replace(ret[1], (ret[1].length === 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, '0')))
       };
     };
     return fmt
@@ -344,8 +348,8 @@
     $('.waifu-tool').css('font-size', live2d_settings.waifuToolFont)
     $('.waifu-tool span').css('line-height', live2d_settings.waifuToolLine)
 
-    if (live2d_settings.waifuEdgeSide[0] == 'left') $('.waifu').css('left', live2d_settings.waifuEdgeSide[1] + 'px')
-    else if (live2d_settings.waifuEdgeSide[0] == 'right') $('.waifu').css('right', live2d_settings.waifuEdgeSide[1] + 'px')
+    if (live2d_settings.waifuEdgeSide[0] === 'left') $('.waifu').css('left', live2d_settings.waifuEdgeSide[1] + 'px')
+    else if (live2d_settings.waifuEdgeSide[0] === 'right') $('.waifu').css('right', live2d_settings.waifuEdgeSide[1] + 'px')
 
     if (live2d_settings.waifuDraggableClear) GM_setValue('waifuPosition', false)
 
@@ -357,16 +361,16 @@
     }
 
     window.waifuResize = function () { $(window).width() <= Number(live2d_settings.waifuMinWidth.replace('px', '')) ? $('.waifu').hide() : $('.waifu').show() }
-    if (live2d_settings.waifuMinWidth != 'disable') { waifuResize(); $(window).resize(function () { waifuResize() }) }
+    if (live2d_settings.waifuMinWidth !== 'disable') { waifuResize(); $(window).resize(function () { waifuResize() }) }
 
     try {
-      if (live2d_settings.waifuDraggable == 'axis-x') $('.waifu').draggable({ axis: 'x', revert: live2d_settings.waifuDraggableRevert, stop: function (event, ui) { if (!live2d_settings.waifuDraggableRevert && live2d_settings.waifuDraggableSave) GM_setValue('waifuPosition', ui.position) } })
-      else if (live2d_settings.waifuDraggable == 'unlimited') $('.waifu').draggable({ revert: live2d_settings.waifuDraggableRevert, stop: function (event, ui) { if (!live2d_settings.waifuDraggableRevert && live2d_settings.waifuDraggableSave) { GM_setValue('waifuPosition', ui.position) } } })
+      if (live2d_settings.waifuDraggable === 'axis-x') $('.waifu').draggable({ axis: 'x', revert: live2d_settings.waifuDraggableRevert, stop: function (event, ui) { if (!live2d_settings.waifuDraggableRevert && live2d_settings.waifuDraggableSave) GM_setValue('waifuPosition', ui.position) } })
+      else if (live2d_settings.waifuDraggable === 'unlimited') $('.waifu').draggable({ revert: live2d_settings.waifuDraggableRevert, stop: function (event, ui) { if (!live2d_settings.waifuDraggableRevert && live2d_settings.waifuDraggableSave) { GM_setValue('waifuPosition', ui.position) } } })
       else $('.waifu').css('transition', 'all .3s ease-in-out')
     } catch (err) { console.log('[Error] JQuery UI is not defined.') }
 
-    live2d_settings.homePageUrl = live2d_settings.homePageUrl == 'auto' ? window.location.protocol + '//' + window.location.hostname + '/' : live2d_settings.homePageUrl
-    if (window.location.protocol == 'file:' && live2d_settings.modelAPI.substr(0, 2) == '//') live2d_settings.modelAPI = 'http:' + live2d_settings.modelAPI
+    live2d_settings.homePageUrl = live2d_settings.homePageUrl === 'auto' ? window.location.protocol + '//' + window.location.hostname + '/' : live2d_settings.homePageUrl
+    if (window.location.protocol === 'file:' && live2d_settings.modelAPI.substr(0, 2) === '//') live2d_settings.modelAPI = 'http:' + live2d_settings.modelAPI
 
     $('.waifu-tool .fui-home').click(function () {
       window.location = window.location.origin
@@ -379,7 +383,7 @@
     if (typeof (waifuPath) === 'object') loadTipsMessage(waifuPath); else {
       GM_xmlhttpRequest({
         method: 'GET',
-        url: waifuPath == '' ? live2d_settings.tipsMessage : (waifuPath.substr(waifuPath.length - 15) == 'waifu-tips.json' ? waifuPath : waifuPath + 'waifu-tips.json'),
+        url: waifuPath === '' ? live2d_settings.tipsMessage : (waifuPath.substr(waifuPath.length - 15) === 'waifu-tips.json' ? waifuPath : waifuPath + 'waifu-tips.json'),
         responseType: 'json',
         anonymous: true,
         onload: function (result) { loadTipsMessage(result.response) }
@@ -400,8 +404,8 @@
     var modelTexturesId = GM_getValue('modelTexturesId')
 
     if (!live2d_settings.modelStorage || modelId == null) {
-      var modelId = live2d_settings.modelId
-      var modelTexturesId = live2d_settings.modelTexturesId
+      modelId = live2d_settings.modelId
+      modelTexturesId = live2d_settings.modelTexturesId
     } loadModel(modelId, modelTexturesId)
   }
 
@@ -412,7 +416,8 @@
     } else {
       GM_setValue('modelId', modelId)
       GM_setValue('modelTexturesId', modelTexturesId)
-    } loadlive2d('live2d', live2d_settings.modelAPI + 'get/?id=' + modelId + '-' + modelTexturesId, (live2d_settings.showF12Status ? console.log('[Status]', 'live2d', '模型', modelId + '-' + modelTexturesId, '加载完成') : null))
+    }
+    loadlive2d('live2d', live2d_settings.modelAPI + 'get/?id=' + modelId + '-' + modelTexturesId, (live2d_settings.showF12Status ? console.log('[Status]', 'live2d', '模型', modelId + '-' + modelTexturesId, '加载完成') : null))
   }
 
   function loadTipsMessage (result) {
@@ -420,7 +425,7 @@
 
     $.each(result.mouseover, function (index, tips) {
       $(document).on('mouseover', tips.selector, function () {
-        if (!($(this)[0].tagName == 'A' && ($(this).text().trim() == ''))) {
+        if (!($(this)[0].tagName === 'A' && ($(this).text().trim() === ''))) {
           let text = getRandText(tips.text)
           text = text.render({ text: $(this).text() })
           showMessage(text, 3000, true)
@@ -435,9 +440,9 @@
       })
     })
     $.each(result.seasons, function (index, tips) {
-      let now = new Date()
-      let after = tips.date.split('-')[0]
-      let before = tips.date.split('-')[1] || after
+      const now = new Date()
+      const after = tips.date.split('-')[0]
+      const before = tips.date.split('-')[1] || after
 
       if ((after.split('/')[0] <= now.getMonth() + 1 && now.getMonth() + 1 <= before.split('/')[0]) &&
         (after.split('/')[1] <= now.getDate() && now.getDate() <= before.split('/')[1])) {
@@ -479,8 +484,8 @@
 
     window.showWelcomeMessage = function (result) {
       let text
-      if (window.location.href == live2d_settings.homePageUrl) {
-        let now = (new Date()).getHours()
+      if (window.location.href === live2d_settings.homePageUrl) {
+        const now = (new Date()).getHours()
         if (now > 23 || now <= 5) text = getRandText(result.waifu.hour_tips['t23-5'])
         else if (now > 5 && now <= 7) text = getRandText(result.waifu.hour_tips['t5-7'])
         else if (now > 7 && now <= 11) text = getRandText(result.waifu.hour_tips['t7-11'])
@@ -491,13 +496,13 @@
         else if (now > 21 && now <= 23) text = getRandText(result.waifu.hour_tips['t21-23'])
         else text = getRandText(result.waifu.hour_tips.default)
       } else {
-        let referrer_message = result.waifu.referrer_message
+        const referrer_message = result.waifu.referrer_message
         if (document.referrer !== '') {
-          let referrer = document.createElement('a')
+          const referrer = document.createElement('a')
           referrer.href = document.referrer
-          let domain = referrer.hostname.split('.')[1]
-          if (window.location.hostname == referrer.hostname) { text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1] } else if (domain == 'baidu') { text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1] } else if (domain == 'so') { text = referrer_message.so[0] + referrer.search.split('&q=')[1].split('&')[0] + referrer_message.so[1] } else if (domain == 'google') { text = referrer_message.google[0] + document.title.split(referrer_message.google[2])[0] + referrer_message.google[1] } else {
-            $.each(result.waifu.referrer_hostname, function (i, val) { if (i == referrer.hostname) referrer.hostname = getRandText(val) })
+          const domain = referrer.hostname.split('.')[1]
+          if (window.location.hostname === referrer.hostname) { text = referrer_message.localhost[0] + document.title.split(referrer_message.localhost[2])[0] + referrer_message.localhost[1] } else if (domain === 'baidu') { text = referrer_message.baidu[0] + referrer.search.split('&wd=')[1].split('&')[0] + referrer_message.baidu[1] } else if (domain === 'so') { text = referrer_message.so[0] + referrer.search.split('&q=')[1].split('&')[0] + referrer_message.so[1] } else if (domain === 'google') { text = referrer_message.google[0] + document.title.split(referrer_message.google[2])[0] + referrer_message.google[1] } else {
+            $.each(result.waifu.referrer_hostname, function (i, val) { if (i === referrer.hostname) referrer.hostname = getRandText(val) })
             text = referrer_message.default[0] + referrer.hostname + referrer_message.default[1]
           }
         } else text = referrer_message.none[0] + document.title.split(referrer_message.none[2])[0] + referrer_message.none[1]
@@ -505,31 +510,35 @@
       showMessage(text, 6000, true)
     }; if (live2d_settings.showWelcomeMessage) showWelcomeMessage(result)
 
-    let waifu_tips = result.waifu
+    const waifu_tips = result.waifu
 
     function loadOtherModel () {
-      let modelId = modelStorageGetItem('modelId')
-      let modelRandMode = live2d_settings.modelRandMode
+      const modelId = modelStorageGetItem('modelId')
+      const modelRandMode = live2d_settings.modelRandMode
 
-      GM_xmlhttpRequest({
-        method: 'GET',
-        url: live2d_settings.modelAPI + modelRandMode + '/?id=' + modelId,
-        responseType: 'json',
-        anonymous: true,
-        onload: function (data) {
-          const result = data.response
-          loadModel(result.model.id)
-          let message = result.model.message
-          $.each(waifu_tips.model_message, function (i, val) { if (i == result.model.id) message = getRandText(val) })
-          showMessage(message, 3000, true)
-        }
-      })
+      if (live2d_settings.modelAPI === 'default') {
+
+      } else {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: live2d_settings.modelAPI + modelRandMode + '/?id=' + modelId,
+          responseType: 'json',
+          anonymous: true,
+          onload: function (data) {
+            const result = data.response
+            loadModel(result.model.id)
+            let message = result.model.message
+            $.each(waifu_tips.model_message, function (i, val) { if (i === result.model.id) message = getRandText(val) })
+            showMessage(message, 3000, true)
+          }
+        })
+      }
     }
 
     function loadRandTextures () {
-      let modelId = modelStorageGetItem('modelId')
-      let modelTexturesId = modelStorageGetItem('modelTexturesId')
-      let modelTexturesRandMode = live2d_settings.modelTexturesRandMode
+      const modelId = modelStorageGetItem('modelId')
+      const modelTexturesId = modelStorageGetItem('modelTexturesId')
+      const modelTexturesRandMode = live2d_settings.modelTexturesRandMode
 
       GM_xmlhttpRequest({
         method: 'GET',
@@ -538,7 +547,7 @@
         anonymous: true,
         onload: function (data) {
           const result = data.response
-          if (result.textures.id == 1 && (modelTexturesId == 1 || modelTexturesId == 0)) { showMessage(waifu_tips.load_rand_textures[0], 3000, true) } else showMessage(waifu_tips.load_rand_textures[1], 3000, true)
+          if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) { showMessage(waifu_tips.load_rand_textures[0], 3000, true) } else showMessage(waifu_tips.load_rand_textures[1], 3000, true)
           loadModel(modelId, result.textures.id)
         }
       })
@@ -566,7 +575,7 @@
     }
 
     function showHitokotoActed () {
-      if ($(document)[0].visibilityState == 'visible') showHitokoto()
+      if ($(document)[0].visibilityState === 'visible') showHitokoto()
     }
 
     function showHitokoto (e = false) {
@@ -595,8 +604,9 @@
             method: 'GET',
             url: 'https://api.fghrsh.net/hitokoto/rand/?encode=jsc&uid=3335',
             anonymous: true,
+            responseType: 'json',
             onload: function (data) {
-              const result = eval(data.responseText)
+              const result = data.response
               if (!empty(result.source)) {
                 let text = waifu_tips.hitokoto_api_message['fghrsh.net'][0]
                 text = text.render({ source: result.source, date: result.date })
@@ -641,8 +651,7 @@
           })
           break
         default:
-          const hitokotoApiArr = ['lwl12.com', 'fghrsh.net', 'jinrishici.com', 'hitokoto.cn']
-          showHitokoto(hitokotoApiArr[Math.floor((Math.random() * 4))])
+          showHitokoto(['lwl12.com', 'fghrsh.net', 'jinrishici.com', 'hitokoto.cn'][Math.floor((Math.random() * 4))])
       }
     }
 
@@ -668,7 +677,7 @@
     $('video').on('timeupdate', function (e) {
       if (this.paused) {
         showMessage('你怎么暂停了呀', 4000, true)
-      } else if (videoStatus == false) {
+      } else if (videoStatus === false) {
         showMessage('你在看什么啊，让我康康', 4000, true)
       }
       videoStatus = !this.paused
@@ -681,7 +690,7 @@
     $('audio').on('timeupdate', function (e) {
       if (this.paused) {
         showMessage('怎么不听了呀', 4000, true)
-      } else if (audioStatus == false) {
+      } else if (audioStatus === false) {
         showMessage('你在听什么呀，这么好听', 4000, true)
       }
       audioStatus = !this.paused
@@ -692,11 +701,12 @@
     $('.waifu-tool .fui-chat').click(function () { showHitokoto() })
   }
 
+  /* eslint-disable */
   /** ********************************************live2d.js**************************************************************/
   !(function (t) {
     function i (r) {
       if (e[r]) return e[r].exports
-      let o = e[r] = {
+      const o = e[r] = {
         i: r,
         l: !1,
         exports: {}
@@ -711,7 +721,7 @@
         get: r
       })
     }, i.n = function (t) {
-      let e = t && t.__esModule
+      const e = t && t.__esModule
         ? function () {
             return t
               .default
@@ -792,40 +802,40 @@
     }, r.prototype.getExpressionManager = function () {
       return this.expressionManager
     }, r.prototype.loadModelData = function (t, i) {
-      let e = c.getPlatformManager()
+      const e = c.getPlatformManager()
       this.debugMode && e.log('Load model : ' + t)
-      let r = this
+      const r = this
       e.loadLive2DModel(t, function (t) {
         if (r.live2DModel = t, r.live2DModel.saveParam(), Live2D.getError() != 0) return void console.error('Error : Failed to loadModelData().')
         r.modelMatrix = new a(r.live2DModel.getCanvasWidth(), r.live2DModel.getCanvasHeight()), r.modelMatrix.setWidth(2), r.modelMatrix.setCenterPosition(0, 0), i(r.live2DModel)
       })
     }, r.prototype.loadTexture = function (t, i, e) {
       d++
-      let r = c.getPlatformManager()
+      const r = c.getPlatformManager()
       this.debugMode && r.log('Load Texture : ' + i)
-      let o = this
+      const o = this
       r.loadTexture(this.live2DModel, t, i, function () {
         d--, d == 0 && (o.isTexLoaded = !0), typeof e === 'function' && e()
       })
     }, r.prototype.loadMotion = function (t, i, e) {
-      let r = c.getPlatformManager()
+      const r = c.getPlatformManager()
       this.debugMode && r.log('Load Motion : ' + i)
       let o = null
-      let n = this
+      const n = this
       r.loadBytes(i, function (i) {
         o = Live2DMotion.loadMotion(i), t != null && (n.motions[t] = o), e(o)
       })
     }, r.prototype.loadExpression = function (t, i, e) {
-      let r = c.getPlatformManager()
+      const r = c.getPlatformManager()
       this.debugMode && r.log('Load Expression : ' + i)
-      let n = this
+      const n = this
       r.loadBytes(i, function (i) {
         t != null && (n.expressions[t] = o.loadJson(i)), typeof e === 'function' && e()
       })
     }, r.prototype.loadPose = function (t, i) {
-      let e = c.getPlatformManager()
+      const e = c.getPlatformManager()
       this.debugMode && e.log('Load Pose : ' + t)
-      let r = this
+      const r = this
       try {
         e.loadBytes(t, function (t) {
           r.pose = $.load(t), typeof i === 'function' && i()
@@ -834,9 +844,9 @@
         console.warn(t)
       }
     }, r.prototype.loadPhysics = function (t) {
-      let i = c.getPlatformManager()
+      const i = c.getPlatformManager()
       this.debugMode && i.log('Load Physics : ' + t)
-      let e = this
+      const e = this
       try {
         i.loadBytes(t, function (t) {
           e.physics = l.load(t)
@@ -846,32 +856,32 @@
       }
     }, r.prototype.hitTestSimple = function (t, i, e) {
       if (this.live2DModel === null) return !1
-      let r = this.live2DModel.getDrawDataIndex(t)
+      const r = this.live2DModel.getDrawDataIndex(t)
       if (r < 0) return !1
       for (var o = this.live2DModel.getTransformedPoints(r), n = this.live2DModel.getCanvasWidth(), s = 0, _ = this.live2DModel.getCanvasHeight(), a = 0, h = 0; h < o.length; h += 2) {
-        let l = o[h]
-        let $ = o[h + 1]
+        const l = o[h]
+        const $ = o[h + 1]
         l < n && (n = l), l > s && (s = l), $ < _ && (_ = $), $ > a && (a = $)
       }
-      let u = this.modelMatrix.invertTransformX(i)
-      let p = this.modelMatrix.invertTransformY(e)
+      const u = this.modelMatrix.invertTransformX(i)
+      const p = this.modelMatrix.invertTransformY(e)
       return n <= u && u <= s && _ <= p && p <= a
     }, r.prototype.hitTestSimpleCustom = function (t, i, e, r) {
       return this.live2DModel !== null && (e >= t[0] && e <= i[0] && r <= t[1] && r >= i[1])
     }, o.prototype = new AMotion(), o.EXPRESSION_DEFAULT = 'DEFAULT', o.TYPE_SET = 0, o.TYPE_ADD = 1, o.TYPE_MULT = 2, o.loadJson = function (t) {
-      let i = new o()
-      let e = c.getPlatformManager()
-      let r = e.jsonParseFromBytes(t)
+      const i = new o()
+      const e = c.getPlatformManager()
+      const r = e.jsonParseFromBytes(t)
       if (i.setFadeIn(parseInt(r.fade_in) > 0 ? parseInt(r.fade_in) : 1e3), i.setFadeOut(parseInt(r.fade_out) > 0 ? parseInt(r.fade_out) : 1e3), r.params == null) return i
-      let s = r.params
-      let _ = s.length
+      const s = r.params
+      const _ = s.length
       i.paramList = []
       for (let a = 0; a < _; a++) {
-        let h = s[a]
-        let l = h.id.toString()
+        const h = s[a]
+        const l = h.id.toString()
         let $ = parseFloat(h.val)
         let u = o.TYPE_ADD
-        let p = h.calc != null ? h.calc.toString() : 'add'
+        const p = h.calc != null ? h.calc.toString() : 'add'
         if ((u = p === 'add' ? o.TYPE_ADD : p === 'mult' ? o.TYPE_MULT : p === 'set' ? o.TYPE_SET : o.TYPE_ADD) == o.TYPE_ADD) {
           var f = h.def == null ? 0 : parseFloat(h.def)
           $ -= f
@@ -879,13 +889,13 @@
           var f = h.def == null ? 1 : parseFloat(h.def)
           f == 0 && (f = 1), $ /= f
         }
-        let d = new n()
+        const d = new n()
         d.id = l, d.type = u, d.value = $, i.paramList.push(d)
       }
       return i
     }, o.prototype.updateParamExe = function (t, i, e, r) {
       for (let n = this.paramList.length - 1; n >= 0; --n) {
-        let s = this.paramList[n]
+        const s = this.paramList[n]
         s.type == o.TYPE_ADD ? t.addToParamFloat(s.id, s.value, e) : s.type == o.TYPE_MULT ? t.multParamFloat(s.id, s.value, e) : s.type == o.TYPE_SET && t.setParamFloat(s.id, s.value, e)
       }
     }, s.prototype.calcNextBlink = function () {
@@ -895,7 +905,7 @@
     }, s.prototype.setEyeMotion = function (t, i, e) {
       this.closingMotionMsec = t, this.closedMotionMsec = i, this.openingMotionMsec = e
     }, s.prototype.updateParam = function (t) {
-      let i; let e = UtSystem.getUserTimeMSec()
+      let i; const e = UtSystem.getUserTimeMSec()
       let r = 0
       switch (this.eyeState) {
         case g.STATE_CLOSING:
@@ -918,7 +928,7 @@
     }
     var g = function () { }
     g.STATE_FIRST = 'STATE_FIRST', g.STATE_INTERVAL = 'STATE_INTERVAL', g.STATE_CLOSING = 'STATE_CLOSING', g.STATE_CLOSED = 'STATE_CLOSED', g.STATE_OPENING = 'STATE_OPENING', _.mul = function (t, i, e) {
-      let r; let o; let n; let s = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      let r; let o; let n; const s = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       for (r = 0; r < 4; r++) for (o = 0; o < 4; o++) for (n = 0; n < 4; n++) s[r + 4 * o] += t[r + 4 * n] * i[n + 4 * o]
       for (r = 0; r < 16; r++) e[r] = s[r]
     }, _.prototype.identity = function () {
@@ -942,7 +952,7 @@
     }, _.prototype.invertTransformY = function (t) {
       return (t - this.tr[13]) / this.tr[5]
     }, _.prototype.multTranslate = function (t, i) {
-      let e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
+      const e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
       _.mul(e, this.tr, this.tr)
     }, _.prototype.translate = function (t, i) {
       this.tr[12] = t, this.tr[13] = i
@@ -951,43 +961,43 @@
     }, _.prototype.translateY = function (t) {
       this.tr[13] = t
     }, _.prototype.multScale = function (t, i) {
-      let e = [t, 0, 0, 0, 0, i, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      const e = [t, 0, 0, 0, 0, i, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
       _.mul(e, this.tr, this.tr)
     }, _.prototype.scale = function (t, i) {
       this.tr[0] = t, this.tr[5] = i
     }, a.prototype = new _(), a.prototype.setPosition = function (t, i) {
       this.translate(t, i)
     }, a.prototype.setCenterPosition = function (t, i) {
-      let e = this.width * this.getScaleX()
-      let r = this.height * this.getScaleY()
+      const e = this.width * this.getScaleX()
+      const r = this.height * this.getScaleY()
       this.translate(t - e / 2, i - r / 2)
     }, a.prototype.top = function (t) {
       this.setY(t)
     }, a.prototype.bottom = function (t) {
-      let i = this.height * this.getScaleY()
+      const i = this.height * this.getScaleY()
       this.translateY(t - i)
     }, a.prototype.left = function (t) {
       this.setX(t)
     }, a.prototype.right = function (t) {
-      let i = this.width * this.getScaleX()
+      const i = this.width * this.getScaleX()
       this.translateX(t - i)
     }, a.prototype.centerX = function (t) {
-      let i = this.width * this.getScaleX()
+      const i = this.width * this.getScaleX()
       this.translateX(t - i / 2)
     }, a.prototype.centerY = function (t) {
-      let i = this.height * this.getScaleY()
+      const i = this.height * this.getScaleY()
       this.translateY(t - i / 2)
     }, a.prototype.setX = function (t) {
       this.translateX(t)
     }, a.prototype.setY = function (t) {
       this.translateY(t)
     }, a.prototype.setHeight = function (t) {
-      let i = t / this.height
-      let e = -i
+      const i = t / this.height
+      const e = -i
       this.scale(i, e)
     }, a.prototype.setWidth = function (t) {
-      let i = t / this.width
-      let e = -i
+      const i = t / this.width
+      const e = -i
       this.scale(i, e)
     }, h.prototype = new MotionQueueManager(), h.prototype.getCurrentPriority = function () {
       return this.currentPriority
@@ -998,21 +1008,21 @@
     }, h.prototype.setReservePriority = function (t) {
       this.reservePriority = t
     }, h.prototype.updateParam = function (t) {
-      let i = MotionQueueManager.prototype.updateParam.call(this, t)
+      const i = MotionQueueManager.prototype.updateParam.call(this, t)
       return this.isFinished() && (this.currentPriority = 0), i
     }, h.prototype.startMotionPrio = function (t, i) {
       return i == this.reservePriority && (this.reservePriority = 0), this.currentPriority = i, this.startMotion(t, !1)
     }, l.load = function (t) {
       for (var i = new l(), e = c.getPlatformManager(), r = e.jsonParseFromBytes(t), o = r.physics_hair, n = o.length, s = 0; s < n; s++) {
-        let _ = o[s]
-        let a = new PhysicsHair()
-        let h = _.setup
-        let $ = parseFloat(h.length)
-        let u = parseFloat(h.regist)
-        let p = parseFloat(h.mass)
+        const _ = o[s]
+        const a = new PhysicsHair()
+        const h = _.setup
+        const $ = parseFloat(h.length)
+        const u = parseFloat(h.regist)
+        const p = parseFloat(h.mass)
         a.setup($, u, p)
         for (var f = _.src, d = f.length, g = 0; g < d; g++) {
-          let y = f[g]
+          const y = f[g]
           var m = y.id
           var T = PhysicsHair.Src.SRC_TO_X
           var P = y.ptype
@@ -1022,7 +1032,7 @@
           a.addSrcParam(T, m, S, v)
         }
         for (var L = _.targets, M = L.length, g = 0; g < M; g++) {
-          let E = L[g]
+          const E = L[g]
           var m = E.id
           var T = PhysicsHair.Target.TARGET_FROM_ANGLE
           var P = E.ptype
@@ -1039,14 +1049,14 @@
     }, $.load = function (t) {
       for (var i = new $(), e = c.getPlatformManager(), r = e.jsonParseFromBytes(t), o = r.parts_visible, n = o.length, s = 0; s < n; s++) {
         for (var _ = o[s], a = _.group, h = a.length, l = new Array(), p = 0; p < h; p++) {
-          let f = a[p]
-          let d = new u(f.id)
+          const f = a[p]
+          const d = new u(f.id)
           if (l[p] = d, f.link != null) {
-            let g = f.link
-            let y = g.length
+            const g = f.link
+            const y = g.length
             d.link = new Array()
             for (let m = 0; m < y; m++) {
-              let T = new u(g[m])
+              const T = new u(g[m])
               d.link.push(T)
             }
           }
@@ -1057,7 +1067,7 @@
     }, $.prototype.updateParam = function (t) {
       if (t != null) {
         t != this.lastModel && this.initParam(t), this.lastModel = t
-        let i = UtSystem.getUserTimeMSec()
+        const i = UtSystem.getUserTimeMSec()
         let e = this.lastTime == 0 ? 0 : (i - this.lastTime) / 1e3
         this.lastTime = i, e < 0 && (e = 0)
         for (let r = 0; r < this.partsGroups.length; r++) this.normalizePartsOpacityGroup(t, this.partsGroups[r], e), this.copyOpacityOtherParts(t, this.partsGroups[r])
@@ -1067,10 +1077,10 @@
         for (let i = 0; i < this.partsGroups.length; i++) {
           for (let e = this.partsGroups[i], r = 0; r < e.length; r++) {
             e[r].initIndex(t)
-            let o = e[r].partsIndex
-            let n = e[r].paramIndex
+            const o = e[r].partsIndex
+            const n = e[r].paramIndex
             if (!(o < 0)) {
-              let s = t.getParamFloat(n) != 0
+              const s = t.getParamFloat(n) != 0
               if (t.setPartsOpacity(o, s ? 1 : 0), t.setParamFloat(n, s ? 1 : 0), e[r].link != null) for (let _ = 0; _ < e[r].link.length; _++) e[r].link[_].initIndex(t)
             }
           }
@@ -1079,7 +1089,7 @@
     }, $.prototype.normalizePartsOpacityGroup = function (t, i, e) {
       for (var r = -1, o = 1, n = 0; n < i.length; n++) {
         var s = i[n].partsIndex
-        let _ = i[n].paramIndex
+        const _ = i[n].paramIndex
         if (!(s < 0) && t.getParamFloat(_) != 0) {
           if (r >= 0) break
           r = n, o = t.getPartsOpacity(s), o += e / 0.5, o > 1 && (o = 1)
@@ -1093,17 +1103,17 @@
           else {
             var a; let h = t.getPartsOpacity(s)
             a = o < 0.5 ? -0.5 * o / 0.5 + 1 : 0.5 * (1 - o) / 0.5
-            let l = (1 - a) * (1 - o)
+            const l = (1 - a) * (1 - o)
             l > 0.15 && (a = 1 - 0.15 / (1 - o)), h > a && (h = a), t.setPartsOpacity(s, h)
           }
         }
       }
     }, $.prototype.copyOpacityOtherParts = function (t, i) {
       for (let e = 0; e < i.length; e++) {
-        let r = i[e]
+        const r = i[e]
         if (r.link != null && !(r.partsIndex < 0)) {
           for (let o = t.getPartsOpacity(r.partsIndex), n = 0; n < r.link.length; n++) {
-            let s = r.link[n]
+            const s = r.link[n]
             s.partsIndex < 0 || t.setPartsOpacity(s.partsIndex, o)
           }
         }
@@ -1117,25 +1127,25 @@
     }, p.prototype.getY = function () {
       return this.faceY
     }, p.prototype.update = function () {
-      let t = 40 / 7.5 / p.FRAME_RATE
+      const t = 40 / 7.5 / p.FRAME_RATE
       if (this.lastTimeSec == 0) return void (this.lastTimeSec = UtSystem.getUserTimeMSec())
-      let i = UtSystem.getUserTimeMSec()
-      let e = (i - this.lastTimeSec) * p.FRAME_RATE / 1e3
+      const i = UtSystem.getUserTimeMSec()
+      const e = (i - this.lastTimeSec) * p.FRAME_RATE / 1e3
       this.lastTimeSec = i
-      let r = 0.15 * p.FRAME_RATE
-      let o = e * t / r
-      let n = this.faceTargetX - this.faceX
-      let s = this.faceTargetY - this.faceY
+      const r = 0.15 * p.FRAME_RATE
+      const o = e * t / r
+      const n = this.faceTargetX - this.faceX
+      const s = this.faceTargetY - this.faceY
       if (!(Math.abs(n) <= this.EPSILON && Math.abs(s) <= this.EPSILON)) {
-        let _ = Math.sqrt(n * n + s * s)
-        let a = t * n / _
-        let h = t * s / _
+        const _ = Math.sqrt(n * n + s * s)
+        const a = t * n / _
+        const h = t * s / _
         let l = a - this.faceVX
         let $ = h - this.faceVY
         let u = Math.sqrt(l * l + $ * $);
         (u < -o || u > o) && (l *= o / u, $ *= o / u, u = o), this.faceVX += l, this.faceVY += $
-        let f = 0.5 * (Math.sqrt(o * o + 16 * o * _ - 8 * o * _) - o)
-        let c = Math.sqrt(this.faceVX * this.faceVX + this.faceVY * this.faceVY)
+        const f = 0.5 * (Math.sqrt(o * o + 16 * o * _ - 8 * o * _) - o)
+        const c = Math.sqrt(this.faceVX * this.faceVX + this.faceVY * this.faceVY)
         c > f && (this.faceVX *= f / c, this.faceVY *= f / c), this.faceX += this.faceVX, this.faceY += this.faceVY
       }
     }, f.prototype = new _(), f.prototype.getMaxScale = function () {
@@ -1152,14 +1162,14 @@
       return this.getScaleX() == this.min
     }, f.prototype.adjustTranslate = function (t, i) {
       this.tr[0] * this.maxLeft + (this.tr[12] + t) > this.screenLeft && (t = this.screenLeft - this.tr[0] * this.maxLeft - this.tr[12]), this.tr[0] * this.maxRight + (this.tr[12] + t) < this.screenRight && (t = this.screenRight - this.tr[0] * this.maxRight - this.tr[12]), this.tr[5] * this.maxTop + (this.tr[13] + i) < this.screenTop && (i = this.screenTop - this.tr[5] * this.maxTop - this.tr[13]), this.tr[5] * this.maxBottom + (this.tr[13] + i) > this.screenBottom && (i = this.screenBottom - this.tr[5] * this.maxBottom - this.tr[13])
-      let e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
+      const e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
       _.mul(e, this.tr, this.tr)
     }, f.prototype.adjustScale = function (t, i, e) {
-      let r = e * this.tr[0]
+      const r = e * this.tr[0]
       r < this.min ? this.tr[0] > 0 && (e = this.min / this.tr[0]) : r > this.max && this.tr[0] > 0 && (e = this.max / this.tr[0])
-      let o = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
-      let n = [e, 0, 0, 0, 0, e, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-      let s = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -t, -i, 0, 1]
+      const o = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, t, i, 0, 1]
+      const n = [e, 0, 0, 0, 0, e, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      const s = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -t, -i, 0, 1]
       _.mul(s, this.tr, this.tr), _.mul(n, this.tr, this.tr), _.mul(o, this.tr, this.tr)
     }, f.prototype.setScreenRect = function (t, i, e, r) {
       this.screenLeft = t, this.screenRight = i, this.screenTop = r, this.screenBottom = e
@@ -1203,7 +1213,7 @@
     }
   }, function (t, i, e) {
     'use strict'
-    let r = {
+    const r = {
       DEBUG_LOG: !1,
       DEBUG_MOUSE_LOG: !1,
       DEBUG_DRAW_HIT_AREA: !1,
@@ -1254,7 +1264,7 @@
     }, r.loadIdentity = function () {
       for (let t = 0; t < 16; t++) this.currentMatrix[t] = t % 5 == 0 ? 1 : 0
     }, r.push = function () {
-      let t = (this.depth, 16 * (this.depth + 1))
+      const t = (this.depth, 16 * (this.depth + 1))
       this.matrixStack.length < t + 16 && (this.matrixStack.length = t + 16)
       for (let i = 0; i < 16; i++) this.matrixStack[t + i] = this.currentMatrix[i]
       this.depth++
@@ -1284,16 +1294,16 @@
       C = document.getElementById(t), C.addEventListener && (window.addEventListener('click', g), window.addEventListener('mousedown', g), window.addEventListener('mousemove', g), window.addEventListener('mouseup', g), document.addEventListener('mouseout', g), window.addEventListener('touchstart', y), window.addEventListener('touchend', y), window.addEventListener('touchmove', y))
     }
     function n (t) {
-      let i = C.width
-      let e = C.height
+      const i = C.width
+      const e = C.height
       N = new M.L2DTargetPoint()
-      let r = e / i
-      let o = w
+      const r = e / i
+      const o = w
         .default.VIEW_LOGICAL_LEFT
-      let n = w
+      const n = w
         .default.VIEW_LOGICAL_RIGHT
-      let _ = -r
-      let h = r
+      const _ = -r
+      const h = r
       if (window.Live2D.captureFrame = !1, B = new M.L2DViewMatrix(), B.setScreenRect(o, n, _, h), B.setMaxScreenRect(w
         .default.VIEW_LOGICAL_MAX_LEFT, w
         .default.VIEW_LOGICAL_MAX_RIGHT, w
@@ -1306,10 +1316,10 @@
     function s () {
       b || (b = !0, (function t () {
         _()
-        let i = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
+        const i = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
         if (window.Live2D.captureFrame) {
           window.Live2D.captureFrame = !1
-          let e = document.createElement('a')
+          const e = document.createElement('a')
           document.body.appendChild(e), e.setAttribute('type', 'hidden'), e.href = C.toDataURL(), e.download = window.Live2D.captureName || 'live2d.png', e.click()
         }
         i(t, C)
@@ -1323,7 +1333,7 @@
         .default.multMatrix(B.getArray()), O
         .default.push()
       for (let t = 0; t < R.numModels(); t++) {
-        let i = R.getModel(t)
+        const i = R.getModel(t)
         if (i == null) return
         i.initialized && !i.updating && (i.update(), i.draw(F))
       }
@@ -1337,7 +1347,7 @@
       return t.x * i.x + t.y * i.y
     }
     function l (t, i) {
-      let e = Math.sqrt(t * t + i * i)
+      const e = Math.sqrt(t * t + i * i)
       return {
         x: t / e,
         y: i / e
@@ -1351,47 +1361,47 @@
         }, l(t, i))) / Math.PI
       }
       if (i.x < e.left + e.width && i.y < e.top + e.height && i.x > e.left && i.y > e.top) return i
-      let o = t.x - i.x
-      let n = t.y - i.y
+      const o = t.x - i.x
+      const n = t.y - i.y
       let s = r(o, n)
       i.x < t.x && (s = 360 - s)
-      let _ = 360 - r(e.left - t.x, -1 * (e.top - t.y))
-      let a = 360 - r(e.left - t.x, -1 * (e.top + e.height - t.y))
-      let $ = r(e.left + e.width - t.x, -1 * (e.top - t.y))
-      let u = r(e.left + e.width - t.x, -1 * (e.top + e.height - t.y))
-      let p = n / o
+      const _ = 360 - r(e.left - t.x, -1 * (e.top - t.y))
+      const a = 360 - r(e.left - t.x, -1 * (e.top + e.height - t.y))
+      const $ = r(e.left + e.width - t.x, -1 * (e.top - t.y))
+      const u = r(e.left + e.width - t.x, -1 * (e.top + e.height - t.y))
+      const p = n / o
       let f = {}
       if (s < $) {
-        let c = e.top - t.y
-        let d = c / p
+        const c = e.top - t.y
+        const d = c / p
         f = {
           y: t.y + c,
           x: t.x + d
         }
       } else if (s < u) {
-        let g = e.left + e.width - t.x
-        let y = g * p
+        const g = e.left + e.width - t.x
+        const y = g * p
         f = {
           y: t.y + y,
           x: t.x + g
         }
       } else if (s < a) {
-        let m = e.top + e.height - t.y
-        let T = m / p
+        const m = e.top + e.height - t.y
+        const T = m / p
         f = {
           y: t.y + m,
           x: t.x + T
         }
       } else if (s < _) {
-        let P = t.x - e.left
-        let S = P * p
+        const P = t.x - e.left
+        const S = P * p
         f = {
           y: t.y - S,
           x: t.x - P
         }
       } else {
-        let v = e.top - t.y
-        let L = v / p
+        const v = e.top - t.y
+        const L = v / p
         f = {
           y: t.y + v,
           x: t.x + L
@@ -1401,51 +1411,51 @@
     }
     function u (t) {
       Y = !0
-      let i = C.getBoundingClientRect()
-      let e = P(t.clientX - i.left)
-      let r = S(t.clientY - i.top)
-      let o = $({
+      const i = C.getBoundingClientRect()
+      const e = P(t.clientX - i.left)
+      const r = S(t.clientY - i.top)
+      const o = $({
         x: i.left + i.width / 2,
         y: i.top + i.height * X
       }, {
         x: t.clientX,
         y: t.clientY
       }, i)
-      let n = m(o.x - i.left)
-      let s = T(o.y - i.top)
+      const n = m(o.x - i.left)
+      const s = T(o.y - i.top)
       w
         .default.DEBUG_MOUSE_LOG && console.log('onMouseMove device( x:' + t.clientX + ' y:' + t.clientY + ' ) view( x:' + n + ' y:' + s + ')'), k = e, V = r, N.setPoint(n, s)
     }
     function p (t) {
       Y = !0
-      let i = C.getBoundingClientRect()
-      let e = P(t.clientX - i.left)
-      let r = S(t.clientY - i.top)
-      let o = $({
+      const i = C.getBoundingClientRect()
+      const e = P(t.clientX - i.left)
+      const r = S(t.clientY - i.top)
+      const o = $({
         x: i.left + i.width / 2,
         y: i.top + i.height * X
       }, {
         x: t.clientX,
         y: t.clientY
       }, i)
-      let n = m(o.x - i.left)
-      let s = T(o.y - i.top)
+      const n = m(o.x - i.left)
+      const s = T(o.y - i.top)
       w
         .default.DEBUG_MOUSE_LOG && console.log('onMouseDown device( x:' + t.clientX + ' y:' + t.clientY + ' ) view( x:' + n + ' y:' + s + ')'), k = e, V = r, R.tapEvent(n, s)
     }
     function f (t) {
-      let i = C.getBoundingClientRect()
-      let e = P(t.clientX - i.left)
-      let r = S(t.clientY - i.top)
-      let o = $({
+      const i = C.getBoundingClientRect()
+      const e = P(t.clientX - i.left)
+      const r = S(t.clientY - i.top)
+      const o = $({
         x: i.left + i.width / 2,
         y: i.top + i.height * X
       }, {
         x: t.clientX,
         y: t.clientY
       }, i)
-      let n = m(o.x - i.left)
-      let s = T(o.y - i.top)
+      const n = m(o.x - i.left)
+      const s = T(o.y - i.top)
       w
         .default.DEBUG_MOUSE_LOG && console.log('onMouseMove device( x:' + t.clientX + ' y:' + t.clientY + ' ) view( x:' + n + ' y:' + s + ')'), Y && (k = e, V = r, N.setPoint(n, s))
     }
@@ -1460,7 +1470,7 @@
       if (t.type == 'mousewheel');
       else if (t.type == 'mousedown') p(t)
       else if (t.type == 'mousemove') {
-        let i = GM_getValue('Sleepy')
+        const i = GM_getValue('Sleepy')
         i === '1' && GM_setValue('Sleepy', '0'), u(t)
       } else if (t.type == 'mouseup') {
         if ('button' in t && t.button != 0) return
@@ -1472,15 +1482,15 @@
       }
     }
     function y (t) {
-      let i = t.touches[0]
+      const i = t.touches[0]
       t.type == 'touchstart' ? t.touches.length == 1 && u(i) : t.type == 'touchmove' ? f(i) : t.type == 'touchend' && c()
     }
     function m (t) {
-      let i = G.transformX(t)
+      const i = G.transformX(t)
       return B.invertTransformX(i)
     }
     function T (t) {
-      let i = G.transformY(t)
+      const i = G.transformY(t)
       return B.invertTransformY(i)
     }
     function P (t) {
@@ -1492,7 +1502,7 @@
     function v () {
       for (let t = ['webgl', 'experimental-webgl', 'webkit-3d', 'moz-webgl'], i = 0; i < t.length; i++) {
         try {
-          let e = C.getContext(t[i], {
+          const e = C.getContext(t[i], {
             premultipliedAlpha: !0
           })
           if (e) return e
@@ -1505,11 +1515,11 @@
     }
     e(6)
     var M = e(0)
-    let E = e(8)
-    let A = r(E)
-    let I = e(1)
+    const E = e(8)
+    const A = r(E)
+    const I = e(1)
     var w = r(I)
-    let x = e(3)
+    const x = e(3)
     var O = r(x)
     var D = e(2)
     var R = (window.navigator.platform.toLowerCase(), new A
@@ -1756,23 +1766,23 @@
         i._$0s = 1, i._$4s = 2, i._$42 = 0, i._$62 = function (t, e) {
           try {
             if (e instanceof ArrayBuffer && (e = new DataView(e)), !(e instanceof DataView)) throw new lt('_$SS#loadModel(b) / b _$x be DataView or ArrayBuffer')
-            let r; let o = new St(e)
-            let n = o._$ST()
-            let s = o._$ST()
-            let a = o._$ST()
+            let r; const o = new St(e)
+            const n = o._$ST()
+            const s = o._$ST()
+            const a = o._$ST()
             if (n != 109 || s != 111 || a != 99) throw new lt('_$gi _$C _$li , _$Q0 _$P0.')
             if (r = o._$ST(), o._$gr(r), r > G._$T7) {
               t._$NP |= i._$4s
               throw new lt('_$gi _$C _$li , _$n0 _$_ version _$li ( SDK : ' + G._$T7 + ' < _$f0 : ' + r + ' )@_$SS#loadModel()\n')
             }
-            let h = o._$nP()
+            const h = o._$nP()
             if (r >= G._$s7) {
-              let l = o._$9T()
-              let $ = o._$9T()
+              const l = o._$9T()
+              const $ = o._$9T()
               if (l != -30584 || $ != -30584) throw t._$NP |= i._$0s, new lt('_$gi _$C _$li , _$0 _$6 _$Ui.')
             }
             t._$KS(h)
-            let u = t.getModelContext()
+            const u = t.getModelContext()
             u.setDrawParam(t.getDrawParam()), u.init()
           } catch (t) {
             _._$Rb(t)
@@ -1814,14 +1824,14 @@
         }, i.prototype._$P7 = function (t, i, e, r) {
           let o = -1
           let n = 0
-          let s = this
+          const s = this
           if (e != 0) {
             if (t.length == 1) {
               var _ = t[0]
-              let a = s.getParamFloat(_) != 0
+              const a = s.getParamFloat(_) != 0
               var h = i[0]
               let l = s.getPartsOpacity(h)
-              let $ = e / r
+              const $ = e / r
               a ? (l += $) > 1 && (l = 1) : (l -= $) < 0 && (l = 0), s.setPartsOpacity(h, l)
             } else {
               for (var u = 0; u < t.length; u++) {
@@ -1841,7 +1851,7 @@
                 else {
                   var f; let c = s.getPartsOpacity(h)
                   f = n < 0.5 ? -0.5 * n / 0.5 + 1 : 0.5 * (1 - n) / 0.5
-                  let d = (1 - f) * (1 - n)
+                  const d = (1 - f) * (1 - n)
                   d > 0.15 && (f = 1 - 0.15 / (1 - n)), c > f && (c = f), s.setPartsOpacity(h, c)
                 }
               }
@@ -1865,11 +1875,11 @@
         }, i.prototype.getDrawData = function (t) {
           return this._$5S.getDrawData(t)
         }, i.prototype.getTransformedPoints = function (t) {
-          let i = this._$5S._$C2(t)
+          const i = this._$5S._$C2(t)
           return i instanceof ut ? i.getTransformedPoints() : null
         }, i.prototype.getIndexArray = function (t) {
           if (t < 0 || t >= this._$5S._$aS.length) return null
-          let i = this._$5S._$aS[t]
+          const i = this._$5S._$aS[t]
           return i != null && i.getType() == W._$wb && i instanceof $t ? i.getIndexArray() : null
         }, e.CHANNEL_COUNT = 4, e.RENDER_TEXTURE_USE_MIPMAP = !1, e.NOT_USED_FRAME = -100, e.prototype._$L7 = function () {
           if (this.tmpModelToViewMatrix && (this.tmpModelToViewMatrix = null), this.tmpMatrix2 && (this.tmpMatrix2 = null), this.tmpMatrixForMask && (this.tmpMatrixForMask = null), this.tmpMatrixForDraw && (this.tmpMatrixForDraw = null), this.tmpBoundsOnModel && (this.tmpBoundsOnModel = null), this.CHANNEL_COLORS) {
@@ -1882,12 +1892,12 @@
           at.frameBuffers = [], at.glContext = []
         }, e.prototype.init = function (t, i, e) {
           for (let o = 0; o < i.length; o++) {
-            let n = i[o].getClipIDList()
+            const n = i[o].getClipIDList()
             if (n != null) {
               let s = this.findSameClip(n)
               s == null && (s = new r(this, t, n), this.clipContextList.push(s))
-              let _ = i[o].getDrawDataID()
-              let a = t.getDrawDataIndex(_)
+              const _ = i[o].getDrawDataID()
+              const a = t.getDrawDataIndex(_)
               s.addClippedDrawData(_, a)
               e[o].clipBufPre_clipContext = s
             }
@@ -1901,23 +1911,23 @@
             this.calcClippedDrawTotalBounds(t, o), o.isUsing && e++
           }
           if (e > 0) {
-            let n = i.gl.getParameter(i.gl.FRAMEBUFFER_BINDING)
-            let s = new Array(4)
+            const n = i.gl.getParameter(i.gl.FRAMEBUFFER_BINDING)
+            const s = new Array(4)
             s[0] = 0, s[1] = 0, s[2] = i.gl.canvas.width, s[3] = i.gl.canvas.height, i.gl.viewport(0, 0, at.clippingMaskBufferSize, at.clippingMaskBufferSize), this.setupLayoutBounds(e), i.gl.bindFramebuffer(i.gl.FRAMEBUFFER, at.frameBuffers[this.curFrameNo].framebuffer), i.gl.clearColor(0, 0, 0, 0), i.gl.clear(i.gl.COLOR_BUFFER_BIT)
             for (var r = 0; r < this.clipContextList.length; r++) {
               var o = this.clipContextList[r]
-              let _ = o.allClippedDrawRect
-              let a = (o.layoutChannelNo, o.layoutBounds)
+              const _ = o.allClippedDrawRect
+              const a = (o.layoutChannelNo, o.layoutBounds)
               this.tmpBoundsOnModel._$jL(_), this.tmpBoundsOnModel.expand(0.05 * _.width, 0.05 * _.height)
-              let h = a.width / this.tmpBoundsOnModel.width
-              let l = a.height / this.tmpBoundsOnModel.height
+              const h = a.width / this.tmpBoundsOnModel.width
+              const l = a.height / this.tmpBoundsOnModel.height
               this.tmpMatrix2.identity(), this.tmpMatrix2.translate(-1, -1, 0), this.tmpMatrix2.scale(2, 2, 1), this.tmpMatrix2.translate(a.x, a.y, 0), this.tmpMatrix2.scale(h, l, 1), this.tmpMatrix2.translate(-this.tmpBoundsOnModel.x, -this.tmpBoundsOnModel.y, 0), this.tmpMatrixForMask.setMatrix(this.tmpMatrix2.m), this.tmpMatrix2.identity(), this.tmpMatrix2.translate(a.x, a.y, 0), this.tmpMatrix2.scale(h, l, 1), this.tmpMatrix2.translate(-this.tmpBoundsOnModel.x, -this.tmpBoundsOnModel.y, 0), this.tmpMatrixForDraw.setMatrix(this.tmpMatrix2.m)
               for (var $ = this.tmpMatrixForMask.getArray(), u = 0; u < 16; u++) o.matrixForMask[u] = $[u]
               for (var p = this.tmpMatrixForDraw.getArray(), u = 0; u < 16; u++) o.matrixForDraw[u] = p[u]
               for (let f = o.clippingMaskDrawIndexList.length, c = 0; c < f; c++) {
-                let d = o.clippingMaskDrawIndexList[c]
-                let g = t.getDrawData(d)
-                let y = t._$C2(d)
+                const d = o.clippingMaskDrawIndexList[c]
+                const g = t.getDrawData(d)
+                const y = t._$C2(d)
                 i.setClipBufPre_clipContextForMask(o), g.draw(i, t, y)
               }
             }
@@ -1927,8 +1937,8 @@
           return this.colorBuffer
         }, e.prototype.findSameClip = function (t) {
           for (let i = 0; i < this.clipContextList.length; i++) {
-            let e = this.clipContextList[i]
-            let r = e.clipIDList.length
+            const e = this.clipContextList[i]
+            const r = e.clipIDList.length
             if (r == t.length) {
               for (var o = 0, n = 0; n < r; n++) {
                 for (let s = e.clipIDList[n], _ = 0; _ < r; _++) {
@@ -1944,22 +1954,22 @@
           return null
         }, e.prototype.calcClippedDrawTotalBounds = function (t, i) {
           for (var e = t._$Ri.getModelImpl().getCanvasWidth(), r = t._$Ri.getModelImpl().getCanvasHeight(), o = e > r ? e : r, n = o, s = o, _ = 0, a = 0, h = i.clippedDrawContextList.length, l = 0; l < h; l++) {
-            let $ = i.clippedDrawContextList[l]
-            let u = $.drawDataIndex
-            let p = t._$C2(u)
+            const $ = i.clippedDrawContextList[l]
+            const u = $.drawDataIndex
+            const p = t._$C2(u)
             if (p._$yo()) {
               for (var f = p.getTransformedPoints(), c = f.length, d = [], g = [], y = 0, m = U._$i2; m < c; m += U._$No) d[y] = f[m], g[y] = f[m + 1], y++
-              let T = Math.min.apply(null, d)
-              let P = Math.min.apply(null, g)
-              let S = Math.max.apply(null, d)
-              let v = Math.max.apply(null, g)
+              const T = Math.min.apply(null, d)
+              const P = Math.min.apply(null, g)
+              const S = Math.max.apply(null, d)
+              const v = Math.max.apply(null, g)
               T < n && (n = T), P < s && (s = P), S > _ && (_ = S), v > a && (a = v)
             }
           }
           if (n == o) i.allClippedDrawRect.x = 0, i.allClippedDrawRect.y = 0, i.allClippedDrawRect.width = 0, i.allClippedDrawRect.height = 0, i.isUsing = !1
           else {
-            let L = _ - n
-            let M = a - s
+            const L = _ - n
+            const M = a - s
             i.allClippedDrawRect.x = n, i.allClippedDrawRect.y = s, i.allClippedDrawRect.width = L, i.allClippedDrawRect.height = M, i.isUsing = !0
           }
         }, e.prototype.setupLayoutBounds = function (t) {
@@ -1967,7 +1977,7 @@
           let r = t % e.CHANNEL_COUNT
           i = ~~i, r = ~~r
           for (let o = 0, n = 0; n < e.CHANNEL_COUNT; n++) {
-            let s = i + (n < r ? 1 : 0)
+            const s = i + (n < r ? 1 : 0)
             if (s == 0);
             else if (s == 1) {
               var a = this.clipContextList[o++]
@@ -1999,23 +2009,23 @@
             } else _._$li('_$6 _$0P mask count : %d', s)
           }
         }, r.prototype.addClippedDrawData = function (t, i) {
-          let e = new o(t, i)
+          const e = new o(t, i)
           this.clippedDrawContextList.push(e)
         }, s._$JT = function (t, i, e) {
-          let r = t / i
-          let o = e / i
-          let n = o
-          let s = 1 - (1 - o) * (1 - o)
-          let _ = 1 - (1 - n) * (1 - n)
-          let a = 1 / 3 * (1 - o) * s + (n * (2 / 3) + 1 / 3 * (1 - n)) * (1 - s)
-          let h = (n + 2 / 3 * (1 - n)) * _ + (o * (1 / 3) + 2 / 3 * (1 - o)) * (1 - _)
-          let l = 1 - 3 * h + 3 * a - 0
-          let $ = 3 * h - 6 * a + 0
-          let u = 3 * a - 0
+          const r = t / i
+          const o = e / i
+          const n = o
+          const s = 1 - (1 - o) * (1 - o)
+          const _ = 1 - (1 - n) * (1 - n)
+          const a = 1 / 3 * (1 - o) * s + (n * (2 / 3) + 1 / 3 * (1 - n)) * (1 - s)
+          const h = (n + 2 / 3 * (1 - n)) * _ + (o * (1 / 3) + 2 / 3 * (1 - o)) * (1 - _)
+          const l = 1 - 3 * h + 3 * a - 0
+          const $ = 3 * h - 6 * a + 0
+          const u = 3 * a - 0
           if (r <= 0) return 0
           if (r >= 1) return 1
-          let p = r
-          let f = p * p
+          const p = r
+          const f = p * p
           return l * (p * f) + $ * f + u * p + 0
         }, s.prototype._$a0 = function () { }, s.prototype.setFadeIn = function (t) {
           this._$dP = t
@@ -2035,10 +2045,10 @@
           return -1
         }, s.prototype.updateParam = function (t, i) {
           if (i._$AT && !i._$9L) {
-            let e = w.getUserTimeMSec()
+            const e = w.getUserTimeMSec()
             if (i._$z2 < 0) {
               i._$z2 = e, i._$bs = e
-              let r = this.getDurationMSec()
+              const r = this.getDurationMSec()
               i._$Do < 0 && (i._$Do = r <= 0 ? -1 : i._$z2 + r)
             }
             let o = this._$V0
@@ -2048,15 +2058,15 @@
           let i = _._$fT[t]
           i == null && (i = new a(), i._$r = t, _._$fT[t] = i), i._$0S = w.getSystemTimeMSec()
         }, _.dump = function (t) {
-          let i = _._$fT[t]
+          const i = _._$fT[t]
           if (i != null) {
-            let e = w.getSystemTimeMSec()
-            let r = e - i._$0S
+            const e = w.getSystemTimeMSec()
+            const r = e - i._$0S
             return console.log(t + ' : ' + r + 'ms'), r
           }
           return -1
         }, _.end = function (t) {
-          let i = _._$fT[t]
+          const i = _._$fT[t]
           if (i != null) {
             return w.getSystemTimeMSec() - i._$0S
           }
@@ -2133,14 +2143,14 @@
         }, f.prototype._$Yb = function () {
           return -180 * Math.atan2(this.p1.x - this.p2.x, -(this.p1.y - this.p2.y)) / Math.PI
         }, f.prototype.addSrcParam = function (t, i, e, r) {
-          let o = new g(t, i, e, r)
+          const o = new g(t, i, e, r)
           this._$lL.push(o)
         }, f.prototype.addTargetParam = function (t, i, e, r) {
-          let o = new T(t, i, e, r)
+          const o = new T(t, i, e, r)
           this._$qP.push(o)
         }, f.prototype.update = function (t, i) {
           if (this._$iP == 0) return this._$iP = this._$iT = i, void (this._$Fo = Math.sqrt((this.p1.x - this.p2.x) * (this.p1.x - this.p2.x) + (this.p1.y - this.p2.y) * (this.p1.y - this.p2.y)))
-          let e = (i - this._$iT) / 1e3
+          const e = (i - this._$iT) / 1e3
           if (e != 0) {
             for (var r = this._$lL.length - 1; r >= 0; --r) {
               this._$lL[r]._$oP(t, this)
@@ -2153,27 +2163,27 @@
           this._$iT = i
         }, f.prototype._$oo = function (t, i) {
           i < 0.033 && (i = 0.033)
-          let e = 1 / i
+          const e = 1 / i
           this.p1.vx = (this.p1.x - this.p1._$s0) * e, this.p1.vy = (this.p1.y - this.p1._$70) * e, this.p1.ax = (this.p1.vx - this.p1._$7L) * e, this.p1.ay = (this.p1.vy - this.p1._$HL) * e, this.p1.fx = this.p1.ax * this.p1._$p, this.p1.fy = this.p1.ay * this.p1._$p, this.p1._$xT()
-          let r; let o; let n = -Math.atan2(this.p1.y - this.p2.y, this.p1.x - this.p2.x)
-          let s = Math.cos(n)
-          let _ = Math.sin(n)
-          let a = 9.8 * this.p2._$p
-          let h = this._$Db * Lt._$bS
-          let l = a * Math.cos(n - h)
+          let r; let o; const n = -Math.atan2(this.p1.y - this.p2.y, this.p1.x - this.p2.x)
+          const s = Math.cos(n)
+          const _ = Math.sin(n)
+          const a = 9.8 * this.p2._$p
+          const h = this._$Db * Lt._$bS
+          const l = a * Math.cos(n - h)
           r = l * _, o = l * s
-          let $ = -this.p1.fx * _ * _
-          let u = -this.p1.fy * _ * s
-          let p = -this.p2.vx * this._$L2
-          let f = -this.p2.vy * this._$L2
+          const $ = -this.p1.fx * _ * _
+          const u = -this.p1.fy * _ * s
+          const p = -this.p2.vx * this._$L2
+          const f = -this.p2.vy * this._$L2
           this.p2.fx = r + $ + p, this.p2.fy = o + u + f, this.p2.ax = this.p2.fx / this.p2._$p, this.p2.ay = this.p2.fy / this.p2._$p, this.p2.vx += this.p2.ax * i, this.p2.vy += this.p2.ay * i, this.p2.x += this.p2.vx * i, this.p2.y += this.p2.vy * i
-          let c = Math.sqrt((this.p1.x - this.p2.x) * (this.p1.x - this.p2.x) + (this.p1.y - this.p2.y) * (this.p1.y - this.p2.y))
+          const c = Math.sqrt((this.p1.x - this.p2.x) * (this.p1.x - this.p2.x) + (this.p1.y - this.p2.y) * (this.p1.y - this.p2.y))
           this.p2.x = this.p1.x + this._$Fo * (this.p2.x - this.p1.x) / c, this.p2.y = this.p1.y + this._$Fo * (this.p2.y - this.p1.y) / c, this.p2.vx = (this.p2.x - this.p2._$s0) * e, this.p2.vy = (this.p2.y - this.p2._$70) * e, this.p2._$xT()
         }, c.prototype._$xT = function () {
           this._$s0 = this.x, this._$70 = this.y, this._$7L = this.vx, this._$HL = this.vy
         }, d.prototype._$oP = function (t, i) { }, g.prototype = new d(), g.prototype._$oP = function (t, i) {
-          let e = this.scale * t.getParamFloat(this._$wL)
-          let r = i.getPhysicsPoint1()
+          const e = this.scale * t.getParamFloat(this._$wL)
+          const r = i.getPhysicsPoint1()
           switch (this._$tL) {
             default:
             case f.Src.SRC_TO_X:
@@ -2200,11 +2210,11 @@
         }, P.prototype._$F0 = function (t) {
           this._$fL = t._$_T(), this._$gL = t._$_T(), this._$B0 = t._$_T(), this._$z0 = t._$_T(), this._$qT = t._$_T(), t.getFormatVersion() >= G.LIVE2D_FORMAT_VERSION_V2_10_SDK2 && (this.reflectX = t._$po(), this.reflectY = t._$po())
         }, P.prototype._$e = function () { }
-        let It = function () { }
+        const It = function () { }
         It._$ni = function (t, i, e, r, o, n, s, _, a) {
-          let h = s * n - _ * o
+          const h = s * n - _ * o
           if (h == 0) return null
-          let l; let $ = ((t - e) * n - (i - r) * o) / h
+          let l; const $ = ((t - e) * n - (i - r) * o) / h
           return l = o != 0 ? (t - e - $ * s) / o : (i - r - $ * _) / n, isNaN(l) && (l = (t - e - $ * s) / o, isNaN(l) && (l = (i - r - $ * _) / n), isNaN(l) && (console.log('a is NaN @UtVector#_$ni() '), console.log('v1x : ' + o), console.log('v1x != 0 ? ' + (o != 0)))), a == null ? new Array(l, $) : (a[0] = l, a[1] = $, a)
         }, S.prototype._$8P = function () {
           return this.x + 0.5 * this.width
@@ -2223,9 +2233,9 @@
         }, S.prototype.expand = function (t, i) {
           this.x -= t, this.y -= i, this.width += 2 * t, this.height += 2 * i
         }, v._$Z2 = function (t, i, e, r) {
-          let o = i._$Q2(t, e)
-          let n = t._$vs()
-          let s = t._$Tr()
+          const o = i._$Q2(t, e)
+          const n = t._$vs()
+          const s = t._$Tr()
           if (i._$zr(n, s, o), o <= 0) return r[n[0]]
           if (o == 1) {
             var _ = r[n[0]]
@@ -2265,26 +2275,26 @@
             return p + (f - p) * v | 0
           }
           if (o == 4) {
-            let L = r[n[0]]
-            let M = r[n[1]]
-            let E = r[n[2]]
-            let A = r[n[3]]
-            let I = r[n[4]]
-            let w = r[n[5]]
-            let x = r[n[6]]
-            let O = r[n[7]]
-            let D = r[n[8]]
-            let R = r[n[9]]
-            let b = r[n[10]]
-            let F = r[n[11]]
-            let C = r[n[12]]
-            let N = r[n[13]]
-            let B = r[n[14]]
-            let U = r[n[15]]
+            const L = r[n[0]]
+            const M = r[n[1]]
+            const E = r[n[2]]
+            const A = r[n[3]]
+            const I = r[n[4]]
+            const w = r[n[5]]
+            const x = r[n[6]]
+            const O = r[n[7]]
+            const D = r[n[8]]
+            const R = r[n[9]]
+            const b = r[n[10]]
+            const F = r[n[11]]
+            const C = r[n[12]]
+            const N = r[n[13]]
+            const B = r[n[14]]
+            const U = r[n[15]]
             var h = s[0]
             var u = s[1]
             var v = s[2]
-            let G = s[3]
+            const G = s[3]
             var c = L + (M - L) * h | 0
             var d = E + (A - E) * h | 0
             var g = I + (w - I) * h | 0
@@ -2309,9 +2319,9 @@
           for (var q = 0, j = 0; j < Y; j++) q += k[j] * W[j]
           return q + 0.5 | 0
         }, v._$br = function (t, i, e, r) {
-          let o = i._$Q2(t, e)
-          let n = t._$vs()
-          let s = t._$Tr()
+          const o = i._$Q2(t, e)
+          const n = t._$vs()
+          const s = t._$Tr()
           if (i._$zr(n, s, o), o <= 0) return r[n[0]]
           if (o == 1) {
             var _ = r[n[0]]
@@ -2322,47 +2332,47 @@
           if (o == 2) {
             var _ = r[n[0]]
             var a = r[n[1]]
-            let l = r[n[2]]
-            let $ = r[n[3]]
+            const l = r[n[2]]
+            const $ = r[n[3]]
             var h = s[0]
             var u = s[1]
             return (1 - u) * (_ + (a - _) * h) + u * (l + ($ - l) * h)
           }
           if (o == 3) {
-            let p = r[n[0]]
-            let f = r[n[1]]
-            let c = r[n[2]]
-            let d = r[n[3]]
-            let g = r[n[4]]
-            let y = r[n[5]]
-            let m = r[n[6]]
-            let T = r[n[7]]
+            const p = r[n[0]]
+            const f = r[n[1]]
+            const c = r[n[2]]
+            const d = r[n[3]]
+            const g = r[n[4]]
+            const y = r[n[5]]
+            const m = r[n[6]]
+            const T = r[n[7]]
             var h = s[0]
             var u = s[1]
             var P = s[2]
             return (1 - P) * ((1 - u) * (p + (f - p) * h) + u * (c + (d - c) * h)) + P * ((1 - u) * (g + (y - g) * h) + u * (m + (T - m) * h))
           }
           if (o == 4) {
-            let S = r[n[0]]
-            let v = r[n[1]]
-            let L = r[n[2]]
-            let M = r[n[3]]
-            let E = r[n[4]]
-            let A = r[n[5]]
-            let I = r[n[6]]
-            let w = r[n[7]]
-            let x = r[n[8]]
-            let O = r[n[9]]
-            let D = r[n[10]]
-            let R = r[n[11]]
-            let b = r[n[12]]
-            let F = r[n[13]]
-            let C = r[n[14]]
-            let N = r[n[15]]
+            const S = r[n[0]]
+            const v = r[n[1]]
+            const L = r[n[2]]
+            const M = r[n[3]]
+            const E = r[n[4]]
+            const A = r[n[5]]
+            const I = r[n[6]]
+            const w = r[n[7]]
+            const x = r[n[8]]
+            const O = r[n[9]]
+            const D = r[n[10]]
+            const R = r[n[11]]
+            const b = r[n[12]]
+            const F = r[n[13]]
+            const C = r[n[14]]
+            const N = r[n[15]]
             var h = s[0]
             var u = s[1]
             var P = s[2]
-            let B = s[3]
+            const B = s[3]
             return (1 - B) * ((1 - P) * ((1 - u) * (S + (v - S) * h) + u * (L + (M - L) * h)) + P * ((1 - u) * (E + (A - E) * h) + u * (I + (w - I) * h))) + B * ((1 - P) * ((1 - u) * (x + (O - x) * h) + u * (D + (R - D) * h)) + P * ((1 - u) * (b + (F - b) * h) + u * (C + (N - C) * h)))
           }
           for (var U = 1 << o, G = new Float32Array(U), Y = 0; Y < U; Y++) {
@@ -2373,14 +2383,14 @@
           for (var W = 0, H = 0; H < U; H++) W += G[H] * z[H]
           return W
         }, v._$Vr = function (t, i, e, r, o, n, s, _) {
-          let a = i._$Q2(t, e)
-          let h = t._$vs()
-          let l = t._$Tr()
+          const a = i._$Q2(t, e)
+          const h = t._$vs()
+          const l = t._$Tr()
           i._$zr(h, l, a)
-          let $ = 2 * r
+          const $ = 2 * r
           let u = s
           if (a <= 0) {
-            let p = h[0]
+            const p = h[0]
             var f = o[p]
             if (_ == 2 && s == 0) w._$jT(f, 0, n, 0, $)
             else for (var c = 0; c < $;) n[u] = f[c++], n[u + 1] = f[c++], u += _
@@ -2428,7 +2438,7 @@
           return i._$Us
         }, M.prototype._$MS = function (t) {
           for (let i = t.length - 1; i >= 0; --i) {
-            let e = t[i]
+            const e = t[i]
             e < M._$52 ? M._$52 = e : e > M._$R2 && (M._$R2 = e)
           }
         }, M.prototype.getTargetBaseDataID = function () {
@@ -2532,7 +2542,7 @@
         }, x.prototype._$AL = function (t) {
           this._$ri = t
         }, O.startsWith = function (t, i, e) {
-          let r = i + e.length
+          const r = i + e.length
           if (r >= t.length) return !1
           for (let o = i; o < r; o++) if (O.getChar(t, o) != e.charAt(o - i)) return !1
           return !0
@@ -2641,11 +2651,11 @@
           return !1
         }, D.prototype._$Q2 = function (t, i) {
           for (var e, r, o = this._$Ob.length, n = t._$v2(), s = 0, _ = 0; _ < o; _++) {
-            let a = this._$Ob[_]
+            const a = this._$Ob[_]
             if (e = a.getParamIndex(n), e == x._$ds && (e = t.getParamIndex(a.getParamID()), a._$Pb(e, n)), e < 0) throw new Exception('err 23242 : ' + a.getParamID())
-            let h = e < 0 ? 0 : t.getParamFloat(e)
+            const h = e < 0 ? 0 : t.getParamFloat(e)
             r = a._$N2()
-            var l; var $; let u = a._$d2()
+            var l; var $; const u = a._$d2()
             let p = -1
             let f = 0
             if (r < 1);
@@ -2666,11 +2676,11 @@
           }
           return s
         }, D.prototype._$zr = function (t, i, e) {
-          let r = 1 << e
+          const r = 1 << e
           r + 1 > U._$Qb && console.log('err 23245\n')
           for (var o = this._$Ob.length, n = 1, s = 1, _ = 0, a = 0; a < r; ++a) t[a] = 0
           for (let h = 0; h < o; ++h) {
-            let l = this._$Ob[h]
+            const l = this._$Ob[h]
             if (l._$SL() == 0) {
               var $ = l._$Lr() * n
               if ($ < 0 && at._$3T) throw new Exception('err 23246')
@@ -2684,14 +2694,14 @@
           t[r] = 65535, i[_] = -1
         }, D.prototype._$h2 = function (t, i, e) {
           for (var r = new Float32Array(i), o = 0; o < i; ++o) r[o] = e[o]
-          let n = new x()
+          const n = new x()
           n._$yP(t), n._$t2(i, r), this._$Ob.push(n)
         }, D.prototype._$J2 = function (t) {
           for (let i = t, e = this._$Ob.length, r = 0; r < e; ++r) {
-            let o = this._$Ob[r]
-            let n = o._$N2()
-            let s = i % o._$N2()
-            let _ = o._$d2()[s]
+            const o = this._$Ob[r]
+            const n = o._$N2()
+            const s = i % o._$N2()
+            const _ = o._$d2()[s]
             console.log('%s[%d]=%7.2f / ', o.getParamID(), s, _), i /= n
           }
           console.log('\n')
@@ -2711,7 +2721,7 @@
           return i == null ? null : (this == i ? this.mult_safe(this.m, t.m, i.m, e) : this.mult_fast(this.m, t.m, i.m, e), i)
         }, R.prototype.mult_safe = function (t, i, e, r) {
           if (t == e) {
-            let o = new Array(16)
+            const o = new Array(16)
             this.mult_fast(t, i, o, r)
             for (let n = 15; n >= 0; --n) e[n] = o[n]
           } else this.mult_fast(t, i, e, r)
@@ -2722,18 +2732,18 @@
         }, R.prototype.scale = function (t, i, e) {
           this.m[0] *= t, this.m[4] *= i, this.m[8] *= e, this.m[1] *= t, this.m[5] *= i, this.m[9] *= e, this.m[2] *= t, this.m[6] *= i, this.m[10] *= e, this.m[3] *= t, this.m[7] *= i, this.m[11] *= e
         }, R.prototype.rotateX = function (t) {
-          let i = Lt.fcos(t)
-          let e = Lt._$9(t)
+          const i = Lt.fcos(t)
+          const e = Lt._$9(t)
           let r = this.m[4]
           this.m[4] = r * i + this.m[8] * e, this.m[8] = r * -e + this.m[8] * i, r = this.m[5], this.m[5] = r * i + this.m[9] * e, this.m[9] = r * -e + this.m[9] * i, r = this.m[6], this.m[6] = r * i + this.m[10] * e, this.m[10] = r * -e + this.m[10] * i, r = this.m[7], this.m[7] = r * i + this.m[11] * e, this.m[11] = r * -e + this.m[11] * i
         }, R.prototype.rotateY = function (t) {
-          let i = Lt.fcos(t)
-          let e = Lt._$9(t)
+          const i = Lt.fcos(t)
+          const e = Lt._$9(t)
           let r = this.m[0]
           this.m[0] = r * i + this.m[8] * -e, this.m[8] = r * e + this.m[8] * i, r = this.m[1], this.m[1] = r * i + this.m[9] * -e, this.m[9] = r * e + this.m[9] * i, r = m[2], this.m[2] = r * i + this.m[10] * -e, this.m[10] = r * e + this.m[10] * i, r = m[3], this.m[3] = r * i + this.m[11] * -e, this.m[11] = r * e + this.m[11] * i
         }, R.prototype.rotateZ = function (t) {
-          let i = Lt.fcos(t)
-          let e = Lt._$9(t)
+          const i = Lt.fcos(t)
+          const e = Lt._$9(t)
           let r = this.m[0]
           this.m[0] = r * i + this.m[4] * e, this.m[4] = r * -e + this.m[4] * i, r = this.m[1], this.m[1] = r * i + this.m[5] * e, this.m[5] = r * -e + this.m[5] * i, r = this.m[2], this.m[2] = r * i + this.m[6] * e, this.m[6] = r * -e + this.m[6] * i, r = this.m[3], this.m[3] = r * i + this.m[7] * e, this.m[7] = r * -e + this.m[7] * i
         }, b.prototype = new et(), b._$tP = new Object(), b._$27 = function () {
@@ -2791,29 +2801,29 @@
           this._$H == 0 && this._$f == 0 ? this._$7 == 1 && this._$g == 1 ? this._$k == 0 && this._$w == 0 ? (this._$hi = F.STATE_IDENTITY, this._$Z = F._$pS) : (this._$hi = F._$gb, this._$Z = F._$hb) : this._$k == 0 && this._$w == 0 ? (this._$hi = F._$fo, this._$Z = F._$kS) : (this._$hi = F._$fo | F._$gb, this._$Z = F._$kS) : this._$7 == 0 && this._$g == 0 ? this._$k == 0 && this._$w == 0 ? (this._$hi = F._$go, this._$Z = F._$kS) : (this._$hi = F._$go | F._$gb, this._$Z = F._$kS) : this._$k == 0 && this._$w == 0 ? (this._$hi = F._$go | F._$fo, this._$Z = F._$kS) : (this._$hi = F._$go | F._$fo | F._$gb, this._$Z = F._$kS)
         }, F.prototype._$RT = function (t) {
           this._$IT(t)
-          let i = t[0]
-          let e = t[2]
-          let r = t[1]
-          let o = t[3]
-          let n = Math.sqrt(i * i + r * r)
-          let s = i * o - e * r
+          const i = t[0]
+          const e = t[2]
+          const r = t[1]
+          const o = t[3]
+          const n = Math.sqrt(i * i + r * r)
+          const s = i * o - e * r
           n == 0 ? at._$so && console.log('affine._$RT() / rt==0') : (t[0] = n, t[1] = s / n, t[2] = (r * o + i * e) / s, t[3] = Math.atan2(r, i))
         }, F.prototype._$ho = function (t, i, e, r) {
-          let o = new Float32Array(6)
-          let n = new Float32Array(6)
+          const o = new Float32Array(6)
+          const n = new Float32Array(6)
           t._$RT(o), i._$RT(n)
-          let s = new Float32Array(6)
+          const s = new Float32Array(6)
           s[0] = o[0] + (n[0] - o[0]) * e, s[1] = o[1] + (n[1] - o[1]) * e, s[2] = o[2] + (n[2] - o[2]) * e, s[3] = o[3] + (n[3] - o[3]) * e, s[4] = o[4] + (n[4] - o[4]) * e, s[5] = o[5] + (n[5] - o[5]) * e, r._$CT(s)
         }, F.prototype._$CT = function (t) {
-          let i = Math.cos(t[3])
-          let e = Math.sin(t[3])
+          const i = Math.cos(t[3])
+          const e = Math.sin(t[3])
           this._$7 = t[0] * i, this._$f = t[0] * e, this._$H = t[1] * (t[2] * i - e), this._$g = t[1] * (t[2] * e + i), this._$k = t[4], this._$w = t[5], this.update()
         }, F.prototype._$IT = function (t) {
           t[0] = this._$7, t[1] = this._$f, t[2] = this._$H, t[3] = this._$g, t[4] = this._$k, t[5] = this._$w
         }, C.prototype = new s(), C._$cs = 'VISIBLE:', C._$ar = 'LAYOUT:', C._$Co = 0, C._$D2 = [], C._$1T = 1, C.loadMotion = function (t) {
-          let i = new C()
-          let e = [0]
-          let r = t.length
+          const i = new C()
+          const e = [0]
+          const r = t.length
           i._$yT = 0
           for (let o = 0; o < r; ++o) {
             let n = 255 & t[o]
@@ -2828,7 +2838,7 @@
                       }
                     }
                     if (_ >= 0) {
-                      let a = new B()
+                      const a = new B()
                       O.startsWith(t, s, C._$cs) ? (a._$RP = B._$hs, a._$4P = new String(t, s, _ - s)) : O.startsWith(t, s, C._$ar) ? (a._$4P = new String(t, s + 7, _ - s - 7), O.startsWith(t, s + 7, 'ANCHOR_X') ? a._$RP = B._$xs : O.startsWith(t, s + 7, 'ANCHOR_Y') ? a._$RP = B._$us : O.startsWith(t, s + 7, 'SCALE_X') ? a._$RP = B._$qs : O.startsWith(t, s + 7, 'SCALE_Y') ? a._$RP = B._$Ys : O.startsWith(t, s + 7, 'X') ? a._$RP = B._$ws : O.startsWith(t, s + 7, 'Y') && (a._$RP = B._$Ns)) : (a._$RP = B._$Fr, a._$4P = new String(t, s, _ - s)), i.motions.push(a)
                       let h = 0
                       for (C._$D2.clear(), o = _ + 1; o < r && ((n = 255 & t[o]) != '\r' && n != '\n'); ++o) {
@@ -2836,7 +2846,7 @@
                           var l = O._$LS(t, r, o, e)
                           if (e[0] > 0) {
                             C._$D2.push(l), h++
-                            let $ = e[0]
+                            const $ = e[0]
                             if ($ < o) {
                               console.log('_$n0 _$hi . @Live2DMotion loadMotion()\n')
                               break
@@ -2874,26 +2884,26 @@
           return this._$AS
         }, C.prototype.dump = function () {
           for (let t = 0; t < this.motions.length; t++) {
-            let i = this.motions[t]
+            const i = this.motions[t]
             console.log('_$wL[%s] [%d]. ', i._$4P, i._$I0.length)
             for (let e = 0; e < i._$I0.length && e < 10; e++) console.log('%5.2f ,', i._$I0[e])
             console.log('\n')
           }
         }, C.prototype.updateParamExe = function (t, i, e, r) {
           for (var o = i - r._$z2, n = o * this._$D0 / 1e3, s = 0 | n, _ = n - s, a = 0; a < this.motions.length; a++) {
-            let h = this.motions[a]
-            let l = h._$I0.length
-            let $ = h._$4P
+            const h = this.motions[a]
+            const l = h._$I0.length
+            const $ = h._$4P
             if (h._$RP == B._$hs) {
-              let u = h._$I0[s >= l ? l - 1 : s]
+              const u = h._$I0[s >= l ? l - 1 : s]
               t.setParamFloat($, u)
             } else if (B._$ws <= h._$RP && h._$RP <= B._$Ys);
             else {
-              let p = t.getParamFloat($)
-              let f = h._$I0[s >= l ? l - 1 : s]
-              let c = h._$I0[s + 1 >= l ? l - 1 : s + 1]
-              let d = f + (c - f) * _
-              let g = p + (d - p) * e
+              const p = t.getParamFloat($)
+              const f = h._$I0[s >= l ? l - 1 : s]
+              const c = h._$I0[s + 1 >= l ? l - 1 : s + 1]
+              const d = f + (c - f) * _
+              const g = p + (d - p) * e
               t.setParamFloat($, g)
             }
           }
@@ -2910,12 +2920,12 @@
           this.size = 0
         }, N.prototype.add = function (t) {
           if (this._$P.length <= this.size) {
-            let i = new Float32Array(2 * this.size)
+            const i = new Float32Array(2 * this.size)
             w._$jT(this._$P, 0, i, 0, this.size), this._$P = i
           }
           this._$P[this.size++] = t
         }, N.prototype._$BL = function () {
-          let t = new Float32Array(this.size)
+          const t = new Float32Array(this.size)
           return w._$jT(this._$P, 0, t, 0, this.size), t
         }, B._$Fr = 0, B._$hs = 1, B._$ws = 100, B._$Ns = 101, B._$xs = 102, B._$us = 103, B._$qs = 104, B._$Ys = 105, U._$Ms = 1, U._$Qs = 2, U._$i2 = 0, U._$No = 2, U._$do = U._$Ms, U._$Ls = !0, U._$1r = 5, U._$Qb = 65, U._$J = 1e-4, U._$FT = 0.001, U._$Ss = 3, G._$o7 = 6, G._$S7 = 7, G._$s7 = 8, G._$77 = 9, G.LIVE2D_FORMAT_VERSION_V2_10_SDK2 = 10, G.LIVE2D_FORMAT_VERSION_V2_11_SDK2_1 = 11, G._$T7 = G.LIVE2D_FORMAT_VERSION_V2_11_SDK2_1, G._$Is = -2004318072, G._$h0 = 0, G._$4L = 23, G._$7P = 33, G._$uT = function (t) {
           console.log('_$bo :: _$6 _$mo _$E0 : %d\n', t)
@@ -2964,8 +2974,8 @@
             if (this._$Bo == null) {
               this._$Bo = new Object()
               for (let i = this._$aS.length, e = 0; e < i; e++) {
-                let r = this._$aS[e]
-                let o = r.getDrawDataID()
+                const r = this._$aS[e]
+                const o = r.getDrawDataID()
                 o != null && (this._$Bo[o] = r)
               }
             }
@@ -2977,35 +2987,35 @@
         }, Y.prototype.init = function () {
           this._$co++, this._$F2.length > 0 && this.release()
           for (var t = this._$Ri.getModelImpl(), i = t._$Xr(), r = i.length, o = new Array(), n = new Array(), s = 0; s < r; ++s) {
-            let _ = i[s]
+            const _ = i[s]
             this._$F2.push(_), this._$Hr.push(_.init(this))
             for (var a = _.getBaseData(), h = a.length, l = 0; l < h; ++l) o.push(a[l])
             for (var l = 0; l < h; ++l) {
-              let $ = a[l].init(this)
+              const $ = a[l].init(this)
               $._$l2(s), n.push($)
             }
             for (var u = _.getDrawData(), p = u.length, l = 0; l < p; ++l) {
-              let f = u[l]
-              let c = f.init(this)
+              const f = u[l]
+              const c = f.init(this)
               c._$IP = s, this._$aS.push(f), this._$8b.push(c)
             }
           }
           for (let d = o.length, g = yt._$2o(); ;) {
             for (var y = !1, s = 0; s < d; ++s) {
-              let m = o[s]
+              const m = o[s]
               if (m != null) {
-                let T = m.getTargetBaseDataID();
+                const T = m.getTargetBaseDataID();
                 (T == null || T == g || this.getBaseDataIndex(T) >= 0) && (this._$3S.push(m), this._$db.push(n[s]), o[s] = null, y = !0)
               }
             }
             if (!y) break
           }
-          let P = t._$E2()
+          const P = t._$E2()
           if (P != null) {
-            let S = P._$1s()
+            const S = P._$1s()
             if (S != null) {
               for (var v = S.length, s = 0; s < v; ++s) {
-                let L = S[s]
+                const L = S[s]
                 L != null && this._$02(L.getParamID(), L.getDefaultValue(), L.getMinValue(), L.getMaxValue())
               }
             }
@@ -3014,19 +3024,19 @@
         }, Y.prototype.update = function () {
           Y._$e && _.start('_$zL')
           for (var t = this._$_2.length, i = 0; i < t; i++) this._$_2[i] != this._$vr[i] && (this._$Js[i] = Y._$ZS, this._$vr[i] = this._$_2[i])
-          let e = this._$3S.length
-          let r = this._$aS.length
-          let o = W._$or()
-          let n = W._$Pr()
-          let s = n - o + 1;
+          const e = this._$3S.length
+          const r = this._$aS.length
+          const o = W._$or()
+          const n = W._$Pr()
+          const s = n - o + 1;
           (this._$Ws == null || this._$Ws.length < s) && (this._$Ws = new Int16Array(s), this._$Vs = new Int16Array(s))
           for (var i = 0; i < s; i++) this._$Ws[i] = Y._$V2, this._$Vs[i] = Y._$V2;
           (this._$Er == null || this._$Er.length < r) && (this._$Er = new Int16Array(r))
           for (var i = 0; i < r; i++) this._$Er[i] = Y._$W0
           Y._$e && _.dump('_$zL'), Y._$e && _.start('_$UL')
           for (var a = null, h = 0; h < e; ++h) {
-            let l = this._$3S[h]
-            let $ = this._$db[h]
+            const l = this._$3S[h]
+            const $ = this._$db[h]
             try {
               l._$Nr(this, $), l._$2b(this, $)
             } catch (t) {
@@ -3035,8 +3045,8 @@
           }
           a != null && Y._$_0 && _._$Rb(a), Y._$e && _.dump('_$UL'), Y._$e && _.start('_$DL')
           for (var u = null, p = 0; p < r; ++p) {
-            let f = this._$aS[p]
-            let c = this._$8b[p]
+            const f = this._$aS[p]
+            const c = this._$8b[p]
             try {
               if (f._$Nr(this, c), c._$u2()) continue
               f._$2b(this, c)
@@ -3059,20 +3069,20 @@
           this.clipManager != null && (t._$ZT(), this.clipManager.setupClip(this, t))
         }, Y.prototype.draw = function (t) {
           if (this._$Ws == null) return void _._$li('call _$Ri.update() before _$Ri.draw() ')
-          let i = this._$Ws.length
+          const i = this._$Ws.length
           t._$ZT()
           for (let e = 0; e < i; ++e) {
             let r = this._$Ws[e]
             if (r != Y._$V2) {
               for (; ;) {
-                let o = this._$aS[r]
-                let n = this._$8b[r]
+                const o = this._$aS[r]
+                const n = this._$8b[r]
                 if (n._$yo()) {
-                  let s = n._$IP
-                  let a = this._$Hr[s]
+                  const s = n._$IP
+                  const a = this._$Hr[s]
                   n._$VS = a.getPartsOpacity(), o.draw(t, this, n)
                 }
-                let h = this._$Er[r]
+                const h = this._$Er[r]
                 if (h <= r || h == Y._$W0) break
                 r = h
               }
@@ -3087,14 +3097,14 @@
           for (let i = this._$3S.length - 1; i >= 0; --i) if (this._$3S[i] != null && this._$3S[i].getBaseDataID() == t) return i
           return -1
         }, Y.prototype._$UT = function (t, i) {
-          let e = new Float32Array(i)
+          const e = new Float32Array(i)
           return w._$jT(t, 0, e, 0, t.length), e
         }, Y.prototype._$02 = function (t, i, e, r) {
           if (this._$qo >= this._$pb.length) {
-            let o = this._$pb.length
-            let n = new Array(2 * o)
+            const o = this._$pb.length
+            const n = new Array(2 * o)
             w._$jT(this._$pb, 0, n, 0, o), this._$pb = n, this._$_2 = this._$UT(this._$_2, 2 * o), this._$vr = this._$UT(this._$vr, 2 * o), this._$Rr = this._$UT(this._$Rr, 2 * o), this._$Or = this._$UT(this._$Or, 2 * o)
-            let s = new Array()
+            const s = new Array()
             w._$jT(this._$Js, 0, s, 0, o), this._$Js = s
           }
           return this._$pb[this._$qo] = t, this._$_2[this._$qo] = i, this._$vr[this._$qo] = i, this._$Rr[this._$qo] = e, this._$Or[this._$qo] = r, this._$Js[this._$qo] = Y._$ZS, this._$qo++
@@ -3106,7 +3116,7 @@
           let t = this._$_2.length
           t > this._$fs.length && (t = this._$fs.length), w._$jT(this._$fs, 0, this._$_2, 0, t)
         }, Y.prototype.saveParam = function () {
-          let t = this._$_2.length
+          const t = this._$_2.length
           t > this._$fs.length && (this._$fs = new Float32Array(t)), w._$jT(this._$_2, 0, this._$fs, 0, t)
         }, Y.prototype._$v2 = function () {
           return this._$co
@@ -3144,9 +3154,9 @@
             let n = this._$Ws[o]
             if (n != Y._$V2) {
               for (; ;) {
-                let s = this._$8b[n]
+                const s = this._$8b[n]
                 s._$yo() && (s._$GT()._$B2(this, s, r), r += i)
-                let _ = this._$Er[n]
+                const _ = this._$Er[n]
                 if (_ <= n || _ == Y._$W0) break
                 n = _
               }
@@ -3181,7 +3191,7 @@
         }, V.prototype._$QS = function (t, i, e) {
           this._$Dr = t, this._$Cb = i, this._$mr = e
         }, V.prototype._$7T = function (t) {
-          let i; let e = w.getUserTimeMSec()
+          let i; const e = w.getUserTimeMSec()
           let r = 0
           switch (this._$_L) {
             case STATE_CLOSING:
@@ -3221,8 +3231,8 @@
           this.transform = t
         }, X.prototype._$ZT = function () { }, X.prototype._$Uo = function (t, i, e, r, o, n, s, _) {
           if (!(n < 0.01)) {
-            let a = this._$U2[t]
-            let h = n > 0.9 ? at.EXPAND_W : 0
+            const a = this._$U2[t]
+            const h = n > 0.9 ? at.EXPAND_W : 0
             this.gl.drawElements(a, e, r, o, n, h, this.transform, _)
           }
         }, X.prototype._$Rs = function () {
@@ -3238,10 +3248,10 @@
         }, X.prototype.setTexture = function (t, i) {
           this._$sb.length < t + 1 && this._$nS(t), this._$U2[t] = i
         }, X.prototype._$nS = function (t) {
-          let i = Math.max(2 * this._$sb.length, t + 1 + 10)
-          let e = new Int32Array(i)
+          const i = Math.max(2 * this._$sb.length, t + 1 + 10)
+          const e = new Int32Array(i)
           w._$jT(this._$sb, 0, e, 0, this._$sb.length), this._$sb = e
-          let r = new Array()
+          const r = new Array()
           w._$jT(this._$U2, 0, r, 0, this._$U2.length), this._$U2 = r
         }, z.prototype = new I(), z._$Xo = new Float32Array(2), z._$io = new Float32Array(2), z._$0o = new Float32Array(2), z._$Lo = new Float32Array(2), z._$To = new Float32Array(2), z._$Po = new Float32Array(2), z._$gT = new Array(), z.prototype._$zP = function () {
           this._$GS = new D(), this._$GS._$zP(), this._$Y0 = new Array()
@@ -3250,18 +3260,18 @@
         }, z.prototype._$F0 = function (t) {
           I.prototype._$F0.call(this, t), this._$GS = t._$nP(), this._$Y0 = t._$nP(), I.prototype.readV2_opacity.call(this, t)
         }, z.prototype.init = function (t) {
-          let i = new H(this)
+          const i = new H(this)
           return i._$Yr = new P(), this._$32() && (i._$Wr = new P()), i
         }, z.prototype._$Nr = function (t, i) {
           this != i._$GT() && console.log('### assert!! ### ')
-          let e = i
+          const e = i
           if (this._$GS._$Ur(t)) {
-            let r = z._$gT
+            const r = z._$gT
             r[0] = !1
-            let o = this._$GS._$Q2(t, r)
+            const o = this._$GS._$Q2(t, r)
             i._$Ib(r[0]), this.interpolateOpacity(t, this._$GS, i, r)
-            let n = t._$vs()
-            let s = t._$Tr()
+            const n = t._$vs()
+            const s = t._$Tr()
             if (this._$GS._$zr(n, s, o), o <= 0) {
               var _ = this._$Y0[n[0]]
               e._$Yr.init(_)
@@ -3273,22 +3283,22 @@
             } else if (o == 2) {
               var _ = this._$Y0[n[0]]
               var a = this._$Y0[n[1]]
-              let l = this._$Y0[n[2]]
-              let $ = this._$Y0[n[3]]
+              const l = this._$Y0[n[2]]
+              const $ = this._$Y0[n[3]]
               var h = s[0]
               var u = s[1]
               var p = _._$fL + (a._$fL - _._$fL) * h
               var f = l._$fL + ($._$fL - l._$fL) * h
               e._$Yr._$fL = p + (f - p) * u, p = _._$gL + (a._$gL - _._$gL) * h, f = l._$gL + ($._$gL - l._$gL) * h, e._$Yr._$gL = p + (f - p) * u, p = _._$B0 + (a._$B0 - _._$B0) * h, f = l._$B0 + ($._$B0 - l._$B0) * h, e._$Yr._$B0 = p + (f - p) * u, p = _._$z0 + (a._$z0 - _._$z0) * h, f = l._$z0 + ($._$z0 - l._$z0) * h, e._$Yr._$z0 = p + (f - p) * u, p = _._$qT + (a._$qT - _._$qT) * h, f = l._$qT + ($._$qT - l._$qT) * h, e._$Yr._$qT = p + (f - p) * u
             } else if (o == 3) {
-              let c = this._$Y0[n[0]]
-              let d = this._$Y0[n[1]]
-              let g = this._$Y0[n[2]]
-              let y = this._$Y0[n[3]]
-              let m = this._$Y0[n[4]]
-              let T = this._$Y0[n[5]]
-              let P = this._$Y0[n[6]]
-              let S = this._$Y0[n[7]]
+              const c = this._$Y0[n[0]]
+              const d = this._$Y0[n[1]]
+              const g = this._$Y0[n[2]]
+              const y = this._$Y0[n[3]]
+              const m = this._$Y0[n[4]]
+              const T = this._$Y0[n[5]]
+              const P = this._$Y0[n[6]]
+              const S = this._$Y0[n[7]]
               var h = s[0]
               var u = s[1]
               var v = s[2]
@@ -3298,26 +3308,26 @@
               var M = P._$fL + (S._$fL - P._$fL) * h
               e._$Yr._$fL = (1 - v) * (p + (f - p) * u) + v * (L + (M - L) * u), p = c._$gL + (d._$gL - c._$gL) * h, f = g._$gL + (y._$gL - g._$gL) * h, L = m._$gL + (T._$gL - m._$gL) * h, M = P._$gL + (S._$gL - P._$gL) * h, e._$Yr._$gL = (1 - v) * (p + (f - p) * u) + v * (L + (M - L) * u), p = c._$B0 + (d._$B0 - c._$B0) * h, f = g._$B0 + (y._$B0 - g._$B0) * h, L = m._$B0 + (T._$B0 - m._$B0) * h, M = P._$B0 + (S._$B0 - P._$B0) * h, e._$Yr._$B0 = (1 - v) * (p + (f - p) * u) + v * (L + (M - L) * u), p = c._$z0 + (d._$z0 - c._$z0) * h, f = g._$z0 + (y._$z0 - g._$z0) * h, L = m._$z0 + (T._$z0 - m._$z0) * h, M = P._$z0 + (S._$z0 - P._$z0) * h, e._$Yr._$z0 = (1 - v) * (p + (f - p) * u) + v * (L + (M - L) * u), p = c._$qT + (d._$qT - c._$qT) * h, f = g._$qT + (y._$qT - g._$qT) * h, L = m._$qT + (T._$qT - m._$qT) * h, M = P._$qT + (S._$qT - P._$qT) * h, e._$Yr._$qT = (1 - v) * (p + (f - p) * u) + v * (L + (M - L) * u)
             } else if (o == 4) {
-              let E = this._$Y0[n[0]]
-              let A = this._$Y0[n[1]]
-              let I = this._$Y0[n[2]]
-              let w = this._$Y0[n[3]]
-              let x = this._$Y0[n[4]]
-              let O = this._$Y0[n[5]]
-              let D = this._$Y0[n[6]]
-              let R = this._$Y0[n[7]]
-              let b = this._$Y0[n[8]]
-              let F = this._$Y0[n[9]]
-              let C = this._$Y0[n[10]]
-              let N = this._$Y0[n[11]]
-              let B = this._$Y0[n[12]]
-              let U = this._$Y0[n[13]]
-              let G = this._$Y0[n[14]]
-              let Y = this._$Y0[n[15]]
+              const E = this._$Y0[n[0]]
+              const A = this._$Y0[n[1]]
+              const I = this._$Y0[n[2]]
+              const w = this._$Y0[n[3]]
+              const x = this._$Y0[n[4]]
+              const O = this._$Y0[n[5]]
+              const D = this._$Y0[n[6]]
+              const R = this._$Y0[n[7]]
+              const b = this._$Y0[n[8]]
+              const F = this._$Y0[n[9]]
+              const C = this._$Y0[n[10]]
+              const N = this._$Y0[n[11]]
+              const B = this._$Y0[n[12]]
+              const U = this._$Y0[n[13]]
+              const G = this._$Y0[n[14]]
+              const Y = this._$Y0[n[15]]
               var h = s[0]
               var u = s[1]
               var v = s[2]
-              let k = s[3]
+              const k = s[3]
               var p = E._$fL + (A._$fL - E._$fL) * h
               var f = I._$fL + (w._$fL - I._$fL) * h
               var L = x._$fL + (O._$fL - x._$fL) * h
@@ -3341,26 +3351,26 @@
           }
         }, z.prototype._$2b = function (t, i) {
           this != i._$GT() && console.log('### assert!! ### ')
-          let e = i
+          const e = i
           if (e._$hS(!0), this._$32()) {
-            let r = this.getTargetBaseDataID()
+            const r = this.getTargetBaseDataID()
             if (e._$8r == I._$ur && (e._$8r = t.getBaseDataIndex(r)), e._$8r < 0) at._$so && _._$li('_$L _$0P _$G :: %s', r), e._$hS(!1)
             else {
-              let o = t.getBaseData(e._$8r)
+              const o = t.getBaseData(e._$8r)
               if (o != null) {
-                let n = t._$q2(e._$8r)
-                let s = z._$Xo
+                const n = t._$q2(e._$8r)
+                const s = z._$Xo
                 s[0] = e._$Yr._$fL, s[1] = e._$Yr._$gL
-                let a = z._$io
+                const a = z._$io
                 a[0] = 0, a[1] = -0.1
                 n._$GT().getType() == I._$c2 ? a[1] = -10 : a[1] = -0.1
-                let h = z._$0o
+                const h = z._$0o
                 this._$Jr(t, o, n, s, a, h)
-                let l = Lt._$92(a, h)
+                const l = Lt._$92(a, h)
                 o._$nb(t, n, s, s, 1, 0, 2), e._$Wr._$fL = s[0], e._$Wr._$gL = s[1], e._$Wr._$B0 = e._$Yr._$B0, e._$Wr._$z0 = e._$Yr._$z0, e._$Wr._$qT = e._$Yr._$qT - l * Lt._$NS
-                let $ = n.getTotalScale()
+                const $ = n.getTotalScale()
                 e.setTotalScale_notForClient($ * e._$Wr._$B0)
-                let u = n.getTotalOpacity()
+                const u = n.getTotalOpacity()
                 e.setTotalOpacity(u * e.getInterpolatedOpacity()), e._$Wr.reflectX = e._$Yr.reflectX, e._$Wr.reflectY = e._$Yr.reflectY, e._$hS(n._$yo())
               } else e._$hS(!1)
             }
@@ -3370,7 +3380,7 @@
           for (var _, a, h = i, l = h._$Wr != null ? h._$Wr : h._$Yr, $ = Math.sin(Lt._$bS * l._$qT), u = Math.cos(Lt._$bS * l._$qT), p = h.getTotalScale(), f = l.reflectX ? -1 : 1, c = l.reflectY ? -1 : 1, d = u * p * f, g = -$ * p * c, y = $ * p * f, m = u * p * c, T = l._$fL, P = l._$gL, S = o * s, v = n; v < S; v += s) _ = e[v], a = e[v + 1], r[v] = d * _ + g * a + T, r[v + 1] = y * _ + m * a + P
         }, z.prototype._$Jr = function (t, i, e, r, o, n) {
           i != e._$GT() && console.log('### assert!! ### ')
-          let s = z._$Lo
+          const s = z._$Lo
           z._$Lo[0] = r[0], z._$Lo[1] = r[1], i._$nb(t, e, s, s, 1, 0, 2)
           for (let _ = z._$To, a = z._$Po, h = 1, l = 0; l < 10; l++) {
             if (a[0] = r[0] + h * o[0], a[1] = r[1] + h * o[1], i._$nb(t, e, a, _, 1, 0, 2), _[0] -= s[0], _[1] -= s[1], _[0] != 0 || _[1] != 0) return n[0] = _[0], void (n[1] = _[1])
@@ -3380,7 +3390,7 @@
           at._$so && console.log('_$L0 to transform _$SP\n')
         }, H.prototype = new _t(), W.prototype = new M(), W._$ur = -2, W._$ES = 500, W._$wb = 2, W._$8S = 3, W._$os = 4, W._$52 = W._$ES, W._$R2 = W._$ES, W._$Sb = function (t) {
           for (let i = t.length - 1; i >= 0; --i) {
-            let e = t[i]
+            const e = t[i]
             e < W._$52 ? W._$52 = e : e > W._$R2 && (W._$R2 = e)
           }
         }, W._$or = function () {
@@ -3418,18 +3428,18 @@
         }, j.prototype._$kr = function (t) {
           t._$Zo(this._$3S), t._$xo(this._$aS), this._$3S = null, this._$aS = null
         }, q.prototype = new i(), q.loadModel = function (t) {
-          let e = new q()
+          const e = new q()
           return i._$62(e, t), e
         }, q.loadModel = function (t) {
-          let e = new q()
+          const e = new q()
           return i._$62(e, t), e
         }, q._$to = function () {
           return new q()
         }, q._$er = function (t) {
-          let i = new _$5('../_$_r/_$t0/_$Ri/_$_P._$d')
+          const i = new _$5('../_$_r/_$t0/_$Ri/_$_P._$d')
           if (i.exists() == 0) throw new _$ls('_$t0 _$_ _$6 _$Ui :: ' + i._$PL())
           for (var e = ['../_$_r/_$t0/_$Ri/_$_P.512/_$CP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$vP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$EP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$pP._$1'], r = q.loadModel(i._$3b()), o = 0; o < e.length; o++) {
-            let n = new _$5(e[o])
+            const n = new _$5(e[o])
             if (n.exists() == 0) throw new _$ls('_$t0 _$_ _$6 _$Ui :: ' + n._$PL())
             r.setTexture(o, _$nL._$_o(t, n._$3b()))
           }
@@ -3453,17 +3463,17 @@
         }, q.prototype.getDrawParam = function () {
           return this._$zo
         }, J.prototype = new s(), J._$cs = 'VISIBLE:', J._$ar = 'LAYOUT:', J.MTN_PREFIX_FADEIN = 'FADEIN:', J.MTN_PREFIX_FADEOUT = 'FADEOUT:', J._$Co = 0, J._$1T = 1, J.loadMotion = function (t) {
-          let i = k._$C(t)
+          const i = k._$C(t)
           return J.loadMotion(i)
         }, J.loadMotion = function (t) {
           t instanceof ArrayBuffer && (t = new DataView(t))
-          let i = new J()
-          let e = [0]
-          let r = t.byteLength
+          const i = new J()
+          const e = [0]
+          const r = t.byteLength
           i._$yT = 0
           for (let o = 0; o < r; ++o) {
             let n = Q(t, o)
-            let s = n.charCodeAt(0)
+            const s = n.charCodeAt(0)
             if (n != '\n' && n != '\r') {
               if (n != '#') {
                 if (n != '$') {
@@ -3475,16 +3485,16 @@
                       }
                     }
                     if (a >= 0) {
-                      let h = new B()
+                      const h = new B()
                       O.startsWith(t, _, J._$cs) ? (h._$RP = B._$hs, h._$4P = O.createString(t, _, a - _)) : O.startsWith(t, _, J._$ar) ? (h._$4P = O.createString(t, _ + 7, a - _ - 7), O.startsWith(t, _ + 7, 'ANCHOR_X') ? h._$RP = B._$xs : O.startsWith(t, _ + 7, 'ANCHOR_Y') ? h._$RP = B._$us : O.startsWith(t, _ + 7, 'SCALE_X') ? h._$RP = B._$qs : O.startsWith(t, _ + 7, 'SCALE_Y') ? h._$RP = B._$Ys : O.startsWith(t, _ + 7, 'X') ? h._$RP = B._$ws : O.startsWith(t, _ + 7, 'Y') && (h._$RP = B._$Ns)) : (h._$RP = B._$Fr, h._$4P = O.createString(t, _, a - _)), i.motions.push(h)
                       let l = 0
-                      let $ = []
+                      const $ = []
                       for (o = a + 1; o < r && ((n = Q(t, o)) != '\r' && n != '\n'); ++o) {
                         if (n != ',' && n != ' ' && n != '\t') {
                           var u = O._$LS(t, r, o, e)
                           if (e[0] > 0) {
                             $.push(u), l++
-                            let p = e[0]
+                            const p = e[0]
                             if (p < o) {
                               console.log('_$n0 _$hi . @Live2DMotion loadMotion()\n')
                               break
@@ -3524,31 +3534,31 @@
           return this._$rr
         }, J.prototype.dump = function () {
           for (let t = 0; t < this.motions.length; t++) {
-            let i = this.motions[t]
+            const i = this.motions[t]
             console.log('_$wL[%s] [%d]. ', i._$4P, i._$I0.length)
             for (let e = 0; e < i._$I0.length && e < 10; e++) console.log('%5.2f ,', i._$I0[e])
             console.log('\n')
           }
         }, J.prototype.updateParamExe = function (t, i, e, r) {
           for (var o = i - r._$z2, n = o * this._$D0 / 1e3, s = 0 | n, _ = n - s, a = 0; a < this.motions.length; a++) {
-            let h = this.motions[a]
-            let l = h._$I0.length
-            let $ = h._$4P
+            const h = this.motions[a]
+            const l = h._$I0.length
+            const $ = h._$4P
             if (h._$RP == B._$hs) {
-              let u = h._$I0[s >= l ? l - 1 : s]
+              const u = h._$I0[s >= l ? l - 1 : s]
               t.setParamFloat($, u)
             } else if (B._$ws <= h._$RP && h._$RP <= B._$Ys);
             else {
-              var p; let f = t.getParamIndex($)
-              let c = t.getModelContext()
-              let d = c.getParamMax(f)
-              let g = c.getParamMin(f)
-              let y = 0.4 * (d - g)
-              let m = c.getParamFloat(f)
-              let T = h._$I0[s >= l ? l - 1 : s]
-              let P = h._$I0[s + 1 >= l ? l - 1 : s + 1]
+              var p; const f = t.getParamIndex($)
+              const c = t.getModelContext()
+              const d = c.getParamMax(f)
+              const g = c.getParamMin(f)
+              const y = 0.4 * (d - g)
+              const m = c.getParamFloat(f)
+              const T = h._$I0[s >= l ? l - 1 : s]
+              const P = h._$I0[s + 1 >= l ? l - 1 : s + 1]
               p = T < P && P - T > y || T > P && T - P > y ? T : T + (P - T) * _
-              let S = m + (p - m) * e
+              const S = m + (p - m) * e
               t.setParamFloat($, S)
             }
           }
@@ -3569,59 +3579,59 @@
           this.size = 0
         }, N.prototype.add = function (t) {
           if (this._$P.length <= this.size) {
-            let i = new Float32Array(2 * this.size)
+            const i = new Float32Array(2 * this.size)
             w._$jT(this._$P, 0, i, 0, this.size), this._$P = i
           }
           this._$P[this.size++] = t
         }, N.prototype._$BL = function () {
-          let t = new Float32Array(this.size)
+          const t = new Float32Array(this.size)
           return w._$jT(this._$P, 0, t, 0, this.size), t
         }, B._$Fr = 0, B._$hs = 1, B._$ws = 100, B._$Ns = 101, B._$xs = 102, B._$us = 103, B._$qs = 104, B._$Ys = 105, Z.prototype = new I(), Z._$gT = new Array(), Z.prototype._$zP = function () {
           this._$GS = new D(), this._$GS._$zP()
         }, Z.prototype._$F0 = function (t) {
           I.prototype._$F0.call(this, t), this._$A = t._$6L(), this._$o = t._$6L(), this._$GS = t._$nP(), this._$Eo = t._$nP(), I.prototype.readV2_opacity.call(this, t)
         }, Z.prototype.init = function (t) {
-          let i = new K(this)
-          let e = (this._$o + 1) * (this._$A + 1)
+          const i = new K(this)
+          const e = (this._$o + 1) * (this._$A + 1)
           return i._$Cr != null && (i._$Cr = null), i._$Cr = new Float32Array(2 * e), i._$hr != null && (i._$hr = null), this._$32() ? i._$hr = new Float32Array(2 * e) : i._$hr = null, i
         }, Z.prototype._$Nr = function (t, i) {
-          let e = i
+          const e = i
           if (this._$GS._$Ur(t)) {
-            let r = this._$VT()
-            let o = Z._$gT
+            const r = this._$VT()
+            const o = Z._$gT
             o[0] = !1, v._$Vr(t, this._$GS, o, r, this._$Eo, e._$Cr, 0, 2), i._$Ib(o[0]), this.interpolateOpacity(t, this._$GS, i, o)
           }
         }, Z.prototype._$2b = function (t, i) {
-          let e = i
+          const e = i
           if (e._$hS(!0), this._$32()) {
-            let r = this.getTargetBaseDataID()
+            const r = this.getTargetBaseDataID()
             if (e._$8r == I._$ur && (e._$8r = t.getBaseDataIndex(r)), e._$8r < 0) at._$so && _._$li('_$L _$0P _$G :: %s', r), e._$hS(!1)
             else {
-              let o = t.getBaseData(e._$8r)
-              let n = t._$q2(e._$8r)
+              const o = t.getBaseData(e._$8r)
+              const n = t._$q2(e._$8r)
               if (o != null && n._$yo()) {
-                let s = n.getTotalScale()
+                const s = n.getTotalScale()
                 e.setTotalScale_notForClient(s)
-                let a = n.getTotalOpacity()
+                const a = n.getTotalOpacity()
                 e.setTotalOpacity(a * e.getInterpolatedOpacity()), o._$nb(t, n, e._$Cr, e._$hr, this._$VT(), 0, 2), e._$hS(!0)
               } else e._$hS(!1)
             }
           } else e.setTotalOpacity(e.getInterpolatedOpacity())
         }, Z.prototype._$nb = function (t, i, e, r, o, n, s) {
-          let _ = i
-          let a = _._$hr != null ? _._$hr : _._$Cr
+          const _ = i
+          const a = _._$hr != null ? _._$hr : _._$Cr
           Z.transformPoints_sdk2(e, r, o, n, s, a, this._$o, this._$A)
         }, Z.transformPoints_sdk2 = function (i, e, r, o, n, s, _, a) {
           for (var h, l, $, u = r * n, p = 0, f = 0, c = 0, d = 0, g = 0, y = 0, m = !1, T = o; T < u; T += n) {
             var P, S, v, L
             if (v = i[T], L = i[T + 1], P = v * _, S = L * a, P < 0 || S < 0 || _ <= P || a <= S) {
-              let M = _ + 1
+              const M = _ + 1
               if (!m) {
                 m = !0, p = 0.25 * (s[2 * (0 + 0 * M)] + s[2 * (_ + 0 * M)] + s[2 * (0 + a * M)] + s[2 * (_ + a * M)]), f = 0.25 * (s[2 * (0 + 0 * M) + 1] + s[2 * (_ + 0 * M) + 1] + s[2 * (0 + a * M) + 1] + s[2 * (_ + a * M) + 1])
-                let E = s[2 * (_ + a * M)] - s[2 * (0 + 0 * M)]
-                let A = s[2 * (_ + a * M) + 1] - s[2 * (0 + 0 * M) + 1]
-                let I = s[2 * (_ + 0 * M)] - s[2 * (0 + a * M)]
-                let w = s[2 * (_ + 0 * M) + 1] - s[2 * (0 + a * M) + 1]
+                const E = s[2 * (_ + a * M)] - s[2 * (0 + 0 * M)]
+                const A = s[2 * (_ + a * M) + 1] - s[2 * (0 + 0 * M) + 1]
+                const I = s[2 * (_ + 0 * M)] - s[2 * (0 + a * M)]
+                const w = s[2 * (_ + 0 * M) + 1] - s[2 * (0 + a * M) + 1]
                 c = 0.5 * (E + I), d = 0.5 * (A + w), g = 0.5 * (E - I), y = 0.5 * (A - w), p -= 0.5 * (c + g), f -= 0.5 * (d + y)
               }
               if (v > -2 && v < 3 && L > -2 && L < 3) {
@@ -3756,7 +3766,7 @@
         }, tt.prototype._$F0 = function (t) {
           this._$g0 = t._$8L(), this.visible = t._$8L(), this._$NL = t._$nP(), this._$3S = t._$nP(), this._$aS = t._$nP()
         }, tt.prototype.init = function (t) {
-          let i = new it(this)
+          const i = new it(this)
           return i.setPartsOpacity(this.isVisible() ? 1 : 0), i
         }, tt.prototype._$6o = function (t) {
           if (this._$3S == null) throw new Error('_$3S _$6 _$Wo@_$6o')
@@ -3808,7 +3818,7 @@
           this.viewport = new Array(t, i, e, r)
         }, nt.prototype._$bL = function () {
           this.context.save()
-          let t = this.viewport
+          const t = this.viewport
           t != null && (this.context.beginPath(), this.context._$Li(t[0], t[1], t[2], t[3]), this.context.clip())
         }, nt.prototype._$ei = function () {
           this.context.restore()
@@ -3817,9 +3827,9 @@
             o != this._$Qo && (this._$Qo = o, this.context.globalAlpha = o)
             for (let h = i.length, l = t.width, $ = t.height, u = this.context, p = this._$xP, f = this._$uP, c = this._$6r, d = this._$3r, g = nt.tr, y = nt._$Ti, m = nt._$Pi, T = nt._$B, P = 0; P < h; P += 3) {
               u.save()
-              let S = i[P]
-              let v = i[P + 1]
-              let L = i[P + 2]
+              const S = i[P]
+              const v = i[P + 1]
+              const L = i[P + 2]
               let M = p + c * e[2 * S]
               let E = f + d * e[2 * S + 1]
               let A = p + c * e[2 * v]
@@ -3827,38 +3837,38 @@
               let w = p + c * e[2 * L]
               let x = f + d * e[2 * L + 1]
               s && (s._$PS(M, E, T), M = T[0], E = T[1], s._$PS(A, I, T), A = T[0], I = T[1], s._$PS(w, x, T), w = T[0], x = T[1])
-              let O = l * r[2 * S]
-              let D = $ - $ * r[2 * S + 1]
-              let R = l * r[2 * v]
-              let b = $ - $ * r[2 * v + 1]
-              let F = l * r[2 * L]
-              let C = $ - $ * r[2 * L + 1]
-              let N = Math.atan2(b - D, R - O)
-              let B = Math.atan2(I - E, A - M)
-              let U = A - M
-              let G = I - E
-              let Y = Math.sqrt(U * U + G * G)
-              let k = R - O
-              let V = b - D
-              let X = Math.sqrt(k * k + V * V)
-              let z = Y / X
+              const O = l * r[2 * S]
+              const D = $ - $ * r[2 * S + 1]
+              const R = l * r[2 * v]
+              const b = $ - $ * r[2 * v + 1]
+              const F = l * r[2 * L]
+              const C = $ - $ * r[2 * L + 1]
+              const N = Math.atan2(b - D, R - O)
+              const B = Math.atan2(I - E, A - M)
+              const U = A - M
+              const G = I - E
+              const Y = Math.sqrt(U * U + G * G)
+              const k = R - O
+              const V = b - D
+              const X = Math.sqrt(k * k + V * V)
+              const z = Y / X
               It._$ni(F, C, O, D, R - O, b - D, -(b - D), R - O, y), It._$ni(w, x, M, E, A - M, I - E, -(I - E), A - M, m)
-              let H = (m[0] - y[0]) / y[1]
+              const H = (m[0] - y[0]) / y[1]
               let W = Math.min(O, R, F)
               let j = Math.max(O, R, F)
               let q = Math.min(D, b, C)
               let J = Math.max(D, b, C)
-              let Q = Math.floor(W)
-              let Z = Math.floor(q)
-              let K = Math.ceil(j)
-              let tt = Math.ceil(J)
+              const Q = Math.floor(W)
+              const Z = Math.floor(q)
+              const K = Math.ceil(j)
+              const tt = Math.ceil(J)
               g.identity(), g.translate(M, E), g.rotate(B), g.scale(1, m[1] / y[1]), g.shear(H, 0), g.scale(z, z), g.rotate(-N), g.translate(-O, -D), g.setContext(u)
               if (n || (n = 1.2), at.IGNORE_EXPAND && (n = 0), at.USE_CACHED_POLYGON_IMAGE) {
-                let it = a._$e0
+                const it = a._$e0
                 if (it.gl_cacheImage = it.gl_cacheImage || {}, !it.gl_cacheImage[P]) {
-                  let et = nt.createCanvas(K - Q, tt - Z)
+                  const et = nt.createCanvas(K - Q, tt - Z)
                   at.DEBUG_DATA.LDGL_CANVAS_MB = at.DEBUG_DATA.LDGL_CANVAS_MB || 0, at.DEBUG_DATA.LDGL_CANVAS_MB += (K - Q) * (tt - Z) * 4
-                  let rt = et.getContext('2d')
+                  const rt = et.getContext('2d')
                   rt.translate(-Q, -Z), nt.clip(rt, g, n, Y, O, D, R, b, F, C, M, E, A, I, w, x), rt.drawImage(t, 0, 0), it.gl_cacheImage[P] = {
                     cacheCanvas: et,
                     cacheContext: rt
@@ -3874,41 +3884,41 @@
         }, nt.clip = function (t, i, e, r, o, n, s, _, a, h, l, $, u, p, f, c) {
           e > 0.02 ? nt.expandClip(t, i, e, r, l, $, u, p, f, c) : nt.clipWithTransform(t, null, o, n, s, _, a, h)
         }, nt.expandClip = function (t, i, e, r, o, n, s, _, a, h) {
-          let l = s - o
-          let $ = _ - n
-          let u = a - o
-          let p = h - n
-          let f = l * p - $ * u > 0 ? e : -e
-          let c = -$
-          let d = l
-          let g = a - s
-          let y = h - _
-          let m = -y
-          let T = g
-          let P = Math.sqrt(g * g + y * y)
-          let S = -p
-          let v = u
-          let L = Math.sqrt(u * u + p * p)
-          let M = o - f * c / r
-          let E = n - f * d / r
-          let A = s - f * c / r
-          let I = _ - f * d / r
-          let w = s - f * m / P
-          let x = _ - f * T / P
-          let O = a - f * m / P
-          let D = h - f * T / P
-          let R = o + f * S / L
-          let b = n + f * v / L
-          let F = a + f * S / L
-          let C = h + f * v / L
-          let N = nt._$50
+          const l = s - o
+          const $ = _ - n
+          const u = a - o
+          const p = h - n
+          const f = l * p - $ * u > 0 ? e : -e
+          const c = -$
+          const d = l
+          const g = a - s
+          const y = h - _
+          const m = -y
+          const T = g
+          const P = Math.sqrt(g * g + y * y)
+          const S = -p
+          const v = u
+          const L = Math.sqrt(u * u + p * p)
+          const M = o - f * c / r
+          const E = n - f * d / r
+          const A = s - f * c / r
+          const I = _ - f * d / r
+          const w = s - f * m / P
+          const x = _ - f * T / P
+          const O = a - f * m / P
+          const D = h - f * T / P
+          const R = o + f * S / L
+          const b = n + f * v / L
+          const F = a + f * S / L
+          const C = h + f * v / L
+          const N = nt._$50
           return i._$P2(N) != null && (nt.clipWithTransform(t, N, M, E, A, I, w, x, O, D, F, C, R, b), !0)
         }, nt.clipWithTransform = function (t, i, e, r, o, n, s, a) {
           if (arguments.length < 7) return void _._$li('err : @LDGL.clip()')
           if (!(arguments[1] instanceof gt)) return void _._$li('err : a[0] is _$6 LDTransform @LDGL.clip()')
-          let h = nt._$B
-          let l = i
-          let $ = arguments
+          const h = nt._$B
+          const l = i
+          const $ = arguments
           if (t.beginPath(), l) {
             l._$PS($[2], $[3], h), t.moveTo(h[0], h[1])
             for (var u = 4; u < $.length; u += 2) l._$PS($[u], $[u + 1], h), t.lineTo(h[0], h[1])
@@ -3918,7 +3928,7 @@
           }
           t.clip()
         }, nt.createCanvas = function (t, i) {
-          let e = document.createElement('canvas')
+          const e = document.createElement('canvas')
           return e.setAttribute('width', t), e.setAttribute('height', i), e || _._$li('err : ' + e), e
         }, nt.dumpValues = function () {
           for (var t = '', i = 0; i < arguments.length; i++) t += '[' + i + ']= ' + arguments[i].toFixed(3) + ' , '
@@ -4005,7 +4015,7 @@
             }
           }
           arguments.length < 2 && (i = !0), i && console.log('profile : ' + t.PROFILE_NAME)
-          for (let e in t) at[e] = t[e], i && console.log('  [' + e + '] = ' + t[e])
+          for (const e in t) at[e] = t[e], i && console.log('  [' + e + '] = ' + t[e])
         }, at.init = function () {
           if (at._$6b) {
             console.log('Live2D %s', at._$2s), at._$6b = !1
@@ -4018,12 +4028,12 @@
         }, at._$sT = function (t) {
           at._$cT = t
         }, at.getError = function () {
-          let t = at._$cT
+          const t = at._$cT
           return at._$cT = 0, t
         }, at.dispose = function () {
           at.glContext = [], at.frameBuffers = [], at.fTexture = []
         }, at.setGL = function (t, i) {
-          let e = i || 0
+          const e = i || 0
           at.glContext[e] = t
         }, at.getGL = function (t) {
           return at.glContext[t]
@@ -4050,8 +4060,8 @@
         }, $t.prototype.getType = function () {
           return W._$wb
         }, $t.prototype._$B2 = function (t, i, e) {
-          let r = i
-          let o = r._$hr != null ? r._$hr : r._$Cr
+          const r = i
+          const o = r._$hr != null ? r._$hr : r._$Cr
           switch (U._$do) {
             default:
             case U._$Ms:
@@ -4063,22 +4073,22 @@
           this._$GS = new D(), this._$GS._$zP()
         }, $t.prototype._$F0 = function (t) {
           W.prototype._$F0.call(this, t), this._$LP = t._$6L(), this._$d0 = t._$6L(), this._$Yo = t._$6L()
-          let i = t._$nP()
+          const i = t._$nP()
           this._$BP = new Int16Array(3 * this._$Yo)
           for (let e = 3 * this._$Yo - 1; e >= 0; --e) this._$BP[e] = i[e]
           if (this._$Eo = t._$nP(), this._$Qi = t._$nP(), t.getFormatVersion() >= G._$s7) {
             if (this._$JP = t._$6L(), this._$JP != 0) {
               if ((1 & this._$JP) != 0) {
-                let r = t._$6L()
+                const r = t._$6L()
                 this._$5P == null && (this._$5P = new Object()), this._$5P._$Hb = parseInt(r)
               }
               (this._$JP & $t._$Os) != 0 ? this._$6s = (this._$JP & $t._$Os) >> 1 : this._$6s = $t._$ms, (32 & this._$JP) != 0 && (this.culling = !1)
             }
           } else this._$JP = 0
         }, $t.prototype.init = function (t) {
-          let i = new ut(this)
-          let e = this._$d0 * U._$No
-          let r = this._$32()
+          const i = new ut(this)
+          const e = this._$d0 * U._$No
+          const r = this._$32()
           switch (i._$Cr != null && (i._$Cr = null), i._$Cr = new Float32Array(e), i._$hr != null && (i._$hr = null), i._$hr = r ? new Float32Array(e) : null, U._$do) {
             default:
             case U._$Ms:
@@ -4092,17 +4102,17 @@
             case U._$Qs:
               for (var o = this._$d0 - 1; o >= 0; --o) {
                 var n = o << 1
-                let s = o * U._$No
-                let _ = this._$Qi[n]
-                let a = this._$Qi[n + 1]
+                const s = o * U._$No
+                const _ = this._$Qi[n]
+                const a = this._$Qi[n + 1]
                 i._$Cr[s] = _, i._$Cr[s + 1] = a, i._$Cr[s + 4] = 0, r && (i._$hr[s] = _, i._$hr[s + 1] = a, i._$hr[s + 4] = 0)
               }
           }
           return i
         }, $t.prototype._$Nr = function (t, i) {
-          let e = i
+          const e = i
           if (this != e._$GT() && console.log('### assert!! ### '), this._$GS._$Ur(t) && (W.prototype._$Nr.call(this, t, e), !e._$IS[0])) {
-            let r = $t._$gT
+            const r = $t._$gT
             r[0] = !1, v._$Vr(t, this._$GS, r, this._$d0, this._$Eo, e._$Cr, U._$i2, U._$No)
           }
         }, $t.prototype._$2b = function (t, i) {
@@ -4110,13 +4120,13 @@
             this != i._$GT() && console.log('### assert!! ### ')
             let e = !1
             i._$IS[0] && (e = !0)
-            let r = i
+            const r = i
             if (!e && (W.prototype._$2b.call(this, t), this._$32())) {
-              let o = this.getTargetBaseDataID()
+              const o = this.getTargetBaseDataID()
               if (r._$8r == W._$ur && (r._$8r = t.getBaseDataIndex(o)), r._$8r < 0) at._$so && _._$li('_$L _$0P _$G :: %s', o)
               else {
-                let n = t.getBaseData(r._$8r)
-                let s = t._$q2(r._$8r)
+                const n = t.getBaseData(r._$8r)
+                const s = t._$q2(r._$8r)
                 n == null || s._$x2() ? r._$AT = !1 : (n._$nb(t, s, r._$Cr, r._$hr, this._$d0, U._$i2, U._$No), r._$AT = !0), r.baseOpacity = s.getTotalOpacity()
               }
             }
@@ -4125,11 +4135,11 @@
           }
         }, $t.prototype.draw = function (t, i, e) {
           if (this != e._$GT() && console.log('### assert!! ### '), !e._$IS[0]) {
-            let r = e
+            const r = e
             let o = this._$LP
             o < 0 && (o = 1)
-            let n = this.getOpacity(i, r) * e._$VS * e.baseOpacity
-            let s = r._$hr != null ? r._$hr : r._$Cr
+            const n = this.getOpacity(i, r) * e._$VS * e.baseOpacity
+            const s = r._$hr != null ? r._$hr : r._$Cr
             t.setClipBufPre_clipContextForDraw(e.clipBufPre_clipContext), t._$WP(this.culling), t._$Uo(o, 3 * this._$Yo, this._$BP, s, this._$Qi, n, this._$6s, r)
           }
         }, $t.prototype.dump = function () {
@@ -4152,19 +4162,19 @@
         }, pt.prototype._$HT = function (t, i) {
           this.x = t, this.y = i
         }, ft.prototype = new i(), ft.loadModel = function (t) {
-          let e = new ft()
+          const e = new ft()
           return i._$62(e, t), e
         }, ft.loadModel = function (t, e) {
-          let r = e || 0
-          let o = new ft(r)
+          const r = e || 0
+          const o = new ft(r)
           return i._$62(o, t), o
         }, ft._$to = function () {
           return new ft()
         }, ft._$er = function (t) {
-          let i = new _$5('../_$_r/_$t0/_$Ri/_$_P._$d')
+          const i = new _$5('../_$_r/_$t0/_$Ri/_$_P._$d')
           if (i.exists() == 0) throw new _$ls('_$t0 _$_ _$6 _$Ui :: ' + i._$PL())
           for (var e = ['../_$_r/_$t0/_$Ri/_$_P.512/_$CP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$vP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$EP._$1', '../_$_r/_$t0/_$Ri/_$_P.512/_$pP._$1'], r = ft.loadModel(i._$3b()), o = 0; o < e.length; o++) {
-            let n = new _$5(e[o])
+            const n = new _$5(e[o])
             if (n.exists() == 0) throw new _$ls('_$t0 _$_ _$6 _$Ui :: ' + n._$PL())
             r.setTexture(o, _$nL._$_o(t, n._$3b()))
           }
@@ -4205,14 +4215,14 @@
           for (var e = null, r = this.motions.length, o = 0; o < r; ++o) (e = this.motions[o]) != null && (e._$qS(e._$w0.getFadeOut()), this._$eb && _._$Ji('MotionQueueManager[size:%2d]->startMotion() / start _$K _$3 (m%d)\n', r, e._$sr))
           if (t == null) return -1
           e = new dt(), e._$w0 = t, this.motions.push(e)
-          let n = e._$sr
+          const n = e._$sr
           return this._$eb && _._$Ji('MotionQueueManager[size:%2d]->startMotion() / new _$w0 (m%d)\n', r, n), n
         }, ct.prototype.updateParam = function (t) {
           try {
             for (var i = !1, e = 0; e < this.motions.length; e++) {
-              let r = this.motions[e]
+              const r = this.motions[e]
               if (r != null) {
-                let o = r._$w0
+                const o = r._$w0
                 o != null ? (o.updateParam(t, r), i = !0, r.isFinished() && (this._$eb && _._$Ji('MotionQueueManager[size:%2d]->updateParam() / _$T0 _$w0 (m%d)\n', this.motions.length - 1, r._$sr), this.motions.splice(e, 1), e--)) : (this.motions = this.motions.splice(e, 1), e--)
               } else this.motions.splice(e, 1), e--
             }
@@ -4239,7 +4249,7 @@
           return !0
         }, ct.prototype.stopAllMotions = function () {
           for (let t = 0; t < this.motions.length; t++) {
-            let i = this.motions[t]
+            const i = this.motions[t]
             if (i != null) {
               i._$w0
               this.motions.splice(t, 1), t--
@@ -4250,83 +4260,83 @@
         }, ct.prototype._$e = function () {
           console.log('-- _$R --\n')
           for (let t = 0; t < this.motions.length; t++) {
-            let i = this.motions[t]
-            let e = i._$w0
+            const i = this.motions[t]
+            const e = i._$w0
             console.log('MotionQueueEnt[%d] :: %s\n', this.motions.length, e.toString())
           }
         }, dt._$Gs = 0, dt.prototype.isFinished = function () {
           return this._$9L
         }, dt.prototype._$qS = function (t) {
-          let i = w.getUserTimeMSec()
-          let e = i + t;
+          const i = w.getUserTimeMSec()
+          const e = i + t;
           (this._$Do < 0 || e < this._$Do) && (this._$Do = e)
         }, dt.prototype._$Bs = function () {
           return this._$sr
         }, gt.prototype.setContext = function (t) {
-          let i = this.m
+          const i = this.m
           t.transform(i[0], i[1], i[3], i[4], i[6], i[7])
         }, gt.prototype.toString = function () {
           for (var t = 'LDTransform { ', i = 0; i < 9; i++) t += this.m[i].toFixed(2) + ' ,'
           return t += ' }'
         }, gt.prototype.identity = function () {
-          let t = this.m
+          const t = this.m
           t[0] = t[4] = t[8] = 1, t[1] = t[2] = t[3] = t[5] = t[6] = t[7] = 0
         }, gt.prototype._$PS = function (t, i, e) {
           e == null && (e = new Array(0, 0))
-          let r = this.m
+          const r = this.m
           return e[0] = r[0] * t + r[3] * i + r[6], e[1] = r[1] * t + r[4] * i + r[7], e
         }, gt.prototype._$P2 = function (t) {
           t || (t = new gt())
-          let i = this.m
-          let e = i[0]
-          let r = i[1]
-          let o = i[2]
-          let n = i[3]
-          let s = i[4]
-          let _ = i[5]
-          let a = i[6]
-          let h = i[7]
-          let l = i[8]
-          let $ = e * s * l + r * _ * a + o * n * h - e * _ * h - o * s * a - r * n * l
+          const i = this.m
+          const e = i[0]
+          const r = i[1]
+          const o = i[2]
+          const n = i[3]
+          const s = i[4]
+          const _ = i[5]
+          const a = i[6]
+          const h = i[7]
+          const l = i[8]
+          const $ = e * s * l + r * _ * a + o * n * h - e * _ * h - o * s * a - r * n * l
           if ($ == 0) return null
-          let u = 1 / $
+          const u = 1 / $
           return t.m[0] = u * (s * l - h * _), t.m[1] = u * (h * o - r * l), t.m[2] = u * (r * _ - s * o), t.m[3] = u * (a * _ - n * l), t.m[4] = u * (e * l - a * o), t.m[5] = u * (n * o - e * _), t.m[6] = u * (n * h - a * s), t.m[7] = u * (a * r - e * h), t.m[8] = u * (e * s - n * r), t
         }, gt.prototype.transform = function (t, i, e) {
           e == null && (e = new Array(0, 0))
-          let r = this.m
+          const r = this.m
           return e[0] = r[0] * t + r[3] * i + r[6], e[1] = r[1] * t + r[4] * i + r[7], e
         }, gt.prototype.translate = function (t, i) {
-          let e = this.m
+          const e = this.m
           e[6] = e[0] * t + e[3] * i + e[6], e[7] = e[1] * t + e[4] * i + e[7], e[8] = e[2] * t + e[5] * i + e[8]
         }, gt.prototype.scale = function (t, i) {
-          let e = this.m
+          const e = this.m
           e[0] *= t, e[1] *= t, e[2] *= t, e[3] *= i, e[4] *= i, e[5] *= i
         }, gt.prototype.shear = function (t, i) {
-          let e = this.m
-          let r = e[0] + e[3] * i
-          let o = e[1] + e[4] * i
-          let n = e[2] + e[5] * i
+          const e = this.m
+          const r = e[0] + e[3] * i
+          const o = e[1] + e[4] * i
+          const n = e[2] + e[5] * i
           e[3] = e[0] * t + e[3], e[4] = e[1] * t + e[4], e[5] = e[2] * t + e[5], e[0] = r, e[1] = o, e[2] = n
         }, gt.prototype.rotate = function (t) {
-          let i = this.m
-          let e = Math.cos(t)
-          let r = Math.sin(t)
-          let o = i[0] * e + i[3] * r
-          let n = i[1] * e + i[4] * r
-          let s = i[2] * e + i[5] * r
+          const i = this.m
+          const e = Math.cos(t)
+          const r = Math.sin(t)
+          const o = i[0] * e + i[3] * r
+          const n = i[1] * e + i[4] * r
+          const s = i[2] * e + i[5] * r
           i[3] = -i[0] * r + i[3] * e, i[4] = -i[1] * r + i[4] * e, i[5] = -i[2] * r + i[5] * e, i[0] = o, i[1] = n, i[2] = s
         }, gt.prototype.concatenate = function (t) {
-          let i = this.m
-          let e = t.m
-          let r = i[0] * e[0] + i[3] * e[1] + i[6] * e[2]
-          let o = i[1] * e[0] + i[4] * e[1] + i[7] * e[2]
-          let n = i[2] * e[0] + i[5] * e[1] + i[8] * e[2]
-          let s = i[0] * e[3] + i[3] * e[4] + i[6] * e[5]
-          let _ = i[1] * e[3] + i[4] * e[4] + i[7] * e[5]
-          let a = i[2] * e[3] + i[5] * e[4] + i[8] * e[5]
-          let h = i[0] * e[6] + i[3] * e[7] + i[6] * e[8]
-          let l = i[1] * e[6] + i[4] * e[7] + i[7] * e[8]
-          let $ = i[2] * e[6] + i[5] * e[7] + i[8] * e[8]
+          const i = this.m
+          const e = t.m
+          const r = i[0] * e[0] + i[3] * e[1] + i[6] * e[2]
+          const o = i[1] * e[0] + i[4] * e[1] + i[7] * e[2]
+          const n = i[2] * e[0] + i[5] * e[1] + i[8] * e[2]
+          const s = i[0] * e[3] + i[3] * e[4] + i[6] * e[5]
+          const _ = i[1] * e[3] + i[4] * e[4] + i[7] * e[5]
+          const a = i[2] * e[3] + i[5] * e[4] + i[8] * e[5]
+          const h = i[0] * e[6] + i[3] * e[7] + i[6] * e[8]
+          const l = i[1] * e[6] + i[4] * e[7] + i[7] * e[8]
+          const $ = i[2] * e[6] + i[5] * e[7] + i[8] * e[8]
           m[0] = r, m[1] = o, m[2] = n, m[3] = s, m[4] = _, m[5] = a, m[6] = h, m[7] = l, m[8] = $
         }, yt.prototype = new et(), yt._$eT = null, yt._$tP = new Object(), yt._$2o = function () {
           return yt._$eT == null && (yt._$eT = yt.getID('DST_BASE')), yt._$eT
@@ -4356,22 +4366,22 @@
         }, mt.prototype.setTransform = function (t) {
           this.transform = t
         }, mt.prototype._$ZT = function () {
-          let t = this.gl
+          const t = this.gl
           this.firstDraw && (this.initShader(), this.firstDraw = !1, this.anisotropyExt = t.getExtension('EXT_texture_filter_anisotropic') || t.getExtension('WEBKIT_EXT_texture_filter_anisotropic') || t.getExtension('MOZ_EXT_texture_filter_anisotropic'), this.anisotropyExt && (this.maxAnisotropy = t.getParameter(this.anisotropyExt.MAX_TEXTURE_MAX_ANISOTROPY_EXT))), t.disable(t.SCISSOR_TEST), t.disable(t.STENCIL_TEST), t.disable(t.DEPTH_TEST), t.frontFace(t.CW), t.enable(t.BLEND), t.colorMask(1, 1, 1, 1), t.bindBuffer(t.ARRAY_BUFFER, null), t.bindBuffer(t.ELEMENT_ARRAY_BUFFER, null)
         }, mt.prototype._$Uo = function (t, i, e, r, o, n, s, _) {
           if (!(n < 0.01 && this.clipBufPre_clipContextMask == null)) {
-            let a = (n > 0.9 && at.EXPAND_W, this.gl)
+            const a = (n > 0.9 && at.EXPAND_W, this.gl)
             if (this.gl == null) throw new Error('gl is null')
-            let h = 1 * this._$C0 * n
-            let l = 1 * this._$tT * n
-            let $ = 1 * this._$WL * n
-            let u = this._$lT * n
+            const h = 1 * this._$C0 * n
+            const l = 1 * this._$tT * n
+            const $ = 1 * this._$WL * n
+            const u = this._$lT * n
             if (this.clipBufPre_clipContextMask != null) {
               a.frontFace(a.CCW), a.useProgram(this.shaderProgram), this._$vS = Tt(a, this._$vS, r), this._$no = Pt(a, this._$no, e), a.enableVertexAttribArray(this.a_position_Loc), a.vertexAttribPointer(this.a_position_Loc, 2, a.FLOAT, !1, 0, 0), this._$NT = Tt(a, this._$NT, o), a.activeTexture(a.TEXTURE1), a.bindTexture(a.TEXTURE_2D, this.textures[t]), a.uniform1i(this.s_texture0_Loc, 1), a.enableVertexAttribArray(this.a_texCoord_Loc), a.vertexAttribPointer(this.a_texCoord_Loc, 2, a.FLOAT, !1, 0, 0), a.uniformMatrix4fv(this.u_matrix_Loc, !1, this.getClipBufPre_clipContextMask().matrixForMask)
               var p = this.getClipBufPre_clipContextMask().layoutChannelNo
               var f = this.getChannelFlagAsColor(p)
               a.uniform4f(this.u_channelFlag, f.r, f.g, f.b, f.a)
-              let c = this.getClipBufPre_clipContextMask().layoutBounds
+              const c = this.getClipBufPre_clipContextMask().layoutBounds
               a.uniform4f(this.u_baseColor_Loc, 2 * c.x - 1, 2 * c.y - 1, 2 * c._$EL() - 1, 2 * c._$5T() - 1), a.uniform1i(this.u_maskFlag_Loc, !0)
             } else if (this.getClipBufPre_clipContextDraw() != null) {
               a.useProgram(this.shaderProgramOff), this._$vS = Tt(a, this._$vS, r), this._$no = Pt(a, this._$no, e), a.enableVertexAttribArray(this.a_position_Loc_Off), a.vertexAttribPointer(this.a_position_Loc_Off, 2, a.FLOAT, !1, 0, 0), this._$NT = Tt(a, this._$NT, o), a.activeTexture(a.TEXTURE1), a.bindTexture(a.TEXTURE_2D, this.textures[t]), a.uniform1i(this.s_texture0_Loc_Off, 1), a.enableVertexAttribArray(this.a_texCoord_Loc_Off), a.vertexAttribPointer(this.a_texCoord_Loc_Off, 2, a.FLOAT, !1, 0, 0), a.uniformMatrix4fv(this.u_clipMatrix_Loc_Off, !1, this.getClipBufPre_clipContextDraw().matrixForDraw), a.uniformMatrix4fv(this.u_matrix_Loc_Off, !1, this.matrix4x4), a.activeTexture(a.TEXTURE2), a.bindTexture(a.TEXTURE_2D, at.fTexture[this.glno]), a.uniform1i(this.s_texture1_Loc_Off, 2)
@@ -4395,7 +4405,7 @@
               }
             }
             a.blendEquationSeparate(a.FUNC_ADD, a.FUNC_ADD), a.blendFuncSeparate(d, g, y, m), this.anisotropyExt && a.texParameteri(a.TEXTURE_2D, this.anisotropyExt.TEXTURE_MAX_ANISOTROPY_EXT, this.maxAnisotropy)
-            let T = e.length
+            const T = e.length
             a.drawElements(a.TRIANGLES, T, a.UNSIGNED_SHORT, 0), a.bindTexture(a.TEXTURE_2D, null)
           }
         }, mt.prototype._$Rs = function () {
@@ -4409,23 +4419,23 @@
         }, mt.prototype.setTexture = function (t, i) {
           this.textures[t] = i
         }, mt.prototype.initShader = function () {
-          let t = this.gl
+          const t = this.gl
           this.loadShaders2(), this.a_position_Loc = t.getAttribLocation(this.shaderProgram, 'a_position'), this.a_texCoord_Loc = t.getAttribLocation(this.shaderProgram, 'a_texCoord'), this.u_matrix_Loc = t.getUniformLocation(this.shaderProgram, 'u_mvpMatrix'), this.s_texture0_Loc = t.getUniformLocation(this.shaderProgram, 's_texture0'), this.u_channelFlag = t.getUniformLocation(this.shaderProgram, 'u_channelFlag'), this.u_baseColor_Loc = t.getUniformLocation(this.shaderProgram, 'u_baseColor'), this.u_maskFlag_Loc = t.getUniformLocation(this.shaderProgram, 'u_maskFlag'), this.a_position_Loc_Off = t.getAttribLocation(this.shaderProgramOff, 'a_position'), this.a_texCoord_Loc_Off = t.getAttribLocation(this.shaderProgramOff, 'a_texCoord'), this.u_matrix_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 'u_mvpMatrix'), this.u_clipMatrix_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 'u_ClipMatrix'), this.s_texture0_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 's_texture0'), this.s_texture1_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 's_texture1'), this.u_channelFlag_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 'u_channelFlag'), this.u_baseColor_Loc_Off = t.getUniformLocation(this.shaderProgramOff, 'u_baseColor')
         }, mt.prototype.disposeShader = function () {
-          let t = this.gl
+          const t = this.gl
           this.shaderProgram && (t.deleteProgram(this.shaderProgram), this.shaderProgram = null), this.shaderProgramOff && (t.deleteProgram(this.shaderProgramOff), this.shaderProgramOff = null)
         }, mt.prototype.compileShader = function (t, i) {
-          let e = this.gl
-          let r = i
-          let o = e.createShader(t)
+          const e = this.gl
+          const r = i
+          const o = e.createShader(t)
           if (o == null) return _._$Ji('_$L0 to create shader'), null
           if (e.shaderSource(o, r), e.compileShader(o), !e.getShaderParameter(o, e.COMPILE_STATUS)) {
-            let n = e.getShaderInfoLog(o)
+            const n = e.getShaderInfoLog(o)
             return _._$Ji('_$L0 to compile shader : ' + n), e.deleteShader(o), null
           }
           return o
         }, mt.prototype.loadShaders2 = function () {
-          let t = this.gl
+          const t = this.gl
           if (this.shaderProgram = t.createProgram(), !this.shaderProgram) return !1
           if (this.shaderProgramOff = t.createProgram(), !this.shaderProgramOff) return !1
           if (this.vertShader = this.compileShader(t.VERTEX_SHADER, 'attribute vec4     a_position;attribute vec2     a_texCoord;varying vec2       v_texCoord;varying vec4       v_ClipPos;uniform mat4       u_mvpMatrix;void main(){    gl_Position = u_mvpMatrix * a_position;    v_ClipPos = u_mvpMatrix * a_position;    v_texCoord = a_texCoord;}'), !this.vertShader) return _._$Ji('Vertex shader compile _$li!'), !1
@@ -4433,25 +4443,25 @@
           if (this.fragShader = this.compileShader(t.FRAGMENT_SHADER, 'precision mediump float;varying vec2       v_texCoord;varying vec4       v_ClipPos;uniform sampler2D  s_texture0;uniform vec4       u_channelFlag;uniform vec4       u_baseColor;uniform bool       u_maskFlag;void main(){    vec4 smpColor;     if(u_maskFlag){        float isInside =             step(u_baseColor.x, v_ClipPos.x/v_ClipPos.w)          * step(u_baseColor.y, v_ClipPos.y/v_ClipPos.w)          * step(v_ClipPos.x/v_ClipPos.w, u_baseColor.z)          * step(v_ClipPos.y/v_ClipPos.w, u_baseColor.w);        smpColor = u_channelFlag * texture2D(s_texture0 , v_texCoord).a * isInside;    }else{        smpColor = texture2D(s_texture0 , v_texCoord) * u_baseColor;    }    gl_FragColor = smpColor;}'), !this.fragShader) return _._$Ji('Fragment shader compile _$li!'), !1
           if (this.fragShaderOff = this.compileShader(t.FRAGMENT_SHADER, 'precision mediump float ;varying vec2       v_texCoord;varying vec4       v_ClipPos;uniform sampler2D  s_texture0;uniform sampler2D  s_texture1;uniform vec4       u_channelFlag;uniform vec4       u_baseColor ;void main(){    vec4 col_formask = texture2D(s_texture0, v_texCoord) * u_baseColor;    vec4 clipMask = texture2D(s_texture1, v_ClipPos.xy / v_ClipPos.w) * u_channelFlag;    float maskVal = clipMask.r + clipMask.g + clipMask.b + clipMask.a;    col_formask = col_formask * maskVal;    gl_FragColor = col_formask;}'), !this.fragShaderOff) return _._$Ji('OffFragment shader compile _$li!'), !1
           if (t.attachShader(this.shaderProgram, this.vertShader), t.attachShader(this.shaderProgram, this.fragShader), t.attachShader(this.shaderProgramOff, this.vertShaderOff), t.attachShader(this.shaderProgramOff, this.fragShaderOff), t.linkProgram(this.shaderProgram), t.linkProgram(this.shaderProgramOff), !t.getProgramParameter(this.shaderProgram, t.LINK_STATUS)) {
-            let i = t.getProgramInfoLog(this.shaderProgram)
+            const i = t.getProgramInfoLog(this.shaderProgram)
             return _._$Ji('_$L0 to link program: ' + i), this.vertShader && (t.deleteShader(this.vertShader), this.vertShader = 0), this.fragShader && (t.deleteShader(this.fragShader), this.fragShader = 0), this.shaderProgram && (t.deleteProgram(this.shaderProgram), this.shaderProgram = 0), this.vertShaderOff && (t.deleteShader(this.vertShaderOff), this.vertShaderOff = 0), this.fragShaderOff && (t.deleteShader(this.fragShaderOff), this.fragShaderOff = 0), this.shaderProgramOff && (t.deleteProgram(this.shaderProgramOff), this.shaderProgramOff = 0), !1
           }
           return !0
         }, mt.prototype.createFramebuffer = function () {
-          let t = this.gl
-          let i = at.clippingMaskBufferSize
-          let e = t.createFramebuffer()
+          const t = this.gl
+          const i = at.clippingMaskBufferSize
+          const e = t.createFramebuffer()
           t.bindFramebuffer(t.FRAMEBUFFER, e)
-          let r = t.createRenderbuffer()
+          const r = t.createRenderbuffer()
           t.bindRenderbuffer(t.RENDERBUFFER, r), t.renderbufferStorage(t.RENDERBUFFER, t.RGBA4, i, i), t.framebufferRenderbuffer(t.FRAMEBUFFER, t.COLOR_ATTACHMENT0, t.RENDERBUFFER, r)
-          let o = t.createTexture()
+          const o = t.createTexture()
           return t.bindTexture(t.TEXTURE_2D, o), t.texImage2D(t.TEXTURE_2D, 0, t.RGBA, i, i, 0, t.RGBA, t.UNSIGNED_BYTE, null), t.texParameteri(t.TEXTURE_2D, t.TEXTURE_MIN_FILTER, t.LINEAR), t.texParameteri(t.TEXTURE_2D, t.TEXTURE_MAG_FILTER, t.LINEAR), t.texParameteri(t.TEXTURE_2D, t.TEXTURE_WRAP_S, t.CLAMP_TO_EDGE), t.texParameteri(t.TEXTURE_2D, t.TEXTURE_WRAP_T, t.CLAMP_TO_EDGE), t.framebufferTexture2D(t.FRAMEBUFFER, t.COLOR_ATTACHMENT0, t.TEXTURE_2D, o, 0), t.bindTexture(t.TEXTURE_2D, null), t.bindRenderbuffer(t.RENDERBUFFER, null), t.bindFramebuffer(t.FRAMEBUFFER, null), at.fTexture[this.glno] = o, {
             framebuffer: e,
             renderbuffer: r,
             texture: at.fTexture[this.glno]
           }
         }, St.prototype._$fP = function () {
-          let t; let i; let e; let r = this._$ST()
+          let t; let i; let e; const r = this._$ST()
           if ((128 & r) == 0) return 255 & r
           if ((128 & (t = this._$ST())) == 0) return (127 & r) << 7 | 127 & t
           if ((128 & (i = this._$ST())) == 0) return (127 & r) << 14 | (127 & t) << 7 | 255 & i
@@ -4481,11 +4491,11 @@
         let xt = !0
         St.prototype._$bT = function () {
           this._$zT()
-          let t = this._$3L()
+          const t = this._$3L()
           let i = null
           if (xt) {
             try {
-              let e = new ArrayBuffer(2 * t)
+              const e = new ArrayBuffer(2 * t)
               i = new Uint16Array(e)
               for (var r = 0; r < t; ++r) i[r] = this._$T.getUint8(this._$F++)
               return String.fromCharCode.apply(null, i)
@@ -4494,7 +4504,7 @@
             }
           }
           try {
-            let o = new Array()
+            const o = new Array()
             if (i == null) for (var r = 0; r < t; ++r) o[r] = this._$T.getUint8(this._$F++)
             else for (var r = 0; r < t; ++r) o[r] = i[r]
             return String.fromCharCode.apply(null, o)
@@ -4517,11 +4527,11 @@
           return this._$Jb(-1)
         }, St.prototype._$Jb = function (t) {
           if (this._$zT(), t < 0 && (t = this._$3L()), t == G._$7P) {
-            let i = this._$6L()
+            const i = this._$6L()
             if (i >= 0 && i < this._$Ko.length) return this._$Ko[i]
             throw new lt('_$sL _$4i @_$m0')
           }
-          let e = this._$4b(t)
+          const e = this._$4b(t)
           return this._$Ko.push(e), e
         }, St.prototype._$4b = function (t) {
           if (t == 0) return null
@@ -4546,7 +4556,7 @@
             return e
           }
           if (t >= 48) {
-            let r = G._$9o(t)
+            const r = G._$9o(t)
             return r != null ? (r._$F0(this), r) : null
           }
           switch (t) {
@@ -4605,15 +4615,15 @@
         }, vt.prototype._$wP = function (t, i, e) {
           for (let r = 0; r < e; r++) {
             for (let o = 0; o < i; o++) {
-              let n = 2 * (o + r * i)
+              const n = 2 * (o + r * i)
               console.log('(% 7.3f , % 7.3f) , ', t[n], t[n + 1])
             }
             console.log('\n')
           }
           console.log('\n')
         }, Lt._$2S = Math.PI / 180, Lt._$bS = Math.PI / 180, Lt._$wS = 180 / Math.PI, Lt._$NS = 180 / Math.PI, Lt.PI_F = Math.PI, Lt._$kT = [0, 0.012368, 0.024734, 0.037097, 0.049454, 0.061803, 0.074143, 0.086471, 0.098786, 0.111087, 0.12337, 0.135634, 0.147877, 0.160098, 0.172295, 0.184465, 0.196606, 0.208718, 0.220798, 0.232844, 0.244854, 0.256827, 0.268761, 0.280654, 0.292503, 0.304308, 0.316066, 0.327776, 0.339436, 0.351044, 0.362598, 0.374097, 0.385538, 0.396921, 0.408243, 0.419502, 0.430697, 0.441826, 0.452888, 0.463881, 0.474802, 0.485651, 0.496425, 0.507124, 0.517745, 0.528287, 0.538748, 0.549126, 0.559421, 0.56963, 0.579752, 0.589785, 0.599728, 0.609579, 0.619337, 0.629, 0.638567, 0.648036, 0.657406, 0.666676, 0.675843, 0.684908, 0.693867, 0.70272, 0.711466, 0.720103, 0.72863, 0.737045, 0.745348, 0.753536, 0.76161, 0.769566, 0.777405, 0.785125, 0.792725, 0.800204, 0.807561, 0.814793, 0.821901, 0.828884, 0.835739, 0.842467, 0.849066, 0.855535, 0.861873, 0.868079, 0.874153, 0.880093, 0.885898, 0.891567, 0.897101, 0.902497, 0.907754, 0.912873, 0.917853, 0.922692, 0.92739, 0.931946, 0.936359, 0.940629, 0.944755, 0.948737, 0.952574, 0.956265, 0.959809, 0.963207, 0.966457, 0.96956, 0.972514, 0.97532, 0.977976, 0.980482, 0.982839, 0.985045, 0.987101, 0.989006, 0.990759, 0.992361, 0.993811, 0.995109, 0.996254, 0.997248, 0.998088, 0.998776, 0.999312, 0.999694, 0.999924, 1], Lt._$92 = function (t, i) {
-          let e = Math.atan2(t[1], t[0])
-          let r = Math.atan2(i[1], i[0])
+          const e = Math.atan2(t[1], t[0])
+          const r = Math.atan2(i[1], i[0])
           return Lt._$tS(e, r)
         }, Lt._$tS = function (t, i) {
           for (var e = t - i; e < -Math.PI;) e += 2 * Math.PI
@@ -4642,7 +4652,7 @@
         }, Et.setup = function () {
           function t (t, i) {
             for (var e = t.substring(i).split(/[ _,;\.]/), r = 0, o = 0; o <= 2 && !isNaN(e[o]); o++) {
-              let n = parseInt(e[o])
+              const n = parseInt(e[o])
               if (n < 0 || n > 999) {
                 _._$li('err : ' + n + ' @UtHtml5.setup()'), r = 0
                 break
@@ -4651,8 +4661,8 @@
             }
             return r
           }
-          let i; let e = Et.USER_AGENT
-          let r = Et.SYSTEM_INFO = {
+          let i; const e = Et.USER_AGENT
+          const r = Et.SYSTEM_INFO = {
             userAgent: e
           }
           if ((i = e.indexOf('iPhone OS ')) >= 0) r.os = 'iPhone', r._isIPhone = !0, r.version = t(e, i + 'iPhone OS '.length)
@@ -4688,14 +4698,14 @@
     }), i
       .default = o
     var n = e(0)
-    let s = e(9)
+    const s = e(9)
     var _ = r(s)
-    let a = e(10)
-    let h = r(a)
-    let l = e(1)
-    let $ = r(l)
+    const a = e(10)
+    const h = r(a)
+    const l = e(1)
+    const $ = r(l)
     o.prototype.createModel = function () {
-      let t = new h
+      const t = new h
         .default()
       return this.models.push(t), t
     }, o.prototype.changeModel = function (t, i) {
@@ -4756,7 +4766,7 @@
       value: !0
     }), i
       .default = r
-    let o = e(2)
+    const o = e(2)
     r.prototype.loadBytes = function (t, i) {
       GM_xmlhttpRequest({
         method: 'GET',
@@ -4801,10 +4811,10 @@
             a.readAsDataURL(blob)
           }
           blobToDataURL(b.response, function (u) {
-            let n = new Image()
+            const n = new Image()
             n.crossOrigin = 'Anonymous', n.src = u
             n.onload = function () {
-              let e = (0, o.getContext)()
+              const e = (0, o.getContext)()
               let s = e.createTexture()
               if (!s) return console.error('Failed to generate gl texture name.'), -1
               t.isPremultipliedAlpha() == 0 && e.pixelStorei(e.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1), e.pixelStorei(e.UNPACK_FLIP_Y_WEBGL, 1), e.activeTexture(e.TEXTURE0), e.bindTexture(e.TEXTURE_2D, s), e.texImage2D(e.TEXTURE_2D, 0, e.RGBA, e.RGBA, e.UNSIGNED_BYTE, n), e.texParameteri(e.TEXTURE_2D, e.TEXTURE_MAG_FILTER, e.LINEAR), e.texParameteri(e.TEXTURE_2D, e.TEXTURE_MIN_FILTER, e.LINEAR_MIPMAP_NEAREST), e.generateMipmap(e.TEXTURE_2D), t.setTexture(i, s), s = null, typeof r === 'function' && r()
@@ -4818,7 +4828,7 @@
         }
       })
     }, r.prototype.jsonParseFromBytes = function (t) {
-      let i; let e = new Uint8Array(t, 0, 3)
+      let i; const e = new Uint8Array(t, 0, 3)
       return i = e[0] == 239 && e[1] == 187 && e[2] == 191 ? String.fromCharCode.apply(null, new Uint8Array(t, 3)) : String.fromCharCode.apply(null, new Uint8Array(t)), JSON.parse(i)
     }, r.prototype.log = function (t) { }
   }, function (t, i, e) {
@@ -4838,18 +4848,18 @@
     }), i
       .default = o
     var n = e(0)
-    let s = e(11)
-    let _ = r(s)
-    let a = e(1)
-    let h = r(a)
-    let l = e(3)
-    let $ = r(l)
+    const s = e(11)
+    const _ = r(s)
+    const a = e(1)
+    const h = r(a)
+    const l = e(3)
+    const $ = r(l)
     o.prototype = new n.L2DBaseModel(), o.prototype.load = function (t, i, e) {
       this.setUpdating(!0), this.setInitialized(!1), this.modelHomeDir = i.substring(0, i.lastIndexOf('/') + 1), this.modelSetting = new _
         .default()
-      let r = this
+      const r = this
       this.modelSetting.loadModelSetting(i, function () {
-        let t = r.modelHomeDir + r.modelSetting.getModelFile()
+        const t = r.modelHomeDir + r.modelSetting.getModelFile()
         r.loadModelData(t, function (t) {
           for (let i = 0; i < r.modelSetting.getTextureNum(); i++) {
             if (/^https?:\/\/|^\/\//i.test(r.modelSetting.getTextureFile(i))) var o = r.modelSetting.getTextureFile(i)
@@ -4859,21 +4869,21 @@
                 if (r.modelSetting.getExpressionNum() > 0) {
                   r.expressions = {}
                   for (var t = 0; t < r.modelSetting.getExpressionNum(); t++) {
-                    let i = r.modelSetting.getExpressionName(t)
-                    let o = r.modelHomeDir + r.modelSetting.getExpressionFile(t)
+                    const i = r.modelSetting.getExpressionName(t)
+                    const o = r.modelHomeDir + r.modelSetting.getExpressionFile(t)
                     r.loadExpression(i, o)
                   }
                 } else r.expressionManager = null, r.expressions = {}
                 if (r.eyeBlink, r.modelSetting.getPhysicsFile() != null ? r.loadPhysics(r.modelHomeDir + r.modelSetting.getPhysicsFile()) : r.physics = null, r.modelSetting.getPoseFile() != null ? r.loadPose(r.modelHomeDir + r.modelSetting.getPoseFile(), function () {
                   r.pose.updateParam(r.live2DModel)
                 }) : r.pose = null, r.modelSetting.getLayout() != null) {
-                  let n = r.modelSetting.getLayout()
-                  let hw = n.width != null ? n.width / 2 : 1
+                  const n = r.modelSetting.getLayout()
+                  const hw = n.width != null ? n.width / 2 : 1
                   r.modelMatrix.height / document.getElementById('live2d').height > r.modelMatrix.width / document.getElementById('live2d').width ? r.modelMatrix.setHeight(hw * 2 * document.getElementById('live2d').height / document.getElementById('live2d').width) : r.modelMatrix.setWidth(2)
                   n.x != null && r.modelMatrix.setX(n.x), n.y != null && r.modelMatrix.setY(n.y), n.center_x != null && r.modelMatrix.centerX(n.center_x), n.center_y != null && r.modelMatrix.centerY(n.center_y), n.top != null && r.modelMatrix.top(n.top), n.bottom != null && r.modelMatrix.bottom(n.bottom), n.left != null && r.modelMatrix.left(n.left), n.right != null && r.modelMatrix.right(n.right)
                 }
                 if (r.modelSetting.getHitAreasCustom() != null) {
-                  let s = r.modelSetting.getHitAreasCustom()
+                  const s = r.modelSetting.getHitAreasCustom()
                   s.head_x != null && (h
                     .default.hit_areas_custom_head_x = s.head_x), s.head_y != null && (h
                     .default.hit_areas_custom_head_y = s.head_y), s.body_x != null && (h
@@ -4891,11 +4901,11 @@
         })
       })
     }, o.prototype.release = function (t) {
-      let i = n.Live2DFramework.getPlatformManager()
+      const i = n.Live2DFramework.getPlatformManager()
       t.deleteTexture(i.texture)
     }, o.prototype.preloadMotionGroup = function (t) {
       for (var i = this, e = 0; e < this.modelSetting.getMotionNum(t); e++) {
-        let r = this.modelSetting.getMotionFile(t, e)
+        const r = this.modelSetting.getMotionFile(t, e)
         this.loadMotion(r, this.modelHomeDir + r, function (r) {
           r.setFadeIn(i.modelSetting.getMotionFadeIn(t, e)), r.setFadeOut(i.modelSetting.getMotionFadeOut(t, e))
         })
@@ -4905,9 +4915,9 @@
         return void (h
           .default.DEBUG_LOG && console.error('Failed to update.'))
       }
-      let t = UtSystem.getUserTimeMSec() - this.startTimeMSec
-      let i = t / 1e3
-      let e = 2 * i * Math.PI
+      const t = UtSystem.getUserTimeMSec() - this.startTimeMSec
+      const i = t / 1e3
+      const e = 2 * i * Math.PI
       if (this.mainMotionManager.isFinished()) {
         GM_getValue('Sleepy') === '1' ? this.startRandomMotion(h
           .default.MOTION_GROUP_SLEEPY, h
@@ -4917,16 +4927,16 @@
       }
       this.live2DModel.loadParam(), this.mainMotionManager.updateParam(this.live2DModel) || this.eyeBlink != null && this.eyeBlink.updateParam(this.live2DModel), this.live2DModel.saveParam(), this.expressionManager == null || this.expressions == null || this.expressionManager.isFinished() || this.expressionManager.updateParam(this.live2DModel), this.live2DModel.addToParamFloat('PARAM_ANGLE_X', 30 * this.dragX, 1), this.live2DModel.addToParamFloat('PARAM_ANGLE_Y', 30 * this.dragY, 1), this.live2DModel.addToParamFloat('PARAM_ANGLE_Z', this.dragX * this.dragY * -30, 1), this.live2DModel.addToParamFloat('PARAM_BODY_ANGLE_X', 10 * this.dragX, 1), this.live2DModel.addToParamFloat('PARAM_EYE_BALL_X', this.dragX, 1), this.live2DModel.addToParamFloat('PARAM_EYE_BALL_Y', this.dragY, 1), this.live2DModel.addToParamFloat('PARAM_ANGLE_X', Number(15 * Math.sin(e / 6.5345)), 0.5), this.live2DModel.addToParamFloat('PARAM_ANGLE_Y', Number(8 * Math.sin(e / 3.5345)), 0.5), this.live2DModel.addToParamFloat('PARAM_ANGLE_Z', Number(10 * Math.sin(e / 5.5345)), 0.5), this.live2DModel.addToParamFloat('PARAM_BODY_ANGLE_X', Number(4 * Math.sin(e / 15.5345)), 0.5), this.live2DModel.setParamFloat('PARAM_BREATH', Number(0.5 + 0.5 * Math.sin(e / 3.2345)), 1), this.physics != null && this.physics.updateParam(this.live2DModel), this.lipSync == null && this.live2DModel.setParamFloat('PARAM_MOUTH_OPEN_Y', this.lipSyncValue), this.pose != null && this.pose.updateParam(this.live2DModel), this.live2DModel.update()
     }, o.prototype.setRandomExpression = function () {
-      let t = []
-      for (let i in this.expressions) t.push(i)
-      let e = parseInt(Math.random() * t.length)
+      const t = []
+      for (const i in this.expressions) t.push(i)
+      const e = parseInt(Math.random() * t.length)
       this.setExpression(t[e])
     }, o.prototype.startRandomMotion = function (t, i) {
-      let e = this.modelSetting.getMotionNum(t)
-      let r = parseInt(Math.random() * e)
+      const e = this.modelSetting.getMotionNum(t)
+      const r = parseInt(Math.random() * e)
       this.startMotion(t, r, i)
     }, o.prototype.startMotion = function (t, i, e) {
-      let r = this.modelSetting.getMotionFile(t, i)
+      const r = this.modelSetting.getMotionFile(t, i)
       if (r == null || r == '') {
         return void (h
           .default.DEBUG_LOG && console.error('Failed to motion.'))
@@ -4937,22 +4947,22 @@
         return void (h
           .default.DEBUG_LOG && console.log('Motion is running.'))
       }
-      let o; let n = this
+      let o; const n = this
       this.motions[t] == null ? this.loadMotion(null, this.modelHomeDir + r, function (r) {
         o = r, n.setFadeInFadeOut(t, i, e, o)
       }) : (o = this.motions[t], n.setFadeInFadeOut(t, i, e, o))
     }, o.prototype.setFadeInFadeOut = function (t, i, e, r) {
-      let o = this.modelSetting.getMotionFile(t, i)
+      const o = this.modelSetting.getMotionFile(t, i)
       if (r.setFadeIn(this.modelSetting.getMotionFadeIn(t, i)), r.setFadeOut(this.modelSetting.getMotionFadeOut(t, i)), h
         .default.DEBUG_LOG && console.log('Start motion : ' + o), this.modelSetting.getMotionSound(t, i) == null) this.mainMotionManager.startMotionPrio(r, e)
       else {
-        let n = this.modelSetting.getMotionSound(t, i)
-        let s = document.createElement('audio')
+        const n = this.modelSetting.getMotionSound(t, i)
+        const s = document.createElement('audio')
         s.src = this.modelHomeDir + n, h
           .default.DEBUG_LOG && console.log('Start sound : ' + n), s.play(), this.mainMotionManager.startMotionPrio(r, e)
       }
     }, o.prototype.setExpression = function (t) {
-      let i = this.expressions[t]
+      const i = this.expressions[t]
       h
         .default.DEBUG_LOG && console.log('Expression : ' + t), this.expressionManager && (this.expressionManager.startMotion(i, !1))
     }, o.prototype.draw = function (t) {
@@ -4964,7 +4974,7 @@
     }, o.prototype.hitTest = function (t, i, e) {
       for (let r = this.modelSetting.getHitAreaNum(), o = 0; o < r; o++) {
         if (t == this.modelSetting.getHitAreaName(o)) {
-          let n = this.modelSetting.getHitAreaID(o)
+          const n = this.modelSetting.getHitAreaID(o)
           return this.hitTestSimple(n, i, e)
         }
       }
@@ -4986,11 +4996,11 @@
       value: !0
     }), i
       .default = r
-    let o = e(0)
+    const o = e(0)
     r.prototype.loadModelSetting = function (t, i) {
-      let e = this
+      const e = this
       o.Live2DFramework.getPlatformManager().loadBytes(t, function (t) {
-        let r = String.fromCharCode.apply(null, new Uint8Array(t))
+        const r = String.fromCharCode.apply(null, new Uint8Array(t))
         e.json = JSON.parse(r), i()
       })
     }, r.prototype.getTextureFile = function (t) {
@@ -5043,6 +5053,7 @@
       return this.json[this.INIT_PARTS_VISIBLE] == null || this.json[this.INIT_PARTS_VISIBLE][t] == null ? NaN : this.json[this.INIT_PARTS_VISIBLE][t][this.VALUE]
     }
   }]))
+  /* eslint-enable */
 
   $('body').append('<div class="waifu" style="z-index:9999999999;pointer-events: none;"><div class="waifu-tips"></div><canvas id="live2d" class="live2d"></canvas><div class="waifu-tool"><span class="fui-home"></span> <span class="fui-chat"></span> <span class="fui-eye"></span> <span class="fui-user"></span> <span class="fui-photo"></span> <span class="fui-info-circle"></span> <span class="fui-cross"></span></div></div>')
 
@@ -5065,28 +5076,28 @@
         keyArr.push(e.keyCode)
       } else {
         keyArr.push(e.keyCode)
-        if (keyArr.length == 12) {
-          if (keyArr.join('|') == code) {
+        if (keyArr.length === 12) {
+          if (keyArr.join('|') === code) {
             $('div.waifu').css('pointer-events', 'all')
             GM_setValue('mode', 'interactive')
             showMessage('主人，你终于来陪我玩了', 3000, true)
           }
           keyArr = []
         }
-        if (keyArr.length == 3) {
-          if (keyArr.join('|') == unCode) {
+        if (keyArr.length === 3) {
+          if (keyArr.join('|') === unCode) {
             $('div.waifu').css('pointer-events', 'none')
             GM_setValue('mode', 'normal')
             keyArr = []
             showMessage('哼！不跟你玩了', 3000, true)
           }
         }
-        if (keyArr.length == 4) {
-          if (keyArr.join('|') == hideCode) {
+        if (keyArr.length === 4) {
+          if (keyArr.join('|') === hideCode) {
             showMessage('我还会再回来的~~', 3000, true)
             setTimeout(() => { $('div.waifu').hide() }, 3000)
             keyArr = []
-          } else if (keyArr.join('|') == showCode) {
+          } else if (keyArr.join('|') === showCode) {
             $('div.waifu').show()
             showMessage('他大姨妈~~', 3000, true)
             keyArr = []
@@ -5512,4 +5523,4 @@ table.hclonely input[type="checkbox"] {
     width: 70%;
 }
 `)
-})($jQuery)
+})()

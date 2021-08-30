@@ -1,0 +1,178 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/model.moc",
+    "textures": [
+        "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/model.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        },
+        {
+            "name": "breast",
+            "id": "D_REF.BREAST"
+        },
+        {
+            "name": "hand",
+            "id": "D_REF.HAND"
+        }
+    ],
+    "hit_params": [
+        {
+            "id": "PARAM_BREATH",
+            "hit_area": "breast",
+            "axis": 0,
+            "factor": 0
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/daiji_idle_01.mtn"
+            }
+        ],
+        "tap": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/touch_1.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_DIALOGUE2_JP.mp3",
+                "text": "哼哼，我领悟到了新的秘籍，下次一定能赢过KSG的"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/touch_2.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_DIALOGUE1_JP.mp3",
+                "text": "嗯！是新游戏哦！我已经准备好啦！"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/touch_3.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_DIALOGUE3_JP.mp3",
+                "text": "指挥官，好感度不够的话，请不要尝试这个选项哦♪"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/touch_4.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_DIALOGUEWEDDING_JP.mp3",
+                "text": "指挥官，工作都完成了嘛？下一个网游活动就要结束了，快跟我在线上汇合吧！",
+                "fade_in": 10,
+                "fade_out": 50
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/touch_5.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_CHRISTMAS_JP.mp3",
+                "text": "圣诞节DLC打折啦！指挥官快买来送给我当礼物吧？"
+            }
+        ],
+        "start": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/login.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_GAIN_JP.mp3",
+                "text": "Hello，我是RFB！充满挑战的游戏，从现在起就开始了哦！"
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/shake.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_MOOD2_JP.mp3",
+                "text": "わぉー！"
+            }
+        ],
+        "tap_head": [
+            {
+                "name": "head",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_MOOD1_JP.mp3",
+                "text": "うふふふ"
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_AGREE_JP.mp3"
+            },
+            {
+                "name": "3",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_APPRECIATE_JP.mp3"
+            }
+        ],
+        "tap_body": [
+            {
+                "name": "1",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_BUILDOVER_JP.mp3"
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_FEED_JP.mp3"
+            },
+            {
+                "name": "3",
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/shake.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_MOOD2_JP.mp3",
+                "text": "わぉー！"
+            }
+        ],
+        "tap_breast": [
+            {
+                "name": "1",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_SKILL1_JP.mp3",
+                "priority": 4
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_SKILL2_JP.mp3",
+                "priority": 5
+            },
+            {
+                "name": "3",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_SKILL3_JP.mp3",
+                "priority": 6
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/wedding.mtn",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_SOULCONTRACT_JP.mp3",
+                "text": "指挥官，您的攻略终于进行到这个地步了吗……嘻嘻，不要以为这样就通关了哦，真正的游戏才刚刚开始呢♪新的游玩模式，让我现在就告诉你吧……❤",
+                "fade_in": 50,
+                "fade_out": 50,
+                "priority": 2
+            }
+        ],
+        "tick_5": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/motions/wedding_touch.mtn"
+            }
+        ],
+        "tap_hand": [
+            {
+                "name": "changecos",
+                "sound": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/sounds/RFB_BREAK_JP.mp3",
+                "command": "change_cos model1.json"
+            }
+        ]
+    },
+    "physics": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/physics.json",
+    "pose": "l2dmodel_14@1.0.0/girlsFrontline/rfb christmas/normal/pose.json",
+    "lip_sync": "true",
+    "auto_breath": false,
+    "aniso_level": 4,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

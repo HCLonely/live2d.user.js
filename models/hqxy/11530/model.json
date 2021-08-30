@@ -1,0 +1,77 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_16@1.0.0/hqxy/11530/Lead_00.moc",
+    "textures": [
+        "l2dmodel_16@1.0.0/hqxy/11530/textures/texture_00.png",
+        "l2dmodel_16@1.0.0/hqxy/11530/textures/texture_01.png"
+    ],
+    "config": {
+        "scale": 1.1,
+        "posX": -30,
+        "posY": 100,
+        "offsetX": 0,
+        "offsetY": 0,
+        "textPosX": 300,
+        "textPosY": 650,
+        "mirrorX": false
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/11530/motions/idle.mtn",
+                "fade_in": 500,
+                "fade_out": 1000
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/11530/motions/idle.mtn",
+                "fade_in": 500,
+                "fade_out": 1000
+            }
+        ],
+        "touch_01_1": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/11530/motions/touch_01_1.mtn",
+                "fade_in": 500,
+                "fade_out": 1000
+            }
+        ],
+        "touch_01_2": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/11530/motions/touch_01_2.mtn",
+                "fade_in": 500,
+                "fade_out": 1000
+            }
+        ],
+        "touch_99": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/11530/motions/touch_99.mtn",
+                "fade_in": 500,
+                "fade_out": 1000
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

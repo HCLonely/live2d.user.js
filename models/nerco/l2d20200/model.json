@@ -1,0 +1,46 @@
+{
+    "name": "model",
+    "model": "l2dmodel_8@1.0.0/nerco/l2d20200/model.moc",
+    "textures": [
+        "l2dmodel_8@1.0.0/nerco/l2d20200/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        },
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d20200/loop.mtn"
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

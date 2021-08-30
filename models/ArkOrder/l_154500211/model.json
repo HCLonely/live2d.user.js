@@ -1,0 +1,117 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "L_154500211",
+    "model": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/model.moc",
+    "textures": [
+        "l2dmodel_22@1.0.0/ArkOrder/l_154500211/textures/texture_00.png",
+        "l2dmodel_22@1.0.0/ArkOrder/l_154500211/textures/texture_01.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/idle.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 1
+            }
+        ],
+        "idle_click": [
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/002.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 2
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/003.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 3
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/004.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 4
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/005.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 5
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/006.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 6
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/007.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 7
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/008.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 8
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/009.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 9
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/010.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 10
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/011.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 11
+            },
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/012.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 12
+            }
+        ],
+        "login": [
+            {
+                "file": "l2dmodel_22@1.0.0/ArkOrder/l_154500211/motions/020.mtn",
+                "fade_in": 0,
+                "fade_out": 0,
+                "cv_id": 20
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

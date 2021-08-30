@@ -1,0 +1,44 @@
+{
+    "version": "Live2DViewerEX Config 1.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-z16/assets/moc/z16.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-z16/assets/moc/z16.1024/texture_00.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 2
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-z16/assets/mtn/idle.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f00.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-z16/assets/exp/f00.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-z16/assets/z16.physics.json",
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

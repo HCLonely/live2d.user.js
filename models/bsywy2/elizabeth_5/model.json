@@ -1,0 +1,156 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "elizabeth_5",
+    "model": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/model.moc",
+    "textures": [
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/model.2048/texture_00.png",
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/model.2048/texture_01.png"
+    ],
+    "response_rate": 1.5,
+    "layout": {
+        "center_x": 0,
+        "center_y": -0.2,
+        "width": 2.5
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/idle1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "idle_2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/idle2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji_1": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji1.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji1_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji_2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_none_item": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji3.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji3_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_have_item": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji3.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji3_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji4.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji4_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_head_idle2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji5.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji5_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji6.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji6_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji6.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji6_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji6.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji6_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji7": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/motions/dianji7.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_5/sound/dianji7_talk.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

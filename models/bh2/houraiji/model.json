@@ -1,0 +1,194 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_31@0.0.2/bh2/houraiji/model.moc",
+    "textures": [
+        "l2dmodel_31@0.0.2/bh2/houraiji/houraiji.2048/texture_00.png"
+    ],
+    "motions": {
+        "shake": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/6.mtn",
+                "text": 81707,
+                "sound_delay": -2
+            }
+        ],
+        "flick_head": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/1.mtn",
+                "text": 81702,
+                "sound_delay": -2
+            }
+        ],
+        "tap_face": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/2.mtn",
+                "text": 81703,
+                "sound_delay": -2
+            }
+        ],
+        "tap_breast": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/3.mtn",
+                "text": 81704,
+                "sound_delay": -2
+            }
+        ],
+        "tap_belly": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/4.mtn",
+                "text": 81705,
+                "sound_delay": -2
+            }
+        ],
+        "tap_leg": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/3.mtn",
+                "text": 81704,
+                "sound_delay": -2
+            }
+        ],
+        "mail": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "morning": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/5.mtn",
+                "text": 81706,
+                "sound_delay": -2
+            },
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "activity": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "born": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/5.mtn",
+                "text": 81706,
+                "sound_delay": -2
+            }
+        ],
+        "friend": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "afternoon": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ],
+        "evening": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/houraiji/motions/idle.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_31@0.0.2/bh2/houraiji/physics.json",
+    "project_settings": "embed://111.json",
+    "name": "",
+    "layout": {
+        "image_height": 1150,
+        "image_center_y": 0.6,
+        "head_center_y": 0.25,
+        "time_to_max_speed": 0.08,
+        "face_max_angle": 20,
+        "center_y": -0.25,
+        "center_x": 0.05
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_CORE_HEAD"
+        },
+        {
+            "name": "face",
+            "id": "D_CORE_FACE"
+        },
+        {
+            "name": "breast",
+            "id": "D_CORE_BREAST"
+        },
+        {
+            "name": "belly",
+            "id": "D_CORE_BELLY"
+        },
+        {
+            "name": "leg",
+            "id": "D_CORE_LEG"
+        }
+    ],
+    "motion_settings": {
+        "idle": {
+            "cd": 20
+        },
+        "morning": {
+            "cd": 3600
+        },
+        "afternoon": {
+            "cd": 3600
+        },
+        "evening": {
+            "cd": 3600
+        },
+        "activity": {
+            "cd": 3600
+        },
+        "friend": {
+            "cd": 18000
+        },
+        "mail": {
+            "cd": 18000
+        },
+        "tap_breast": {
+            "cd": 10
+        },
+        "tap_belly": {
+            "cd": 10
+        },
+        "tap_leg": {
+            "cd": 10
+        },
+        "tap_face": {
+            "cd": 10
+        },
+        "flick_head": {
+            "cd": 20
+        },
+        "shake": {
+            "cd": 60
+        },
+        "born": {
+            "cd": 60
+        }
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/model.moc",
+    "textures": [
+        "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/model.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD",
+            "motion": "tap_head"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY",
+            "motion": "tap_body"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/daiji_idle_01.mtn"
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/touch_1.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/touch_2.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/touch_3.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/touch_4.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/touch_5.mtn"
+            }
+        ],
+        "start": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/login.mtn"
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/shake.mtn"
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/wedding.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/wedding_touch.mtn"
+            }
+        ],
+        "tap": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/wait_1.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/motions/wait_2.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_15@1.0.0/girlsFrontline/type64-ar_2901/normal/physics.json",
+    "auto_breath": false,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

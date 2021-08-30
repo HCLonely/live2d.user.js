@@ -1,0 +1,101 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/moc/nito.moc",
+    "textures": [
+        "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/moc/nito.2048/texture_00.png",
+        "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/moc/nito.2048/texture_01.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/00_idle.mtn"
+            }
+        ],
+        "": [
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/06_love.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/07_bye.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/08_sad.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/09_yawn.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/10_yeah.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/11_muscle.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/12_stagger.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/13_cry.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/14_ sigh.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/15_joy.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/16_menace.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/17_yes.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/18_no.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/19_walk.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/20_sleep.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/01_happy.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/02_angry.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/03_fear.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/04_surprise.mtn"
+            },
+            {
+                "file": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/mtn/05_fun.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/nito.physics.json",
+    "pose": "l2dmodel_2@1.0.0/nico/live2d-widget-model-nito/assets/nito.pose.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

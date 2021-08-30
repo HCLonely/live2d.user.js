@@ -1,0 +1,302 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "s_yayoi_01",
+    "model": "l2dmodel_8@1.0.0/kagura/s_yayoi01/s_yayoi_01.moc",
+    "textures": [
+        "l2dmodel_8@1.0.0/kagura/s_yayoi01/s_yayoi_01.2048/texture_00.png"
+    ],
+    "physics": "l2dmodel_8@1.0.0/kagura/s_yayoi01/s_yayoi_01.physics.json",
+    "layout": {
+        "center_x": 0.06,
+        "y": 0.99,
+        "height": 3.4
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF_HEAD",
+            "offset_x": 0,
+            "offset_y": 50,
+            "scale_x": 0.6,
+            "scale_y": 0.7
+        },
+        {
+            "name": "body",
+            "id": "D_REF_BODY",
+            "offset_x": -3,
+            "offset_y": 12,
+            "scale_x": 0.82,
+            "scale_y": 0.68
+        }
+    ],
+    "motions": {
+        "m01": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_a.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m02": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m02.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m03": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m03.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m04": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m04.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m05": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m05.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m06": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m06.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m07": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m07.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m08": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m08.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m09": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m09.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m10": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m10.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m11": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m11.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m12": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m12.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m17": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m17.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m18": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m18.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m19": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m03.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m27.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m20": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m20.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m21": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m21.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m22": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m22.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m23": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m23.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m24": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m24.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m25": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m25.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m26": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m26.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m27": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m27.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "m28": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m28.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m27.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m04.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m27.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/m04.mtn",
+                "fade_in": 300,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/kagura/s_yayoi01/motions/idle_b.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

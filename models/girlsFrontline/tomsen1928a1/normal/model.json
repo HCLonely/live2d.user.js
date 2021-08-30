@@ -1,0 +1,82 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/model.moc",
+    "textures": [
+        "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/texture/texture_00.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/daiji_idle_01.mtn"
+            }
+        ],
+        "motions": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/login.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/shake.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/touch_1.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/touch_2.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/touch_3.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/touch_4.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/touch_5.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/wait_1.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/wait_2.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/wedding.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/motions/wedding_touch.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/normal/physics.json",
+    "hit_areas": [
+        {
+            "name": "face",
+            "id": "D_REF.FACE"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

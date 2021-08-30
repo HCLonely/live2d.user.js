@@ -1,0 +1,79 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/chitose.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/textures.2048/00.png"
+    ],
+    "motions": {
+        "null": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/mtn/chitose_handwave.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/mtn/chitose_kime01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/mtn/chitose_kime02.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/mtn/chitose_idle.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/exp/f07.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/chitose.physics.json",
+    "pose": "l2dmodel_3@1.0.0/live2d-widget-model-chitose/assets/chitose.pose.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

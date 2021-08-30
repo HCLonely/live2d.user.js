@@ -1,0 +1,96 @@
+{
+    "version": "Live2DViewerEX Config 1.0",
+    "model": "l2dmodel_18@1.0.0/jdzd/leila/model.moc",
+    "textures": [
+        "l2dmodel_18@1.0.0/jdzd/leila/model.2048/texture_00.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 3
+    },
+    "hit_areas": [
+        {
+            "name": "A",
+            "id": "A"
+        },
+        {
+            "name": "B",
+            "id": "B"
+        },
+        {
+            "name": "C",
+            "id": "C"
+        },
+        {
+            "name": "D",
+            "id": "D"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/idle/idle1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/idle/idle2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/idle/idle3.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_A": [
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/tap_A/tap1.mtn",
+                "fade_in": 1000,
+                "fade_out": 0
+            }
+        ],
+        "tap_B": [
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/tap_B/tap2.mtn",
+                "fade_in": 1000,
+                "fade_out": 0
+            }
+        ],
+        "tap_C": [
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/tap_C/tap3.mtn",
+                "fade_in": 1000,
+                "fade_out": 0
+            }
+        ],
+        "tap_D": [
+            {
+                "file": "l2dmodel_18@1.0.0/jdzd/leila/motions/tap_D/tap4.mtn",
+                "fade_in": 1000,
+                "fade_out": 0
+            }
+        ]
+    },
+    "physics": "l2dmodel_18@1.0.0/jdzd/leila/physics.json",
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

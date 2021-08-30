@@ -1,0 +1,161 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/moc/tsumiki.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/moc/tsumiki.2048/texture_00.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/moc/tsumiki.2048/texture_01.png"
+    ],
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f07.exp.json"
+        },
+        {
+            "name": "f08.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f08.exp.json"
+        },
+        {
+            "name": "f09.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f09.exp.json"
+        },
+        {
+            "name": "f10.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/exp/f10.exp.json"
+        }
+    ],
+    "motions": {
+        "": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/p01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_01_df.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_04.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_05.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_06.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_07.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_08.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_09.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_10.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_11.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_12.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_13.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_14.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_15.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_16.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_17.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_18.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_19.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_20.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_21.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_22.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_24.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_m_23.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/mtn/tsumiki_idle_01.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-tsumiki/assets/tsumiki.physics.json",
+    "name": "tsumiki",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

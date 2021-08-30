@@ -1,0 +1,183 @@
+{
+    "version": "Live2DViewerEX Config 1.0",
+    "model": "l2dmodel_24@0.0.3/ArkOrder/model/model.moc",
+    "name": "model",
+    "physics": "l2dmodel_24@0.0.3/ArkOrder/model/physics.json",
+    "textures": [
+        "l2dmodel_24@0.0.3/ArkOrder/model/model.1024/texture_00.png",
+        "l2dmodel_24@0.0.3/ArkOrder/model/model.1024/texture_01.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 2
+    },
+    "hit_areas": [
+        {
+            "name": "bust",
+            "id": "bust"
+        },
+        {
+            "name": "face",
+            "id": "face"
+        },
+        {
+            "name": "backhair",
+            "id": "backhair"
+        },
+        {
+            "name": "qunzi",
+            "id": "D_PSD_106"
+        }
+    ],
+    "trigger": [
+        {
+            "id": "bust",
+            "actionType": "click",
+            "action": "tap_bust"
+        },
+        {
+            "id": "face",
+            "actionType": "click",
+            "action": "tap_face"
+        },
+        {
+            "id": "backhair",
+            "actionType": "drag",
+            "action": "drag_beg",
+            "isDragTail": true
+        },
+        {
+            "id": "D_PSD_106",
+            "actionType": "drag",
+            "action": "drag_beg",
+            "isDragTail": true
+        },
+        {
+            "id": "all",
+            "actionType": "shake",
+            "action": "shake_beg"
+        },
+        {
+            "id": "all",
+            "actionType": "longIdle",
+            "action": "long_idle"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/idle/idle.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_face": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/tap_face/tap2.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/tap_face/tap3.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ],
+        "tap_bust": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/tap_bust/tap1.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ],
+        "long_idle": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/special/tap4-1.mtn",
+                "fade_in": 1000,
+                "fade_out": 0,
+                "endMotion": [
+                    {
+                        "motion": "long_idle",
+                        "rand": [
+                            0,
+                            1
+                        ]
+                    }
+                ]
+            }
+        ],
+        "long_idle_end": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/special/tap4-2.mtn",
+                "fade_in": 1000,
+                "fade_out": 0
+            }
+        ],
+        "long_idle_tap": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/special/tap5.mtn"
+            }
+        ],
+        "drag_beg": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/special/tap7-1.mtn",
+                "fade_in": 500,
+                "fade_out": 0,
+                "endMotion": [
+                    {
+                        "motion": "drag_beg",
+                        "rand": [
+                            0,
+                            1
+                        ]
+                    }
+                ]
+            }
+        ],
+        "drag_end": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/special/tap7-2.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ],
+        "shake_beg": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/shake/shake1.mtn",
+                "endMotion": [
+                    {
+                        "motion": "shake_end",
+                        "rand": [
+                            0,
+                            1
+                        ]
+                    }
+                ]
+            }
+        ],
+        "shake_end": [
+            {
+                "file": "l2dmodel_24@0.0.3/ArkOrder/model/motions/shake/shake2.mtn"
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

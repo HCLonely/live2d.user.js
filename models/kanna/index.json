@@ -1,0 +1,70 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_1@1.0.0/kanna/Kobayaxi.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/kanna/textures/texture_00.png"
+    ],
+    "physics": "l2dmodel_1@1.0.0/kanna/physics.json",
+    "pose": "l2dmodel_1@1.0.0/kanna/pose.json",
+    "project_settings": "Kobayaxi.settings.json",
+    "name": "Kobayaxi",
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.PT_HEAD"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.PT_BODY"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/idle/haru_idle_01.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/idle/haru_idle_02.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/idle/haru_idle_03.mtn"
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_01.mtn",
+                "sound": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_01.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_02.mtn",
+                "sound": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_02.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_03.mtn",
+                "sound": "l2dmodel_1@1.0.0/kanna/motions/tap/haru_normal_03.mp3"
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

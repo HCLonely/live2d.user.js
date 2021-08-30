@@ -1,0 +1,67 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/moc/koharu.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/moc/koharu.2048/texture_00.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/idle.mtn"
+            }
+        ],
+        "": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/06.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/07.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/08.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/09.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/04.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/mtn/05.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-koharu/assets/koharu.physics.json",
+    "name": "koharu",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

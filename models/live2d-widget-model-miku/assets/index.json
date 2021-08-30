@@ -1,0 +1,60 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/moc/miku.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/moc/miku.2048/texture_00.png"
+    ],
+    "motions": {
+        "null": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_04.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_05.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_m_06.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_shake_01.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/mtn/miku_idle_01.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-miku/assets/miku.physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

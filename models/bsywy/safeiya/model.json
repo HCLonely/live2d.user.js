@@ -1,0 +1,64 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "model",
+    "model": "l2dmodel_27@0.0.3/bsywy/safeiya/model.moc",
+    "textures": [
+        "l2dmodel_27@0.0.3/bsywy/safeiya/model.1024/texture_00.png"
+    ],
+    "layout": {
+        "center_x": 0.1,
+        "center_y": -0.2,
+        "width": 2.5
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/safeiya/motions/daiji2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/safeiya/motions/daiji2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/safeiya/motions/suiji.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_hara": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/safeiya/motions/dianji3.mtn",
+                "sound": "l2dmodel_27@0.0.3/bsywy/safeiya/sound/dianji3.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/safeiya/motions/dianji2.mtn",
+                "sound": "l2dmodel_27@0.0.3/bsywy/safeiya/sound/dianji2.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

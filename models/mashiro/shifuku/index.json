@@ -1,0 +1,155 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_1@1.0.0/mashiro/shifuku/shifuku.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/mashiro/shifuku/textures.1024/L2DMSR_S_00.png",
+        "l2dmodel_1@1.0.0/mashiro/shifuku/textures.1024/L2DMSR_S_01.png",
+        "l2dmodel_1@1.0.0/mashiro/shifuku/textures.1024/L2DMSR_S_02.png",
+        "l2dmodel_1@1.0.0/mashiro/shifuku/textures.1024/L2DMSR_S_03.png"
+    ],
+    "lip_sync": "false",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0.15,
+        "width": 2.5
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            -0.3,
+            1.12
+        ],
+        "head_y": [
+            0.26,
+            0.56
+        ],
+        "body_x": [
+            -0.41,
+            0.58
+        ],
+        "body_y": [
+            0.46,
+            -1.12
+        ]
+    },
+    "motions": {
+        "flick_head": [
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion1.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion10.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion11.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion12.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion2.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion4.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion5.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion6.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion7.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion8.mtn"
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion1.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion10.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion11.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion12.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion2.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion4.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion5.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion6.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion7.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion8.mtn"
+            }
+        ],
+        "talk": [
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/talk/DK_NOZOMU_0041.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/talk/DK_NOZOMU_0061.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/talk/DK_NOZOMU_0067.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion3.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mashiro/shifuku/motions/motion9.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f07.exp.json"
+        },
+        {
+            "name": "f08.exp.json",
+            "file": "l2dmodel_1@1.0.0/mashiro/shifuku/expressions/f08.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_1@1.0.0/mashiro/shifuku/physics.json",
+    "pose": "l2dmodel_1@1.0.0/mashiro/shifuku/shifuku.pose.json"
+}

@@ -1,0 +1,236 @@
+{
+    "posted": "Dreamer-Paul",
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_1@1.0.0/mei/model.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/mei/textures/texture_00.png"
+    ],
+    "motions": {
+        "shake": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/7.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_001.wav"
+            }
+        ],
+        "flick_head": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/1.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_003.wav"
+            }
+        ],
+        "tap_face": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/2.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_004.wav"
+            }
+        ],
+        "tap_breast": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/3.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_002.wav"
+            }
+        ],
+        "tap_belly": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/4.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_006.wav"
+            }
+        ],
+        "tap_leg": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/6.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_007.wav"
+            }
+        ],
+        "mail": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "morning": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "activity": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "born": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/6.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_007.wav"
+            }
+        ],
+        "friend": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "afternoon": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "evening": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/idle.mtn"
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_005.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_008.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_008.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_010.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_011.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_012.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_013.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_014.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_015.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_016.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_017.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_018.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_019.wav"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/mei/motions/5.mtn",
+                "sound": "l2dmodel_1@1.0.0/mei/sounds/mei_live2d_020.wav"
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            -0.35,
+            0.6
+        ],
+        "head_y": [
+            0.19,
+            -0.2
+        ],
+        "body_x": [
+            -0.3,
+            -0.25
+        ],
+        "body_y": [
+            0.3,
+            -0.9
+        ]
+    },
+    "physics": "l2dmodel_1@1.0.0/mei/physics.json",
+    "name": "",
+    "layout": {
+        "width": 2,
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_CORE_HEAD"
+        },
+        {
+            "name": "face",
+            "id": "D_CORE_FACE"
+        },
+        {
+            "name": "breast",
+            "id": "D_CORE_BREAST"
+        },
+        {
+            "name": "belly",
+            "id": "D_CORE_BELLY"
+        },
+        {
+            "name": "leg",
+            "id": "D_CORE_LEG"
+        }
+    ],
+    "motion_settings": {
+        "idle": {
+            "cd": 20
+        },
+        "morning": {
+            "cd": 3600
+        },
+        "afternoon": {
+            "cd": 3600
+        },
+        "evening": {
+            "cd": 3600
+        },
+        "activity": {
+            "cd": 3600
+        },
+        "friend": {
+            "cd": 18000
+        },
+        "mail": {
+            "cd": 18000
+        },
+        "tap_breast": {
+            "cd": 10
+        },
+        "tap_belly": {
+            "cd": 10
+        },
+        "tap_leg": {
+            "cd": 10
+        },
+        "tap_face": {
+            "cd": 10
+        },
+        "flick_head": {
+            "cd": 20
+        },
+        "shake": {
+            "cd": 60
+        },
+        "born": {
+            "cd": 60
+        }
+    }
+}

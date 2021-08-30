@@ -1,0 +1,102 @@
+{
+    "name": "model",
+    "model": "l2dmodel_7@1.0.0/nerco/l2d00077/model.moc",
+    "textures": [
+        "l2dmodel_7@1.0.0/nerco/l2d00077/model.2048/texture_00.png"
+    ],
+    "layout": {
+        "width": 1.7,
+        "center_x": 0.1,
+        "center_y": 0
+    },
+    "hit_areas": [
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        },
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        }
+    ],
+    "motions": {
+        "tap_D_REF.BODY": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/anger.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/anger_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/blues.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/blues_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/cutin.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/ease.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/ease_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/joy_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/elapse.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/joy.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/ease_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/cutin.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/blues_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/blues.mtn"
+            }
+        ],
+        "tap_D_REF.HEAD": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/tap3.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d00077/motions/loop.mtn"
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

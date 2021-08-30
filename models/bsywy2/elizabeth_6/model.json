@@ -1,0 +1,52 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "elizabeth_6",
+    "model": "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/model.moc",
+    "textures": [
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/model.2048/texture_00.png",
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/model.2048/texture_01.png",
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/model.2048/texture_02.png"
+    ],
+    "response_rate": 1.5,
+    "layout": {
+        "center_x": 0.05,
+        "center_y": -0.19,
+        "width": 1.76
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/motions/idle.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/sound/idle_effect.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/motions/dianji.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_6/sound/dianji_effect.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "name": "奶茶假日-卡米拉",
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_17@1.0.0/hqxy/14130/Lead_00.moc",
+    "textures": [
+        "l2dmodel_17@1.0.0/hqxy/14130/textures/texture_00.png",
+        "l2dmodel_17@1.0.0/hqxy/14130/textures/texture_01.png",
+        "l2dmodel_17@1.0.0/hqxy/14130/textures/texture_02.png"
+    ],
+    "config": {
+        "scale": 1,
+        "posX": 0,
+        "posY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "textPosX": 300,
+        "textPosY": 550,
+        "mirrorX": false
+    },
+    "hit_areas": [
+        {
+            "name": "touch_breast",
+            "id": "body"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/idle.mtn"
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/idle.mtn"
+            }
+        ],
+        "favor_01": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/favor_01.mtn"
+            }
+        ],
+        "touch_01": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/touch_02_2.mtn"
+            }
+        ],
+        "touch_99": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/touch_99.mtn"
+            }
+        ],
+        "touch_breast": [
+            {
+                "file": "l2dmodel_17@1.0.0/hqxy/14130/motions/touch_breast.mtn",
+                "sound": "l2dmodel_17@1.0.0/hqxy/14130/14130_02",
+                "say_text": "队长，欺负新人也要适可而止呀！",
+                "say_text_show_time": 0
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

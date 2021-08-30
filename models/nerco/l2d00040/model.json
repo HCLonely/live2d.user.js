@@ -1,0 +1,101 @@
+{
+    "name": "model",
+    "model": "l2dmodel_6@1.0.0/nerco/l2d00040/model.moc",
+    "textures": [
+        "l2dmodel_6@1.0.0/nerco/l2d00040/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        },
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        }
+    ],
+    "motions": {
+        "tap_D_REF.BODY": [
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/anger.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/anger_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/blues.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/blues_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/cutin.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/ease.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/ease_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/joy_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/elapse.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/joy.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/ease_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/cutin.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/blues_loop.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/blues.mtn"
+            }
+        ],
+        "tap_D_REF.HEAD": [
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/tap3.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_6@1.0.0/nerco/l2d00040/loop.mtn"
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/model.moc",
+    "textures": [
+        "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/model.1024/texture_00.png"
+    ],
+    "motions": {
+        "": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/broken_1.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/broken_2.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/broken_3.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/broken_4.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/broken_5.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/login.mtn"
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/shake.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/sr3mp_4101/destroy/motions/daiji_idle_01.mtn"
+            }
+        ]
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF_HEAD"
+        },
+        {
+            "name": "leg",
+            "id": "D_REF_LEG"
+        },
+        {
+            "name": "body",
+            "id": "D_REF_BODY"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

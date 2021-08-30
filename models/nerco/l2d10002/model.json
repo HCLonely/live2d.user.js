@@ -1,0 +1,142 @@
+{
+    "name": "model",
+    "model": "l2dmodel_7@1.0.0/nerco/l2d10002/model.moc",
+    "textures": [
+        "l2dmodel_7@1.0.0/nerco/l2d10002/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "tap_D_REF.HEAD": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/anger.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/001.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/anger_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/002.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/bashful.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/003.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/bashful_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/004.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/confidence.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/005.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/confidence_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/006.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/elapse.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/621.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/joy.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/008.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/joy2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/009.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/joy2_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/010.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/joy_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/011.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/sleep.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/012.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/sleep_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/013.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/surprise.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/014.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/surprise_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/015.wav"
+            }
+        ],
+        "tap_D_REF.BODY": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap1.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/016.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/016.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap3.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10002/617.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap3.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/tap3.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10002/loop.mtn"
+            }
+        ]
+    },
+    "lip_sync": "true",
+    "aniso_level": 5,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

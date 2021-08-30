@@ -1,0 +1,72 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/model.moc",
+    "textures": [
+        "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/model.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "leg",
+            "id": "D_REF.LEG"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/daiji_idle_01.mtn"
+            }
+        ],
+        "tap": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/broken_1.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/broken_2.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/broken_3.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/broken_4.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/broken_5.mtn"
+            }
+        ],
+        "start": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/destroy/motion/login.mtn"
+            }
+        ]
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

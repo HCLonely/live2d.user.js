@@ -1,0 +1,137 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "haru",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/moc/haru02.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/moc/haru02.1024/texture_00.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/moc/haru02.1024/texture_01.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/moc/haru02.1024/texture_02.png"
+    ],
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/haru02.physics.json",
+    "pose": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/haru02.pose.json",
+    "expressions": [
+        {
+            "name": "f01",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f01.exp.json"
+        },
+        {
+            "name": "f02",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f02.exp.json"
+        },
+        {
+            "name": "f03",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f03.exp.json"
+        },
+        {
+            "name": "f04",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f04.exp.json"
+        },
+        {
+            "name": "f05",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f05.exp.json"
+        },
+        {
+            "name": "f06",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f06.exp.json"
+        },
+        {
+            "name": "f07",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f07.exp.json"
+        },
+        {
+            "name": "f08",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/exp/f08.exp.json"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 2.1
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/idle_00.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/idle_01.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/idle_02.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/tapBody_00.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/tapBody_00.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/tapBody_01.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/tapBody_01.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/tapBody_02.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/tapBody_02.mp3"
+            }
+        ],
+        "pinch_in": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/pinchIn_00.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/pinchIn_00.mp3"
+            }
+        ],
+        "pinch_out": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/pinchOut_00.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/pinchOut_00.mp3"
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/shake_00.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/shake_00.mp3",
+                "fade_in": 500
+            }
+        ],
+        "flick_head": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/mtn/flickHead_00.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-haru/02/assets/snd/flickHead_00.mp3"
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

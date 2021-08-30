@@ -1,0 +1,77 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/model.moc",
+    "textures": [
+        "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/texture/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "face",
+            "id": "D_REF.FACE"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "motions": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/broken_1.mtn",
+                "sound": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/destory/voice/M1928A1_BREAK_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/broken_2.mtn",
+                "sound": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/destory/voice/M1928A1_BREAK_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/broken_3.mtn",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/broken_4.mtn",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/wait_1.mtn",
+                "sound": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/destory/voice/M1928A1_DIALOGUE1_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/shake.mtn",
+                "weight": 1
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/motions/daiji_idle_01.mtn",
+                "weight": 1
+            }
+        ]
+    },
+    "physics": "l2dmodel_15@1.0.0/girlsFrontline/tomsen1928a1/destroy/physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,167 @@
+{
+    "name": "睡衣风魔胧",
+    "model": "l2dmodel_18@1.0.0/hqxy/22020/Lead_00.moc",
+    "textures": [
+        "l2dmodel_18@1.0.0/hqxy/22020/textures/texture_00.png",
+        "l2dmodel_18@1.0.0/hqxy/22020/textures/texture_01.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "tap_D_PSD.09",
+            "id": "D_PSD_09"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/idle.mtn",
+                "weight": 1
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/stay_01.mtn",
+                "fade_in": 300,
+                "fade_out": 300,
+                "say_text": "我刚研磨了新配方的毒药，该去找谁试下呢？",
+                "weight": 1,
+                "sound": "l2dmodel_18@1.0.0/hqxy/22020/120_00601",
+                "say_text_show_time": 4
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/stay_02.mtn",
+                "fade_in": 300,
+                "fade_out": 300,
+                "say_text": "我发誓，风魔一族将在我的手上重放荣光！",
+                "weight": 1,
+                "sound": "l2dmodel_18@1.0.0/hqxy/22020/120_00301",
+                "say_text_show_time": 5
+            }
+        ],
+        "tap_D_PSD.09": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_pangci.mtn",
+                "sound": "l2dmodel_18@1.0.0/hqxy/22020/120_00701",
+                "fade_in": 300,
+                "fade_out": 300,
+                "say_text": "你摸我做什么？是不是想从我身上盗取我祖传的秘术之卷！",
+                "say_text_show_time": 10,
+                "weight": 1
+            }
+        ],
+        "tap_room": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/room_01.mtn"
+            }
+        ],
+        "tap_kanban": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/setting_01.mtn"
+            }
+        ],
+        "tap_gift": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/gift_01.mtn"
+            }
+        ],
+        "tap_favor": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/favor_01.mtn"
+            }
+        ],
+        "tap_sleep": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/sleep_01.mtn"
+            }
+        ],
+        "tap_touch01": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_01_1.mtn"
+            }
+        ],
+        "tap_touch02": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_01_2.mtn"
+            }
+        ],
+        "tap_touch03": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_02_1.mtn"
+            }
+        ],
+        "tap_touch04": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_02_2.mtn"
+            }
+        ],
+        "tap_touch05": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_03_1.mtn"
+            }
+        ],
+        "tap_touch06": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_03_2.mtn"
+            }
+        ],
+        "tap_fanu": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_99.mtn"
+            }
+        ],
+        "tap_zhengchang": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_02_1.mtn"
+            }
+        ],
+        "tap_kaixin": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_02_2.mtn"
+            }
+        ],
+        "tap_haixiu": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/touch_03_2.mtn"
+            }
+        ],
+        "tap_aichou": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/22020/mot/stay_02.mtn"
+            }
+        ]
+    },
+    "config": {
+        "scale": 1.5,
+        "posX": -230,
+        "posY": 110,
+        "offsetX": 90,
+        "offsetY": -40,
+        "textPosX": 300,
+        "textPosY": 600,
+        "mirrorX": false
+    },
+    "physics": "l2dmodel_18@1.0.0/hqxy/22020/physics.json",
+    "aniso_level": 9,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

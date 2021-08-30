@@ -1,0 +1,105 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_18@1.0.0/hqxy/20620/Lead_00.moc",
+    "config": {
+        "scale": 1.7,
+        "posX": -300,
+        "posY": 320,
+        "offsetX": 100,
+        "offsetY": 0,
+        "textPosX": 300,
+        "textPosY": 600,
+        "mirrorX": false
+    },
+    "textures": [
+        "l2dmodel_18@1.0.0/hqxy/20620/textures/20620.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/idle_01.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/idle_02.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/stay_01.mtn",
+                "fade_in": 300,
+                "fade_out": 300
+            }
+        ],
+        "tap_OP": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/touch_03.mtn",
+                "sound": "",
+                "fade_in": 300,
+                "fade_out": 300,
+                "say_text": "小心被开除学籍哦！",
+                "say_text_show_time": 0
+            }
+        ],
+        "tap_dunpai": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/touch_02.mtn",
+                "sound": "",
+                "say_text": "啊！！！……",
+                "say_text_show_time": 0,
+                "fade_in": 300,
+                "fade_out": 300
+            }
+        ],
+        "tap_FOOD": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/20620/motions/touch_01.mtn",
+                "sound": "",
+                "say_text": "即使是舔我的鞋子，我也不会手下留情的。",
+                "say_text_show_time": 0,
+                "fade_in": 300,
+                "fade_out": 300
+            }
+        ]
+    },
+    "hit_areas": [
+        {
+            "name": "tap_OP",
+            "id": "D_REF.OP"
+        },
+        {
+            "name": "tap_dunpai",
+            "id": "D_REF.dunpai"
+        },
+        {
+            "name": "tap_FOOD",
+            "id": "D_REF.FOOD"
+        }
+    ],
+    "physics": "l2dmodel_18@1.0.0/hqxy/20620/physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

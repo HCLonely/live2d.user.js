@@ -1,0 +1,65 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/model.moc",
+    "textures": [
+        "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/model.1024/texture_00.png"
+    ],
+    "motions": {
+        "": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/broken_1.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/broken_2.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/broken_3.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/broken_4.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/broken_5.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/wait_1.mtn"
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/login.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/m1903_5/normal/motions/daiji_idle_01.mtn"
+            }
+        ]
+    },
+    "hit_areas": [
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "lili",
+    "model": "l2dmodel_27@0.0.3/bsywy/lili/model.moc",
+    "textures": [
+        "l2dmodel_27@0.0.3/bsywy/lili/model.1024/texture_00.png",
+        "l2dmodel_27@0.0.3/bsywy/lili/model.1024/texture_01.png"
+    ],
+    "response_rate": 1.5,
+    "layout": {
+        "center_x": 0.1,
+        "center_y": -0.21,
+        "width": 2.2
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/lili/motions/daiji.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/lili/motions/suiji.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_opai": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/lili/motions/dianji.mtn",
+                "sound": "l2dmodel_27@0.0.3/bsywy/lili/sound/lili02.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

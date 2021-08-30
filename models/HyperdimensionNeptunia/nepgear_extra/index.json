@@ -1,0 +1,54 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/model.moc",
+    "textures": [
+        "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/textures.1024/00.png",
+        "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/textures.1024/01.png",
+        "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/textures.1024/02.png",
+        "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/textures.1024/03.png"
+    ],
+    "pose": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/../general/pose.json",
+    "physics": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": -0.7,
+        "width": 3
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            -0.35,
+            0.6
+        ],
+        "head_y": [
+            0.19,
+            -0.2
+        ],
+        "body_x": [
+            -0.3,
+            -0.25
+        ],
+        "body_y": [
+            0.3,
+            -0.9
+        ]
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/motions/../../general/mtn/idle_00.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            },
+            {
+                "file": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/motions/../../general/mtn/idle_01.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            },
+            {
+                "file": "l2dmodel_9@1.0.0/HyperdimensionNeptunia/nepgear_extra/motions/../../general/mtn/idle_02.mtn",
+                "fade_in": 2000,
+                "fade_out": 2000
+            }
+        ]
+    }
+}

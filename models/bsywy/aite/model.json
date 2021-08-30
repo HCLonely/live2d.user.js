@@ -1,0 +1,60 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "aite",
+    "model": "l2dmodel_27@0.0.3/bsywy/aite/model.moc",
+    "textures": [
+        "l2dmodel_27@0.0.3/bsywy/aite/model.1024/texture_00.png"
+    ],
+    "response_rate": 1.5,
+    "layout": {
+        "center_x": 0.1,
+        "center_y": -0.21,
+        "width": 2.2
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/aite/motions/daiji.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/aite/motions/suiji.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_duzi": [
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/aite/motions/dianji1.mtn",
+                "sound": "l2dmodel_27@0.0.3/bsywy/aite/sound/at01.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_27@0.0.3/bsywy/aite/motions/dianji2.mtn",
+                "sound": "l2dmodel_27@0.0.3/bsywy/aite/sound/at02.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

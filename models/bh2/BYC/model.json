@@ -1,0 +1,223 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_31@0.0.2/bh2/BYC/BCY.moc",
+    "textures": [
+        "l2dmodel_31@0.0.2/bh2/BYC/BCY.2048/texture_00.png"
+    ],
+    "motions": {
+        "shake": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/confused.mtn",
+                "text": 155079,
+                "sound_delay": -1
+            }
+        ],
+        "flick_head": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/happy.mtn",
+                "text": 155080,
+                "sound_delay": -1
+            }
+        ],
+        "tap_face": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/happy.mtn",
+                "text": 155080,
+                "sound_delay": -1
+            }
+        ],
+        "tap_breast": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/happy.mtn",
+                "text": 155080,
+                "sound_delay": -1
+            }
+        ],
+        "tap_belly": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/happy.mtn",
+                "text": 155080,
+                "sound_delay": -1
+            }
+        ],
+        "tap_leg": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/happy.mtn",
+                "text": 155080,
+                "sound_delay": -1
+            }
+        ],
+        "mail": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155081,
+                "sound_delay": -1
+            }
+        ],
+        "morning": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/smart.mtn",
+                "text": 155082,
+                "sound_delay": -1
+            },
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155089,
+                "sound_delay": -1
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/idle.mtn"
+            },
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/laugh.mtn",
+                "text": 155083,
+                "sound_delay": -1
+            },
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/laugh.mtn",
+                "text": 155085,
+                "sound_delay": -1
+            },
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/joke.mtn",
+                "text": 155086,
+                "sound_delay": -1
+            }
+        ],
+        "activity": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155084,
+                "sound_delay": -1
+            }
+        ],
+        "born": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155087,
+                "sound_delay": -1
+            }
+        ],
+        "friend": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155088,
+                "sound_delay": -1
+            }
+        ],
+        "afternoon": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155090,
+                "sound_delay": -1
+            }
+        ],
+        "evening": [
+            {
+                "file": "l2dmodel_31@0.0.2/bh2/BYC/motions/soft.mtn",
+                "text": 155091,
+                "sound_delay": -1
+            }
+        ]
+    },
+    "physics": "l2dmodel_31@0.0.2/bh2/BYC/physics.json",
+    "project_settings": "embed://111.json",
+    "name": "",
+    "layout": {
+        "image_height": 750,
+        "image_center_y": -0.25,
+        "anchor_center_y": 0,
+        "head_center_y": 0.5,
+        "time_to_max_speed": 0.08,
+        "face_max_angle": 20
+    },
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_CORE.HEAD"
+        },
+        {
+            "name": "face",
+            "id": "D_CORE.FACE"
+        },
+        {
+            "name": "breast",
+            "id": "D_CORE.BREAST"
+        },
+        {
+            "name": "belly",
+            "id": "D_CORE.BELLY"
+        },
+        {
+            "name": "leg",
+            "id": "D_CORE.LEG"
+        }
+    ],
+    "motion_settings": {
+        "idle": {
+            "cd": 20
+        },
+        "morning": {
+            "cd": 3600
+        },
+        "afternoon": {
+            "cd": 3600
+        },
+        "evening": {
+            "cd": 3600
+        },
+        "activity": {
+            "cd": 3600
+        },
+        "friend": {
+            "cd": 18000
+        },
+        "mail": {
+            "cd": 18000
+        },
+        "tap_breast": {
+            "cd": 10
+        },
+        "tap_belly": {
+            "cd": 10
+        },
+        "tap_leg": {
+            "cd": 10
+        },
+        "tap_face": {
+            "cd": 10
+        },
+        "flick_head": {
+            "cd": 20
+        },
+        "shake": {
+            "cd": 60
+        },
+        "born": {
+            "cd": 60
+        }
+    },
+    "extra_param_prefix_settings": [
+        "PARAM_FYW"
+    ],
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

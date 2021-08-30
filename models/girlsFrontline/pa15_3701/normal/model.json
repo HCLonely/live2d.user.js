@@ -1,0 +1,74 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/model.moc",
+    "textures": [
+        "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/model.1024/texture_00.png"
+    ],
+    "motions": {
+        "": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/broken_1.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/broken_2.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/broken_3.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/broken_4.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/broken_5.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/login.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/shake.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/daiji_idle_01.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_14@1.0.0/girlsFrontline/pa15_3701/normal/physics.json",
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.FACE"
+        },
+        {
+            "name": "leg",
+            "id": "D_REF.LEG"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,110 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/shifuku/shifuku.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/shifuku/shifuku.1024/texture_00.png",
+        "l2dmodel_3@1.0.0/shifuku/shifuku.1024/texture_01.png",
+        "l2dmodel_3@1.0.0/shifuku/shifuku.1024/texture_02.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0.4,
+        "width": 2.1
+    },
+    "motions": {
+        "tap": [
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion04.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion05.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion06.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion08.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion09.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion10.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion11.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion12.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/shifuku/motions/motion07.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f07.exp.json"
+        },
+        {
+            "name": "f08.exp.json",
+            "file": "l2dmodel_3@1.0.0/shifuku/expressions/f08.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_3@1.0.0/shifuku/physics.json",
+    "pose": "l2dmodel_3@1.0.0/shifuku/pose.json",
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

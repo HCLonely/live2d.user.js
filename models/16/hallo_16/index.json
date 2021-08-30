@@ -1,0 +1,130 @@
+{
+    "version": "Live2DViewerEX Config 1.0",
+    "model": "l2dmodel_1@1.0.0/16/hallo_16/hallo_16.moc",
+    "physics": "l2dmodel_1@1.0.0/16/hallo_16/physics_hallo.json",
+    "lip_sync": "true",
+    "textures": [
+        "l2dmodel_1@1.0.0/16/hallo_16/hallo_16.1024/texture_00.png",
+        "l2dmodel_1@1.0.0/16/hallo_16/hallo_16.1024/texture_01.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": -0.15,
+        "width": 2
+    },
+    "hit_areas": [
+        {
+            "name": "body",
+            "id": ""
+        }
+    ],
+    "motions": {
+        "tap": [
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3368.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3368.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3369.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3369.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3370.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3370.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3371.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3371.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3372.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3372.mp3"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3373.mtn",
+                "sound": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap/voice_3373.mp3"
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap_body/m01.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap_body/m02.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap_body/m03.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap_body/m04.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/16/hallo_16/motions/tap_body/m05.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "F00.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F00.exp.json"
+        },
+        {
+            "name": "F01.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F01.exp.json"
+        },
+        {
+            "name": "F02.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F02.exp.json"
+        },
+        {
+            "name": "F03.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F03.exp.json"
+        },
+        {
+            "name": "F04.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F04.exp.json"
+        },
+        {
+            "name": "F05.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F05.exp.json"
+        },
+        {
+            "name": "F06.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F06.exp.json"
+        },
+        {
+            "name": "F07.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F07.exp.json"
+        },
+        {
+            "name": "F08.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F08.exp.json"
+        },
+        {
+            "name": "F09.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F09.exp.json"
+        },
+        {
+            "name": "F10.exp.json",
+            "file": "l2dmodel_1@1.0.0/16/hallo_16/expressions/F10.exp.json"
+        }
+    ],
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

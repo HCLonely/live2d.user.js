@@ -1,0 +1,116 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "妮妮法_春节",
+    "model": "l2dmodel_18@1.0.0/hqxy/16690/Lead_00.moc",
+    "textures": [
+        "l2dmodel_18@1.0.0/hqxy/16690/textures/texture_00.png",
+        "l2dmodel_18@1.0.0/hqxy/16690/textures/texture_01.png"
+    ],
+    "config": {
+        "scale": 1,
+        "posX": 0,
+        "posY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "textPosX": 325,
+        "textPosY": 280,
+        "mirrorX": false
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/idle.mtn"
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/stay_01.mtn"
+            }
+        ],
+        "gift": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/gift_01.mtn"
+            }
+        ],
+        "setting": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/setting_01.mtn"
+            }
+        ],
+        "touch_01_1": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_01_1.mtn"
+            }
+        ],
+        "touch_01_2": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_01_2.mtn"
+            }
+        ],
+        "touch_chuanghu": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_chuanghu.mtn"
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_chuanghu_01.mtn"
+            }
+        ],
+        "touch_head": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_head.mtn",
+                "sound": "l2dmodel_18@1.0.0/hqxy/16690/166_0202",
+                "say_text": "决定了，不听话的你就一生，一生都留在妮妮珐的实验室里！",
+                "say_text_show_time": 0
+            }
+        ],
+        "touch_Hips": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_Hips.mtn",
+                "sound": "l2dmodel_18@1.0.0/hqxy/16690/166_0201",
+                "say_text": "再不停下的话，就要为你的行为支付代价了哦~",
+                "say_text_show_time": 0
+            }
+        ],
+        "touch_99": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/16690/motions/touch_99.mtn"
+            }
+        ]
+    },
+    "hit_areas": [
+        {
+            "name": "touch_chuanghu",
+            "id": "D_REF_PT_touch_chuanghu"
+        },
+        {
+            "name": "touch_head",
+            "id": "D_REF_PT_touch_head"
+        },
+        {
+            "name": "touch_Hips",
+            "id": "D_REF_PT_touch_Hips"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

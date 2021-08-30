@@ -1,0 +1,191 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "model",
+    "model": "l2dmodel_16@1.0.0/hqxy/12930/Lead_00.moc",
+    "textures": [
+        "l2dmodel_16@1.0.0/hqxy/12930/textures/texture_00.png",
+        "l2dmodel_16@1.0.0/hqxy/12930/textures/texture_01.png"
+    ],
+    "config": {
+        "scale": 1,
+        "posX": 0,
+        "posY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "textPosX": 325,
+        "textPosY": 280,
+        "mirrorX": false
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/idle.mtn"
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/stay_01.mtn"
+            },
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/stay_02.mtn"
+            }
+        ],
+        "sleep_01": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/sleep_01.mtn"
+            }
+        ],
+        "setting_01": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/setting_01.mtn"
+            }
+        ],
+        "room_01": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/room_01.mtn"
+            }
+        ],
+        "favor_01": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/favor_01.mtn"
+            }
+        ],
+        "gift_01": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/gift_01.mtn"
+            }
+        ],
+        "touch_01_1": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_01_1.mtn"
+            }
+        ],
+        "touch_01_2": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_01_2.mtn"
+            }
+        ],
+        "touch_02_1": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_02_1.mtn"
+            }
+        ],
+        "touch_02_2": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_02_2.mtn"
+            }
+        ],
+        "touch_03_1": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_03_1.mtn"
+            }
+        ],
+        "touch_03_2": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_03_2.mtn"
+            }
+        ],
+        "touch_04_1": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_04_1.mtn"
+            }
+        ],
+        "touch_04_2": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_04_2.mtn"
+            }
+        ],
+        "touch_erji": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_erji.mtn",
+                "sound": "l2dmodel_16@1.0.0/hqxy/12930/liulibgm"
+            }
+        ],
+        "touch_pocky": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_pocky.mtn"
+            }
+        ],
+        "touch_panci": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_99.mtn",
+                "sound": "l2dmodel_16@1.0.0/hqxy/12930/12930_0202",
+                "say_text": "终于露出真面目了吗？拔剑吧，人·渣·！",
+                "say_text_show_time": 7
+            }
+        ],
+        "touch_99": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/touch_99.mtn"
+            }
+        ],
+        "slide_zipper": [
+            {
+                "file": "l2dmodel_16@1.0.0/hqxy/12930/motions/idle.mtn"
+            }
+        ]
+    },
+    "hit_areas": [
+        {
+            "name": "touch_erji",
+            "id": "HitArea_Erji"
+        },
+        {
+            "name": "lalianshang",
+            "id": "HitArea_lalianshang"
+        },
+        {
+            "name": "lalianxia",
+            "id": "HitArea_lalianxia"
+        },
+        {
+            "name": "baozhen",
+            "id": "HitArea_baozhen"
+        }
+    ],
+    "hit_params": [
+        {
+            "id": "PARAM_ZIPPER",
+            "hit_area": "lalianshang",
+            "axis": 1,
+            "weight": 1,
+            "distance": 200
+        },
+        {
+            "id": "PARAM_ZIPPER",
+            "hit_area": "lalianxia",
+            "axis": 1,
+            "weight": 1,
+            "distance": 200
+        },
+        {
+            "id": "PARAM_BAOZHEN_X",
+            "hit_area": "baozhen",
+            "axis": 0,
+            "weight": 1,
+            "distance": 100
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

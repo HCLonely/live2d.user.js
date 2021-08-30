@@ -1,0 +1,121 @@
+{
+    "version": "Live2DViewerEX Config 1.0",
+    "model": "l2dmodel_1@1.0.0/kuroko/kuroko.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/kuroko/kuroko.1024/texture_00.png",
+        "l2dmodel_1@1.0.0/kuroko/kuroko.1024/texture_01.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 1.7
+    },
+    "motions": {
+        "tap": [
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion1.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion10.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion11.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion12.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion13.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion14.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion15.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion16.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion17.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion2.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion3.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion4.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion5.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion6.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion7.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion8.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/kuroko/motions/tap/motion9.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f07.exp.json"
+        },
+        {
+            "name": "f08.exp.json",
+            "file": "l2dmodel_1@1.0.0/kuroko/expressions/f08.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_1@1.0.0/kuroko/physics.json",
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

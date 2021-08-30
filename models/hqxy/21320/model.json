@@ -1,0 +1,176 @@
+{
+    "name": "model",
+    "model": "l2dmodel_18@1.0.0/hqxy/21320/Lead_00.moc",
+    "textures": [
+        "l2dmodel_18@1.0.0/hqxy/21320/textures/texture_00.png",
+        "l2dmodel_18@1.0.0/hqxy/21320/textures/texture_01.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "tap_leg",
+            "id": "D_PSD.23"
+        },
+        {
+            "name": "tap_pillow",
+            "id": "D_PSD.01"
+        },
+        {
+            "name": "tap_cup",
+            "id": "D_PSD.04"
+        },
+        {
+            "name": "tap_head",
+            "id": "D_PSD.27"
+        },
+        {
+            "name": "tap_bra",
+            "id": "D_PSD.43"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/idle.mtn",
+                "weight": 1
+            }
+        ],
+        "stay": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/stay_01.mtn",
+                "weight": 1,
+                "say_text": "呜……好困……那就先……休息一下……",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_stay01"
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/stay_02.mtn",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/stay_03.mtn",
+                "weight": 1,
+                "say_text": "窗外吹来的微风……好舒服……",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_stay03"
+            }
+        ],
+        "tap_leg": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_01.mtn",
+                "say_text": "班……班长，千竹的脚不可以随便碰！",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_touch01",
+                "weight": 1
+            }
+        ],
+        "tap_pillow": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_06.mtn",
+                "say_text": "枕头软软的，靠起来好舒服……",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_touch03",
+                "weight": 1
+            }
+        ],
+        "tap_cup": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_07.mtn",
+                "say_text": "班长口渴了吗，我去给你倒杯茶吧。",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_touch02",
+                "weight": 1
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_05.mtn"
+            }
+        ],
+        "tap_bra": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_02.mtn",
+                "say_text": "哎……哎？！……班长快转过去啦！",
+                "sound": "l2dmodel_18@1.0.0/hqxy/21320/11320_touch04",
+                "say_text_show_time": 4.8,
+                "weight": 1
+            }
+        ],
+        "tap_haixiu": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_02.mtn"
+            }
+        ],
+        "tap_zhengchang": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_05.mtn"
+            }
+        ],
+        "tap_fanu": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_01.mtn"
+            }
+        ],
+        "tap_aichou": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_01.mtn"
+            }
+        ],
+        "tap_kaixin": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_07.mtn"
+            }
+        ],
+        "conversation": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_01.mtn"
+            }
+        ],
+        "conversation2": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_02.mtn"
+            }
+        ],
+        "conversation3": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_05.mtn"
+            }
+        ],
+        "conversation4": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_06.mtn"
+            }
+        ],
+        "conversation5": [
+            {
+                "file": "l2dmodel_18@1.0.0/hqxy/21320/mot/touch_07.mtn"
+            }
+        ]
+    },
+    "config": {
+        "scale": 1,
+        "posX": 0,
+        "posY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "textPosX": 300,
+        "textPosY": 550,
+        "mirrorX": false
+    },
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "elizabeth_9",
+    "model": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/model.moc",
+    "textures": [
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/model.2048/texture_00.png",
+        "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/model.2048/texture_01.png"
+    ],
+    "response_rate": 1.5,
+    "layout": {
+        "center_x": 0,
+        "center_y": -0.212,
+        "width": 2.5
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/idle.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "idle_2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/idle2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "idle_3": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji3_2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji1": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji2.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/sound/dianji2_effect.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "dianji4": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji4.mtn",
+                "sound": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/sound/dianji4_effect.mp3",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "eat": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji3_3.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/dianji3_1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tou1": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/tou1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "tou2": [
+            {
+                "file": "l2dmodel_28@0.0.2/bsywy2/elizabeth_4/motions/tou2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

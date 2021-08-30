@@ -1,0 +1,138 @@
+{
+    "name": "model",
+    "model": "l2dmodel_8@1.0.0/nerco/l2d10004/model.moc",
+    "textures": [
+        "l2dmodel_8@1.0.0/nerco/l2d10004/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "tap_D_REF.HEAD": [
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/anger.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/501.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/anger_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/502.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/bashful.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/503.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/bashful_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/504.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/confidence.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/505.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/confidence_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/506.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/elapse.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/joy.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/508.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/joy2.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/509.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/joy2_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/510.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/joy_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/511.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/sleep.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/512.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/sleep_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/513.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/surprise.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/514.wav"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/surprise_loop.mtn",
+                "sound": "l2dmodel_8@1.0.0/nerco/l2d10004/515.wav"
+            }
+        ],
+        "tap_D_REF.BODY": [
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap3.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap3.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap1.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap2.mtn"
+            },
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/tap3.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_8@1.0.0/nerco/l2d10004/loop.mtn"
+            }
+        ]
+    },
+    "lip_sync": "true",
+    "aniso_level": 5,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

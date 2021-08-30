@@ -1,0 +1,148 @@
+{
+    "name": "model",
+    "model": "l2dmodel_7@1.0.0/nerco/l2d10001/model.moc",
+    "textures": [
+        "l2dmodel_7@1.0.0/nerco/l2d10001/model.2048/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "D_REF.HEAD",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "D_REF.BODY",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "tap_D_REF.HEAD": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/anger.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/601.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/anger_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/602.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/bashful.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/603.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/bashful_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/604.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/confidence.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/605.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/confidence_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/606.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/elapse.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/621.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/joy.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/608.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/joy2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/609.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/joy2_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/610.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/joy_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/611.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/sleep.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/612.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/sleep_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/613.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/surprise.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/614.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/surprise_loop.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/615.wav"
+            }
+        ],
+        "tap_D_REF.BODY": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap1.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/616.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/616.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap3.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/617.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap1.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/618.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/619.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap3.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/620.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap1.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/621.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap2.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/622.wav"
+            },
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/tap3.mtn",
+                "sound": "l2dmodel_7@1.0.0/nerco/l2d10001/voice/623.wav"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_7@1.0.0/nerco/l2d10001/motions/loop.mtn"
+            }
+        ]
+    },
+    "lip_sync": "true",
+    "aniso_level": 5,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

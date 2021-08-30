@@ -1,0 +1,90 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "wanko",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/moc/wanko.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/moc/wanko.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "body",
+            "id": "D_REF.PT_SOBA_01"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0.3,
+        "width": 2.9
+    },
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/idle_01.mtn",
+                "fade_in": 500,
+                "fade_out": 200
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/idle_02.mtn",
+                "fade_in": 500,
+                "fade_out": 200
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/idle_03.mtn",
+                "fade_in": 500,
+                "fade_out": 200
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/idle_04.mtn",
+                "fade_in": 500,
+                "fade_out": 200
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/shake_01.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/shake_02.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/touch_01.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/touch_02.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-wanko/assets/mtn/touch_03.mtn",
+                "fade_in": 500,
+                "fade_out": 0
+            }
+        ]
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,250 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/model.moc",
+    "textures": [
+        "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/model.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "diao",
+            "id": "D_REF.DIAO"
+        },
+        {
+            "name": "hand",
+            "id": "D_REF.HAND"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/idle.mtn",
+                "weight": 1
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/touch_1.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_DIALOGUE1_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/touch_2.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_DIALOGUE2_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/touch_3.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_DIALOGUE3_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/touch_4.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_OPERATIONBEGIN_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/touch_5.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_OPERATIONOVER_JP.mp3",
+                "weight": 1
+            }
+        ],
+        "tap_diao": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/wait_1.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_TIP_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/wait_2.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_TITLECALL_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/1",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_SKILL1_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/2",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_SKILL2_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/3",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_SKILL3_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/4",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_WIN_JP.mp3",
+                "weight": 1
+            }
+        ],
+        "tap_hand": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/wedding.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_DIALOGUEWEDDING_JP.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/wedding_touch.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_SOULCONTRACT_JP.mp3",
+                "weight": 1
+            }
+        ],
+        "start": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/login.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_HELLO_JP.mp3",
+                "weight": 1
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/motions/shake.mtn",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_MOOD2_JP.mp3",
+                "weight": 1
+            }
+        ],
+        "tap_body": [
+            {
+                "name": "1",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_ACCEPT_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_AGREE_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "3",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_APPRECIATE_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "4",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_ATTACK_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "5",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_BLACKACTION_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "6",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_BREAK_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "7",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_BUILDOVER_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "8",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_COMBINE_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "9",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_DEFENSE_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "10",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_FEED_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "11",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_FEELING_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "12",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_FIX_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "13",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_FORMATION_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "14",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_GAIN_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "15",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_GOATTACK_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "16",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_LOADING_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "17",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_LOWMOOD_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "18",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_MEET_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "19",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_MOOD1_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "20",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_PHRASE_JP.mp3",
+                "weight": 1
+            },
+            {
+                "name": "21",
+                "sound": "l2dmodel_11@1.0.0/girlsFrontline/fn57_2203/normal/sounds/FN57_0_RETREAT_JP.mp3",
+                "weight": 1
+            }
+        ]
+    },
+    "lip_sync": "true",
+    "auto_breath": false,
+    "aniso_level": 5,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

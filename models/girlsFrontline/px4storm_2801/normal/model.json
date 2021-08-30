@@ -1,0 +1,89 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/model.moc",
+    "textures": [
+        "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/model.1024/texture_00.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/daiji_idle_01.mtn"
+            }
+        ],
+        "": [
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/login.mtn"
+            },
+            {
+                "file": ""
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/shake.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/touch_1.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/touch_2.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/touch_3.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/touch_4.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/touch_5.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/wait_1.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/wait_2.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/wedding.mtn"
+            },
+            {
+                "file": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/motions/wedding_touch.mtn"
+            }
+        ]
+    },
+    "physics": "l2dmodel_14@1.0.0/girlsFrontline/px4storm_2801/normal/physics.json",
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "leg",
+            "id": "D_REF.LEG"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,169 @@
+{
+    "version": "Sample 1.0.0",
+    "id": "suomi",
+    "name": "suomi",
+    "model": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/model.moc",
+    "textures": [
+        "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/model.1024/texture_00.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.HEAD"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        }
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/daiji_idle_01.mtn",
+                "weight": 1
+            }
+        ],
+        "tap": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/touch_1.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_005.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/touch_2.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_006.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/touch_3.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_007.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/touch_4.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_026.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/touch_5.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_015.mp3",
+                "weight": 1
+            },
+            {
+                "name": "1",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_004.mp3",
+                "weight": 1
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_024.mp3",
+                "weight": 1
+            },
+            {
+                "name": "3",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_025.mp3",
+                "weight": 1
+            },
+            {
+                "name": "4",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_026.mp3",
+                "weight": 1
+            }
+        ],
+        "tap_head": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/whiteday.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_020.mp3",
+                "fade_in": 300,
+                "fade_out": 300,
+                "weight": 1
+            },
+            {
+                "name": "1",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_032.mp3",
+                "weight": 1
+            },
+            {
+                "name": "2",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_035.mp3",
+                "weight": 1
+            },
+            {
+                "name": "3",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_036.mp3",
+                "weight": 1
+            }
+        ],
+        "tap_body": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/wedding.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_029.mp3",
+                "fade_in": 300,
+                "fade_out": 300,
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/wedding_touch.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_041.mp3",
+                "fade_in": 300,
+                "fade_out": 300,
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/wait_1.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_009.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/wait_2.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_028.mp3",
+                "weight": 1
+            }
+        ],
+        "shake": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/shake.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_033.mp3",
+                "weight": 1
+            }
+        ],
+        "start": [
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/login.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_001.mp3",
+                "weight": 1
+            },
+            {
+                "file": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/motions/login.mtn",
+                "sound": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/sounds/KP31_002.mp3",
+                "weight": 1
+            }
+        ]
+    },
+    "physics": "l2dmodel_13@1.0.0/girlsFrontline/kp31_/normal/physics.json",
+    "lip_sync": "true",
+    "auto_breath": false,
+    "aniso_level": 4,
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

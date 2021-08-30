@@ -1,0 +1,94 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/moc/hibiki.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/moc/hibiki.2048/texture_00.png"
+    ],
+    "motions": {
+        "null": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/hibiki_01.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/snd/hibiki_01.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/hibiki_02.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/snd/hibiki_02.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/hibiki_03.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/snd/hibiki_03.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/hibiki_04.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/snd/hibiki_04.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/hibiki_05.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/snd/hibiki_05.mp3"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/idle_01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/idle_02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/idle_03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/mtn/idle_04.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f01.exp.json"
+        },
+        {
+            "name": "f02.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f02.exp.json"
+        },
+        {
+            "name": "f03.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f03.exp.json"
+        },
+        {
+            "name": "f04.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f04.exp.json"
+        },
+        {
+            "name": "f05.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f05.exp.json"
+        },
+        {
+            "name": "f06.mtn",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/exp/f06.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-hibiki/assets/hibiki.physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "type": "Live2D Model Setting",
+    "name": "model",
+    "model": "l2dmodel_27@0.0.3/nyhx/400113/model.moc",
+    "textures": [
+        "l2dmodel_27@0.0.3/nyhx/400113/model.512/texture_00.png",
+        "l2dmodel_27@0.0.3/nyhx/400113/model.512/texture_01.png",
+        "l2dmodel_27@0.0.3/nyhx/400113/model.512/texture_02.png",
+        "l2dmodel_27@0.0.3/nyhx/400113/model.512/texture_03.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/moc/izumi_illust.moc",
+    "textures": [
+        "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/moc/izumi_illust.1024/texture_00.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/moc/izumi_illust.1024/texture_01.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/moc/izumi_illust.1024/texture_02.png",
+        "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/moc/izumi_illust.1024/texture_03.png"
+    ],
+    "motions": {
+        "idle": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/idle_01.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/idle_02.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/idle_03.mtn"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/idle_04.mtn"
+            }
+        ],
+        "null": [
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_01.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_01.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_02.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_02.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_03.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_03.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_04.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_04.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_05.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_05.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_06.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_06.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_07.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_07.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_08.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_08.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_09.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_09.mp3"
+            },
+            {
+                "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/mtn/izumi_10.mtn",
+                "sound": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/snd/izumi_10.mp3"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/exp/f07.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_3@1.0.0/live2d-widget-model-izumi/assets/izumi.physics.json",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    },
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

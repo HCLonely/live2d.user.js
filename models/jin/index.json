@@ -1,0 +1,87 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_1@1.0.0/jin/shifuku.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/jin/shifuku.1024/texture_00.png",
+        "l2dmodel_1@1.0.0/jin/shifuku.1024/texture_01.png"
+    ],
+    "layout": {
+        "center_x": 0,
+        "center_y": 0.3,
+        "width": 1.3
+    },
+    "motions": {
+        "tap": [
+            {
+                "file": "l2dmodel_1@1.0.0/jin/motions/motion02.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/jin/motions/motion03.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/jin/motions/motion04.mtn"
+            },
+            {
+                "file": "l2dmodel_1@1.0.0/jin/motions/motion05.mtn"
+            }
+        ],
+        "idle": [
+            {
+                "file": "l2dmodel_1@1.0.0/jin/motions/motion01.mtn"
+            }
+        ]
+    },
+    "expressions": [
+        {
+            "name": "f01.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f01.exp.json"
+        },
+        {
+            "name": "f02.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f02.exp.json"
+        },
+        {
+            "name": "f03.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f03.exp.json"
+        },
+        {
+            "name": "f04.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f04.exp.json"
+        },
+        {
+            "name": "f05.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f05.exp.json"
+        },
+        {
+            "name": "f06.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f06.exp.json"
+        },
+        {
+            "name": "f07.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f07.exp.json"
+        },
+        {
+            "name": "f08.exp.json",
+            "file": "l2dmodel_1@1.0.0/jin/expressions/f08.exp.json"
+        }
+    ],
+    "physics": "l2dmodel_1@1.0.0/jin/physics.json",
+    "hit_areas_custom": {
+        "head_x": [
+            0,
+            0
+        ],
+        "head_y": [
+            0,
+            0
+        ],
+        "body_x": [
+            0,
+            0
+        ],
+        "body_y": [
+            0,
+            0
+        ]
+    }
+}

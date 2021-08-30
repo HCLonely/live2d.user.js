@@ -1,0 +1,97 @@
+{
+    "version": "Sample 1.0.0",
+    "model": "l2dmodel_1@1.0.0/kurumi/model.moc",
+    "textures": [
+        "l2dmodel_1@1.0.0/kurumi/textures/texture_00.png",
+        "l2dmodel_1@1.0.0/kurumi/textures/texture_01.png",
+        "l2dmodel_1@1.0.0/kurumi/textures/texture_02.png"
+    ],
+    "hit_areas": [
+        {
+            "name": "head",
+            "id": "D_REF.FACE"
+        },
+        {
+            "name": "body",
+            "id": "D_REF.BODY"
+        },
+        {
+            "name": "tui",
+            "id": "D_REF.TUI"
+        }
+    ],
+    "hit_areas_custom": {
+        "head_x": [
+            -0.3,
+            1.12
+        ],
+        "head_y": [
+            0.26,
+            0.56
+        ],
+        "body_x": [
+            -0.41,
+            0.58
+        ],
+        "body_y": [
+            0.46,
+            -1.12
+        ]
+    },
+    "motions": {
+        "id4_5": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_5.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4_4": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_4.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4_2": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_2.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4_1": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_1.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4_3": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_3.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ],
+        "id4_6": [
+            {
+                "file": "l2dmodel_1@1.0.0/kurumi/motions/id4_6.mtn",
+                "fade_in": 0,
+                "fade_out": 0
+            }
+        ]
+    },
+    "name": "bust_10401",
+    "layout": {
+        "center_x": 0,
+        "center_y": 0
+    }
+}

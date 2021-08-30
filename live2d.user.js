@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.2.0
+// @version      1.2.1
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 // @require      https://cdn.jsdelivr.net/npm/jquery-ui@1.12.1/ui/widget.min.js
 // @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
-// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.0/models/modelList.json
+// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.1/models/modelList.json
 // @supportURL   https://blog.hclonely.com/posts/f09c9fef/
 // @homepage     https://blog.hclonely.com/posts/f09c9fef/
 // @grant        GM_xmlhttpRequest
@@ -404,22 +404,27 @@
     if (!live2d_settings.canTurnToAboutPage) $('.waifu-tool .fui-info-circle').hide()
 
     if (waifuPath === undefined) waifuPath = ''
-    let modelId = GM_getValue('modelId')
-    let modelTexturesId = GM_getValue('modelTexturesId')
+    let modelId = GM_getValue('modelId') || live2d_settings.modelId
+    let modelTexturesId = GM_getValue('modelTexturesId') || live2d_settings.modelId
 
     if (!live2d_settings.modelStorage || modelId == null) {
       modelId = live2d_settings.modelId
       modelTexturesId = live2d_settings.modelTexturesId
-    } loadModel(modelId, modelTexturesId)
+    }
+    loadModel(modelId, modelTexturesId)
   }
 
   function loadModel (modelId, modelTexturesId = 0) {
     if (live2d_settings.modelStorage) {
       GM_setValue('modelId', modelId)
       GM_setValue('modelTexturesId', modelTexturesId)
+      const setting = GM_getValue('live2d_settings') || live2d_settings
+      setting.modelId = modelId
+      setting.modelTexturesId = modelTexturesId
+      GM_setValue('live2d_settings', setting)
     } else {
-      GM_setValue('modelId', modelId)
-      GM_setValue('modelTexturesId', modelTexturesId)
+      GM_setValue('modelId', null)
+      GM_setValue('modelTexturesId', null)
     }
     loadlive2d('live2d', live2d_settings.modelAPI + 'get/?id=' + modelId + '-' + modelTexturesId, (live2d_settings.showF12Status ? console.log('[Status]', 'live2d', '模型', modelId + '-' + modelTexturesId, '加载完成') : null))
   }

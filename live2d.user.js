@@ -27,7 +27,7 @@
 /* global waifuResize,loadlive2d,showWelcomeMessage,getActed,hitokotoTimer,hitokotoInterval */
 (function () {
   'use strict'
-
+  const modelList = []
   if ($('.waifu').length > 0) return 0
 
   const live2d_conf = {
@@ -512,12 +512,26 @@
 
     const waifu_tips = result.waifu
 
+    function randId(id,length){
+      const newId = parseInt(Math.random()*length+1,10)
+      return newId === id ? randId(id,length) : newId
+    }
     function loadOtherModel () {
-      const modelId = modelStorageGetItem('modelId')
+      const modelId = parseInt(modelStorageGetItem('modelId'))
       const modelRandMode = live2d_settings.modelRandMode
 
       if (live2d_settings.modelAPI === 'default') {
-
+        if(modelRandMode === 'switch'){
+          const newId = modelId >= modelList.length ? 1 : (modelId + 1)
+          loadModel(newId)
+          $.each(waifu_tips.model_message, function (i, val) { if (i === newId) message = getRandText(val) })
+          showMessage(message, 3000, true)
+        } else {
+          const newId = randId(modelId, modelList.length)
+          loadModel(newId)
+          $.each(waifu_tips.model_message, function (i, val) { if (i === newId) message = getRandText(val) })
+          showMessage(message, 3000, true)
+        }
       } else {
         GM_xmlhttpRequest({
           method: 'GET',
@@ -536,21 +550,42 @@
     }
 
     function loadRandTextures () {
-      const modelId = modelStorageGetItem('modelId')
-      const modelTexturesId = modelStorageGetItem('modelTexturesId')
+      const modelId = parseInt(modelStorageGetItem('modelId'))
+      const modelTexturesId = parseInt(modelStorageGetItem('modelTexturesId'))
       const modelTexturesRandMode = live2d_settings.modelTexturesRandMode
-
-      GM_xmlhttpRequest({
-        method: 'GET',
-        url: live2d_settings.modelAPI + modelTexturesRandMode + '_textures/?id=' + modelId + '-' + modelTexturesId,
-        responseType: 'json',
-        anonymous: true,
-        onload: function (data) {
-          const result = data.response
-          if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) { showMessage(waifu_tips.load_rand_textures[0], 3000, true) } else showMessage(waifu_tips.load_rand_textures[1], 3000, true)
-          loadModel(modelId, result.textures.id)
+      if (live2d_settings.modelAPI === 'default') {
+        const modelInfo = modelList[parseInt(modelId) - 1]
+        if (Array.isArray(modelInfo)) {
+          if (modelTexturesRandMode === 'switch') {
+            const newId = modelTexturesId >= modelInfo.length ? 1 : (modelTexturesId + 1)
+            showMessage(waifu_tips.load_rand_textures[1], 3000, true)
+            loadModel(modelId, newId)
+          } else {
+            const newId = randId(modelTexturesId, modelInfo.length)
+            showMessage(waifu_tips.load_rand_textures[1], 3000, true)
+            loadModel(modelId, newId)
+          }
+        } else {
+          showMessage(waifu_tips.load_rand_textures[0], 3000, true)
+          loadModel(modelId, 1)
         }
-      })
+      } else {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: live2d_settings.modelAPI + modelTexturesRandMode + '_textures/?id=' + modelId + '-' + modelTexturesId,
+          responseType: 'json',
+          anonymous: true,
+          onload: function (data) {
+            const result = data.response
+            if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) {
+              showMessage(waifu_tips.load_rand_textures[0], 3000, true)
+            } else {
+              showMessage(waifu_tips.load_rand_textures[1], 3000, true)
+            }
+            loadModel(modelId, result.textures.id)
+          }
+        })
+      }
     }
 
     function modelStorageGetItem (key) { return live2d_settings.modelStorage ? GM_getValue(key) : GM_getValue(key) }
@@ -4768,9 +4803,25 @@
       .default = r
     const o = e(2)
     r.prototype.loadBytes = function (t, i) {
+      // console.log(t)
+      // console.log(modelList)
+      let url = 'https://cdn.jsdelivr.net'
+      if (live2d_settings.modelAPI === 'default') {
+        if (/id=[\d]+-[\d]+/.test(t)) {
+          const [, modelId, modelTexturesId] = t.match(/id=([\d]+)-([\d]+)/)
+          if (Array.isArray(modelList[parseInt(modelId) - 1])) {
+            url += modelList[parseInt(modelId) - 1][parseInt(modelId) - 1]
+          } else {
+            url += modelList[parseInt(modelId) - 1]
+          }
+        }
+      }else{
+        url = t.replace(live2d_settings.modelAPI + 'get/npm', live2d_settings.staticAPI + '/npm')
+      }
+      // console.log(url)
       GM_xmlhttpRequest({
         method: 'GET',
-        url: t.replace(live2d_settings.modelAPI + 'get/npm', live2d_settings.staticAPI + '/npm'),
+        url: url,
         headers: {
           Referer: live2d_settings.modelAPI
         },
@@ -4796,6 +4847,7 @@
         e = Live2DModelWebGL.loadModel(t), i(e)
       })
     }, r.prototype.loadTexture = function (t, i, e, r) {
+      // console.log(e)
       GM_xmlhttpRequest({
         method: 'GET',
         url: e.replace(live2d_settings.modelAPI + 'get/npm', live2d_settings.staticAPI + '/npm'),

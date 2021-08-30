@@ -8,7 +8,7 @@
 
 ## 模型预览
 
-[预览地址](https://live2d.hclonely.com/preview.html)
+[模型预览地址](https://live2d.hclonely.com/preview.html)
 
 ## 详细设置
 

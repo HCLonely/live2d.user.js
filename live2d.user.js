@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.2.1
+// @version      1.2.2
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
-// @require      https://cdn.jsdelivr.net/npm/jquery-ui@1.12.1/ui/widget.min.js
+// @require      https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js
 // @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
 // @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.1/models/modelList.json
-// @supportURL   https://blog.hclonely.com/posts/f09c9fef/
-// @homepage     https://blog.hclonely.com/posts/f09c9fef/
+// @supportURL   https://github.com/HCLonely/live2d.user.js/issues
+// @homepage     https://github.com/HCLonely/live2d.user.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue

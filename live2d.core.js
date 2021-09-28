@@ -1,6 +1,7 @@
-
+const VERSION = GM_info.script.version
+const modelList = JSON.parse(GM_getResourceText('modelList'))
 const live2d_conf = {
-  modelAPI: 'default', // 可根据https://github.com/HCLonely/live2d_api自建api
+  modelAPI: 'default',
   staticAPI: '',
   tipsMessage: 'waifu-tips.json',
   hitokotoAPI: 'rand',

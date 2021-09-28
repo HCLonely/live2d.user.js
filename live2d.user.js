@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.2.3
+// @version      1.2.5
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -13,7 +13,7 @@
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 // @require      https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js
 // @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
-// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.3/models/modelList.json
+// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.5/models/modelList.json
 // @supportURL   https://github.com/HCLonely/live2d.user.js/issues
 // @homepage     https://github.com/HCLonely/live2d.user.js
 // @grant        GM_xmlhttpRequest
@@ -24,7 +24,7 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_info
 // @grant        GM_getResourceText
-// @require      https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.4/live2d.core.min.js
+// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.5/live2d.core.min.js
 // @noframes
 // @connect      cdn.jsdelivr.net
 // @connect      cubism.live2d.com
@@ -38,8 +38,7 @@
 /* global waifuResize,loadlive2d,showWelcomeMessage,getActed,hitokotoTimer,hitokotoInterval */
 (function () {
   'use strict'
-  const VERSION = GM_info.script.version
-  const modelList = JSON.parse(GM_getResourceText('modelList'))
+
   if ($('.waifu').length > 0) return 0
 
   function userConf() {

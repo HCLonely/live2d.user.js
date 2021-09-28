@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.2.6
+// @version      1.2.7
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -13,7 +13,8 @@
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 // @require      https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js
 // @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
-// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.6/models/modelList.json
+// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/models/modelList.json
+// @resource     style https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/style.min.css
 // @supportURL   https://github.com/HCLonely/live2d.user.js/issues
 // @homepage     https://github.com/HCLonely/live2d.user.js
 // @grant        GM_xmlhttpRequest
@@ -24,11 +25,9 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_info
 // @grant        GM_getResourceText
-// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.6/live2d.core.min.js
+// @require      https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/live2d.core.min.js
 // @noframes
 // @connect      cdn.jsdelivr.net
-// @connect      cubism.live2d.com
-// @connect      live2d-api.hclonely.com
 // @connect      github.com
 // @connect      *
 // ==/UserScript==
@@ -36,6 +35,7 @@
 /* eslint-disable camelcase,no-global-assign */
 /* global $,jQuery,swal,GM_setValue,GM_getValue,GM_addStyle,GM_xmlhttpRequest,GM_registerMenuCommand,GM_info,GM_getResourceText */
 /* global waifuResize,loadlive2d,showWelcomeMessage,getActed,hitokotoTimer,hitokotoInterval */
+
 (function () {
   'use strict'
 
@@ -72,20 +72,7 @@
   }
   GM_registerMenuCommand('设置', userConf)
 
-  /*
-  new l2dViewer({
-    el: document.getElementById('live2dv3'),
-    basePath: 'https://cdn.jsdelivr.net/npm/live2dv3@latest/assets',
-    width: live2d_settings.waifuSize[0],
-    heoght: live2d_settings.waifuSize[1],
-    modelName: 'biaoqiang_3',
-    sounds: [
-        'https://cdn.jsdelivr.net/npm/live2dv3@latest/assets/biaoqiang_3/sounds/demo.mp3' // 也可以是网址
-    ]
-  })
-  */
-
-  $('body').append('<div class="waifu" style="z-index:9999999999;pointer-events: none;"><div class="waifu-tips"></div><canvas id="live2d" class="live2d" style="display:none"></canvas><div id="live2dv3" class="live2d"></div><div class="waifu-tool"><span class="fui-home"></span> <span class="fui-chat"></span> <span class="fui-eye"></span> <span class="fui-user"></span> <span class="fui-photo"></span> <span class="fui-info-circle"></span> <span class="fui-cross"></span></div></div>')
+  $('body').append('<div class="waifu" style="z-index:9999999999;pointer-events: none;"><div class="waifu-tips"></div><canvas id="live2d" class="live2d"></canvas><div class="waifu-tool"><span class="fui-home"></span> <span class="fui-chat"></span> <span class="fui-eye"></span> <span class="fui-user"></span> <span class="fui-photo"></span> <span class="fui-info-circle"></span> <span class="fui-cross"></span></div></div>')
 
   const code = '38|38|40|40|37|39|37|39|66|65|66|65'
   const unCode = '69|83|67'
@@ -251,408 +238,5 @@
       break
   }
 
-  GM_addStyle(`
-.waifu {
-    position: fixed !important;
-    bottom: 0;
-    z-index: 1;
-    font-size: 0;
-    -webkit-transform: translateY(3px);
-    transform: translateY(3px);
-}
-
-.waifu:hover {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-}
-
-.waifu-tips {
-    opacity: 0;
-    margin: -20px 20px;
-    padding: 5px 10px;
-    border: 1px solid rgba(224, 186, 140, 0.62);
-    border-radius: 12px;
-    background-color: rgba(236, 217, 188, 0.5);
-    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
-    font-size: 12px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    animation-delay: 5s;
-    animation-duration: 50s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;
-}
-
-.waifu-tool {
-    display: none;
-    color: #aaa;
-    top: 50px;
-    right: 10px;
-    position: absolute;
-}
-
-.waifu:hover .waifu-tool {
-    display: block;
-}
-
-.waifu-tool span {
-    display: block;
-    cursor: pointer;
-    color: rgb(57, 57, 57);
-    background-color: rgba(236, 217, 188, 0.5);
-    border: 1px solid rgba(224, 186, 140, 0.62);
-    padding: 0 4px;
-    line-height: 20px;
-    transition: 0.2s;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;
-}
-
-.waifu-tool span:hover {
-    z-index: 1;
-    transform: scale(1.5);
-    animation: none;
-}
-
-.waifu #live2d {
-    position: relative;
-    cursor: grab;
-}
-
-@keyframes shake {
-    2% {
-        transform: translate(0.5px, -1.5px) rotate(-0.5deg);
-    }
-
-    4% {
-        transform: translate(0.5px, 1.5px) rotate(1.5deg);
-    }
-
-    6% {
-        transform: translate(1.5px, 1.5px) rotate(1.5deg);
-    }
-
-    8% {
-        transform: translate(2.5px, 1.5px) rotate(0.5deg);
-    }
-
-    10% {
-        transform: translate(0.5px, 2.5px) rotate(0.5deg);
-    }
-
-    12% {
-        transform: translate(1.5px, 1.5px) rotate(0.5deg);
-    }
-
-    14% {
-        transform: translate(0.5px, 0.5px) rotate(0.5deg);
-    }
-
-    16% {
-        transform: translate(-1.5px, -0.5px) rotate(1.5deg);
-    }
-
-    18% {
-        transform: translate(0.5px, 0.5px) rotate(1.5deg);
-    }
-
-    20% {
-        transform: translate(2.5px, 2.5px) rotate(1.5deg);
-    }
-
-    22% {
-        transform: translate(0.5px, -1.5px) rotate(1.5deg);
-    }
-
-    24% {
-        transform: translate(-1.5px, 1.5px) rotate(-0.5deg);
-    }
-
-    26% {
-        transform: translate(1.5px, 0.5px) rotate(1.5deg);
-    }
-
-    28% {
-        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    30% {
-        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    32% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
-
-    34% {
-        transform: translate(2.5px, 2.5px) rotate(-0.5deg);
-    }
-
-    36% {
-        transform: translate(0.5px, -1.5px) rotate(0.5deg);
-    }
-
-    38% {
-        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    40% {
-        transform: translate(-0.5px, 2.5px) rotate(0.5deg);
-    }
-
-    42% {
-        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
-    }
-
-    44% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
-
-    46% {
-        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    48% {
-        transform: translate(2.5px, -0.5px) rotate(0.5deg);
-    }
-
-    50% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
-
-    52% {
-        transform: translate(-0.5px, 1.5px) rotate(0.5deg);
-    }
-
-    54% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
-
-    56% {
-        transform: translate(0.5px, 2.5px) rotate(1.5deg);
-    }
-
-    58% {
-        transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    }
-
-    60% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
-
-    62% {
-        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
-    }
-
-    64% {
-        transform: translate(-1.5px, 1.5px) rotate(1.5deg);
-    }
-
-    66% {
-        transform: translate(0.5px, 2.5px) rotate(1.5deg);
-    }
-
-    68% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
-
-    70% {
-        transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    }
-
-    72% {
-        transform: translate(-0.5px, -1.5px) rotate(1.5deg);
-    }
-
-    74% {
-        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
-    }
-
-    76% {
-        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
-    }
-
-    78% {
-        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
-    }
-
-    80% {
-        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
-    }
-
-    82% {
-        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
-    }
-
-    84% {
-        transform: translate(-0.5px, 0.5px) rotate(1.5deg);
-    }
-
-    86% {
-        transform: translate(2.5px, 1.5px) rotate(0.5deg);
-    }
-
-    88% {
-        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
-    }
-
-    90% {
-        transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    92% {
-        transform: translate(-1.5px, -1.5px) rotate(1.5deg);
-    }
-
-    94% {
-        transform: translate(0.5px, 0.5px) rotate(-0.5deg);
-    }
-
-    96% {
-        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
-    }
-
-    98% {
-        transform: translate(-1.5px, -1.5px) rotate(-0.5deg);
-    }
-
-    0%, 100% {
-        transform: translate(0, 0) rotate(0);
-    }
-}
-
-@font-face {
-    font-family: 'Flat-UI-Icons';
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot');
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff') format('woff'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
-}
-
-[class^="fui-"],
-[class*="fui-"] {
-    font-family: 'Flat-UI-Icons';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.fui-cross:before {
-    content: "\\e609";
-}
-
-.fui-info-circle:before {
-    content: "\\e60f";
-}
-
-.fui-photo:before {
-    content: "\\e62a";
-}
-
-.fui-eye:before {
-    content: "\\e62c";
-}
-
-.fui-chat:before {
-    content: "\\e62d";
-}
-
-.fui-home:before {
-    content: "\\e62e";
-}
-
-.fui-user:before {
-    content: "\\e631";
-}
-
-#l2d-conf{
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
-}
-table.hclonely {
-    font-family: verdana,arial,sans-serif !important;
-    font-size: 11px !important;
-    color: #333333 !important;
-    border-width: 1px !important;
-    border-color: #999999 !important;
-    border-collapse: collapse !important;
-}
-
-table.hclonely th {
-    background-color: #c3dde0 !important;
-    border-width: 1px !important;
-    padding: 8px !important;
-    border-style: solid !important;
-    border-color: #a9c6c9 !important;
-}
-
-table.hclonely tr {
-    background-color: #d4e3e5 !important;
-}
-
-table.hclonely td {
-    border-width: 1px !important;
-    padding: 8px !important;
-    border-style: solid !important;
-    border-color: #a9c6c9 !important;
-}
-
-table.hclonely a {
-    color: #2196F3 !important;
-}
-
-table.hclonely input {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto !important;
-    color: initial !important;
-    letter-spacing: normal !important;
-    word-spacing: normal !important;
-    text-transform: none !important;
-    text-indent: 0px !important;
-    text-shadow: none !important;
-    display: inline-block !important;
-    text-align: start !important;
-    -webkit-appearance: textfield !important;
-    background-color: white !important;
-    -webkit-rtl-ordering: logical !important;
-    cursor: text !important;
-    margin: 0em !important;
-    font: 400 13.3333px Arial !important;
-    padding: 1px 0px !important;
-    border-width: 2px !important;
-    border-style: inset !important;
-    border-color: initial !important;
-    border-image: initial !important;
-}
-
-table.hclonely input[type=text] {
-    width: 160px !important;
-    background: #fff !important;
-    margin: 0 !important;
-    font-size: 13px !important;
-    border: 1px solid transparent !important;
-    border-top-color: rgba(0,0,0,.07) !important;
-}
-
-table.hclonely input[type="checkbox"] {
-    background-color: initial !important;
-    cursor: default !important;
-    -webkit-appearance: checkbox !important;
-    box-sizing: border-box !important;
-    margin: 3px 3px 3px 4px !important;
-    padding: initial !important;
-    border: initial !important;
-}
-
-.swal-modal{
-    width: 70%;
-}
-`)
+  GM_addStyle(GM_getResourceText('style'))
 })()

@@ -1,402 +1,408 @@
 .waifu {
-    position: fixed !important;
-    bottom: 0;
-    z-index: 1;
-    font-size: 0;
-    -webkit-transform: translateY(3px);
-    transform: translateY(3px);
+  position: fixed !important;
+  bottom: 0;
+  z-index: 1;
+  font-size: 0;
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);
 }
 
 .waifu:hover {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 .waifu-tips {
-    opacity: 0;
-    margin: -20px 20px;
-    padding: 5px 10px;
-    border: 1px solid rgba(224, 186, 140, 0.62);
-    border-radius: 12px;
-    background-color: rgba(236, 217, 188, 0.5);
-    box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
-    font-size: 12px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    animation-delay: 5s;
-    animation-duration: 50s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;
+  opacity: 0;
+  margin: -20px 20px;
+  padding: 5px 10px;
+  border: 1px solid rgba(224, 186, 140, 0.62);
+  border-radius: 12px;
+  background-color: rgba(236, 217, 188, 0.5);
+  box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: absolute;
+  animation-delay: 5s;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-name: shake;
+  animation-timing-function: ease-in-out;
 }
 
 .waifu-tool {
-    display: none;
-    color: #aaa;
-    top: 50px;
-    right: 10px;
-    position: absolute;
+  display: none;
+  color: #aaa;
+  top: 50px;
+  right: 10px;
+  position: absolute;
 }
 
 .waifu:hover .waifu-tool {
-    display: block;
+  display: block;
 }
 
 .waifu-tool span {
-    display: block;
-    cursor: pointer;
-    color: rgb(57, 57, 57);
-    background-color: rgba(236, 217, 188, 0.5);
-    border: 1px solid rgba(224, 186, 140, 0.62);
-    padding: 0 4px;
-    line-height: 20px;
-    transition: 0.2s;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;
+  display: block;
+  cursor: pointer;
+  color: rgb(57, 57, 57);
+  background-color: rgba(236, 217, 188, 0.5);
+  border: 1px solid rgba(224, 186, 140, 0.62);
+  padding: 0 4px;
+  line-height: 20px;
+  transition: 0.2s;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-name: shake;
+  animation-timing-function: ease-in-out;
 }
 
 .waifu-tool span:hover {
-    z-index: 1;
-    transform: scale(1.5);
-    animation: none;
+  z-index: 1;
+  transform: scale(1.5);
+  animation: none;
 }
 
 .waifu #live2d {
-    position: relative;
-    cursor: grab;
+  position: relative;
+  cursor: grab;
 }
 
 @keyframes shake {
-    2% {
-        transform: translate(0.5px, -1.5px) rotate(-0.5deg);
-    }
+  2% {
+    transform: translate(0.5px, -1.5px) rotate(-0.5deg);
+  }
 
-    4% {
-        transform: translate(0.5px, 1.5px) rotate(1.5deg);
-    }
+  4% {
+    transform: translate(0.5px, 1.5px) rotate(1.5deg);
+  }
 
-    6% {
-        transform: translate(1.5px, 1.5px) rotate(1.5deg);
-    }
+  6% {
+    transform: translate(1.5px, 1.5px) rotate(1.5deg);
+  }
 
-    8% {
-        transform: translate(2.5px, 1.5px) rotate(0.5deg);
-    }
+  8% {
+    transform: translate(2.5px, 1.5px) rotate(0.5deg);
+  }
 
-    10% {
-        transform: translate(0.5px, 2.5px) rotate(0.5deg);
-    }
+  10% {
+    transform: translate(0.5px, 2.5px) rotate(0.5deg);
+  }
 
-    12% {
-        transform: translate(1.5px, 1.5px) rotate(0.5deg);
-    }
+  12% {
+    transform: translate(1.5px, 1.5px) rotate(0.5deg);
+  }
 
-    14% {
-        transform: translate(0.5px, 0.5px) rotate(0.5deg);
-    }
+  14% {
+    transform: translate(0.5px, 0.5px) rotate(0.5deg);
+  }
 
-    16% {
-        transform: translate(-1.5px, -0.5px) rotate(1.5deg);
-    }
+  16% {
+    transform: translate(-1.5px, -0.5px) rotate(1.5deg);
+  }
 
-    18% {
-        transform: translate(0.5px, 0.5px) rotate(1.5deg);
-    }
+  18% {
+    transform: translate(0.5px, 0.5px) rotate(1.5deg);
+  }
 
-    20% {
-        transform: translate(2.5px, 2.5px) rotate(1.5deg);
-    }
+  20% {
+    transform: translate(2.5px, 2.5px) rotate(1.5deg);
+  }
 
-    22% {
-        transform: translate(0.5px, -1.5px) rotate(1.5deg);
-    }
+  22% {
+    transform: translate(0.5px, -1.5px) rotate(1.5deg);
+  }
 
-    24% {
-        transform: translate(-1.5px, 1.5px) rotate(-0.5deg);
-    }
+  24% {
+    transform: translate(-1.5px, 1.5px) rotate(-0.5deg);
+  }
 
-    26% {
-        transform: translate(1.5px, 0.5px) rotate(1.5deg);
-    }
+  26% {
+    transform: translate(1.5px, 0.5px) rotate(1.5deg);
+  }
 
-    28% {
-        transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
-    }
+  28% {
+    transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    30% {
-        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
-    }
+  30% {
+    transform: translate(1.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    32% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
+  32% {
+    transform: translate(2.5px, -1.5px) rotate(1.5deg);
+  }
 
-    34% {
-        transform: translate(2.5px, 2.5px) rotate(-0.5deg);
-    }
+  34% {
+    transform: translate(2.5px, 2.5px) rotate(-0.5deg);
+  }
 
-    36% {
-        transform: translate(0.5px, -1.5px) rotate(0.5deg);
-    }
+  36% {
+    transform: translate(0.5px, -1.5px) rotate(0.5deg);
+  }
 
-    38% {
-        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
-    }
+  38% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    40% {
-        transform: translate(-0.5px, 2.5px) rotate(0.5deg);
-    }
+  40% {
+    transform: translate(-0.5px, 2.5px) rotate(0.5deg);
+  }
 
-    42% {
-        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
-    }
+  42% {
+    transform: translate(-1.5px, 2.5px) rotate(0.5deg);
+  }
 
-    44% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
+  44% {
+    transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+  }
 
-    46% {
-        transform: translate(1.5px, -0.5px) rotate(-0.5deg);
-    }
+  46% {
+    transform: translate(1.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    48% {
-        transform: translate(2.5px, -0.5px) rotate(0.5deg);
-    }
+  48% {
+    transform: translate(2.5px, -0.5px) rotate(0.5deg);
+  }
 
-    50% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
+  50% {
+    transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+  }
 
-    52% {
-        transform: translate(-0.5px, 1.5px) rotate(0.5deg);
-    }
+  52% {
+    transform: translate(-0.5px, 1.5px) rotate(0.5deg);
+  }
 
-    54% {
-        transform: translate(-1.5px, 1.5px) rotate(0.5deg);
-    }
+  54% {
+    transform: translate(-1.5px, 1.5px) rotate(0.5deg);
+  }
 
-    56% {
-        transform: translate(0.5px, 2.5px) rotate(1.5deg);
-    }
+  56% {
+    transform: translate(0.5px, 2.5px) rotate(1.5deg);
+  }
 
-    58% {
-        transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    }
+  58% {
+    transform: translate(2.5px, 2.5px) rotate(0.5deg);
+  }
 
-    60% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
+  60% {
+    transform: translate(2.5px, -1.5px) rotate(1.5deg);
+  }
 
-    62% {
-        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
-    }
+  62% {
+    transform: translate(-1.5px, 0.5px) rotate(1.5deg);
+  }
 
-    64% {
-        transform: translate(-1.5px, 1.5px) rotate(1.5deg);
-    }
+  64% {
+    transform: translate(-1.5px, 1.5px) rotate(1.5deg);
+  }
 
-    66% {
-        transform: translate(0.5px, 2.5px) rotate(1.5deg);
-    }
+  66% {
+    transform: translate(0.5px, 2.5px) rotate(1.5deg);
+  }
 
-    68% {
-        transform: translate(2.5px, -1.5px) rotate(1.5deg);
-    }
+  68% {
+    transform: translate(2.5px, -1.5px) rotate(1.5deg);
+  }
 
-    70% {
-        transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    }
+  70% {
+    transform: translate(2.5px, 2.5px) rotate(0.5deg);
+  }
 
-    72% {
-        transform: translate(-0.5px, -1.5px) rotate(1.5deg);
-    }
+  72% {
+    transform: translate(-0.5px, -1.5px) rotate(1.5deg);
+  }
 
-    74% {
-        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
-    }
+  74% {
+    transform: translate(-1.5px, 2.5px) rotate(1.5deg);
+  }
 
-    76% {
-        transform: translate(-1.5px, 2.5px) rotate(1.5deg);
-    }
+  76% {
+    transform: translate(-1.5px, 2.5px) rotate(1.5deg);
+  }
 
-    78% {
-        transform: translate(-1.5px, 2.5px) rotate(0.5deg);
-    }
+  78% {
+    transform: translate(-1.5px, 2.5px) rotate(0.5deg);
+  }
 
-    80% {
-        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
-    }
+  80% {
+    transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
+  }
 
-    82% {
-        transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
-    }
+  82% {
+    transform: translate(-1.5px, 0.5px) rotate(-0.5deg);
+  }
 
-    84% {
-        transform: translate(-0.5px, 0.5px) rotate(1.5deg);
-    }
+  84% {
+    transform: translate(-0.5px, 0.5px) rotate(1.5deg);
+  }
 
-    86% {
-        transform: translate(2.5px, 1.5px) rotate(0.5deg);
-    }
+  86% {
+    transform: translate(2.5px, 1.5px) rotate(0.5deg);
+  }
 
-    88% {
-        transform: translate(-1.5px, 0.5px) rotate(1.5deg);
-    }
+  88% {
+    transform: translate(-1.5px, 0.5px) rotate(1.5deg);
+  }
 
-    90% {
-        transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
-    }
+  90% {
+    transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    92% {
-        transform: translate(-1.5px, -1.5px) rotate(1.5deg);
-    }
+  92% {
+    transform: translate(-1.5px, -1.5px) rotate(1.5deg);
+  }
 
-    94% {
-        transform: translate(0.5px, 0.5px) rotate(-0.5deg);
-    }
+  94% {
+    transform: translate(0.5px, 0.5px) rotate(-0.5deg);
+  }
 
-    96% {
-        transform: translate(2.5px, -0.5px) rotate(-0.5deg);
-    }
+  96% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+  }
 
-    98% {
-        transform: translate(-1.5px, -1.5px) rotate(-0.5deg);
-    }
+  98% {
+    transform: translate(-1.5px, -1.5px) rotate(-0.5deg);
+  }
 
-    0%, 100% {
-        transform: translate(0, 0) rotate(0);
-    }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
 }
 
 @font-face {
-    font-family: 'Flat-UI-Icons';
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot');
-  src: url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff') format('woff'), url('https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
+  font-family: 'Flat-UI-Icons';
+  src: url('__EOT__');
+  src: url('__EOT__?#iefix') format('embedded-opentype'),
+    url('__WOFF2__') format('woff2'),
+    url('__WOFF__') format('woff'),
+    url('__TTF__') format('truetype'),
+    url('__SVG__#flat-ui-icons-regular') format('svg');
 }
 
 [class^="fui-"],
 [class*="fui-"] {
-    font-family: 'Flat-UI-Icons';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Flat-UI-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .fui-cross:before {
-    content: "\\e609";
+  content: "\\e609";
 }
 
 .fui-info-circle:before {
-    content: "\\e60f";
+  content: "\\e60f";
 }
 
 .fui-photo:before {
-    content: "\\e62a";
+  content: "\\e62a";
 }
 
 .fui-eye:before {
-    content: "\\e62c";
+  content: "\\e62c";
 }
 
 .fui-chat:before {
-    content: "\\e62d";
+  content: "\\e62d";
 }
 
 .fui-home:before {
-    content: "\\e62e";
+  content: "\\e62e";
 }
 
 .fui-user:before {
-    content: "\\e631";
+  content: "\\e631";
 }
 
-#l2d-conf{
-    margin: 0 !important;
-    padding: 0 !important;
-    display: block !important;
+#l2d-conf {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
 }
+
 table.hclonely {
-    font-family: verdana,arial,sans-serif !important;
-    font-size: 11px !important;
-    color: #333333 !important;
-    border-width: 1px !important;
-    border-color: #999999 !important;
-    border-collapse: collapse !important;
+  font-family: verdana, arial, sans-serif !important;
+  font-size: 11px !important;
+  color: #333333 !important;
+  border-width: 1px !important;
+  border-color: #999999 !important;
+  border-collapse: collapse !important;
 }
 
 table.hclonely th {
-    background-color: #c3dde0 !important;
-    border-width: 1px !important;
-    padding: 8px !important;
-    border-style: solid !important;
-    border-color: #a9c6c9 !important;
+  background-color: #c3dde0 !important;
+  border-width: 1px !important;
+  padding: 8px !important;
+  border-style: solid !important;
+  border-color: #a9c6c9 !important;
 }
 
 table.hclonely tr {
-    background-color: #d4e3e5 !important;
+  background-color: #d4e3e5 !important;
 }
 
 table.hclonely td {
-    border-width: 1px !important;
-    padding: 8px !important;
-    border-style: solid !important;
-    border-color: #a9c6c9 !important;
+  border-width: 1px !important;
+  padding: 8px !important;
+  border-style: solid !important;
+  border-color: #a9c6c9 !important;
 }
 
 table.hclonely a {
-    color: #2196F3 !important;
+  color: #2196F3 !important;
 }
 
 table.hclonely input {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto !important;
-    color: initial !important;
-    letter-spacing: normal !important;
-    word-spacing: normal !important;
-    text-transform: none !important;
-    text-indent: 0px !important;
-    text-shadow: none !important;
-    display: inline-block !important;
-    text-align: start !important;
-    -webkit-appearance: textfield !important;
-    background-color: white !important;
-    -webkit-rtl-ordering: logical !important;
-    cursor: text !important;
-    margin: 0em !important;
-    font: 400 13.3333px Arial !important;
-    padding: 1px 0px !important;
-    border-width: 2px !important;
-    border-style: inset !important;
-    border-color: initial !important;
-    border-image: initial !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto !important;
+  color: initial !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  text-transform: none !important;
+  text-indent: 0px !important;
+  text-shadow: none !important;
+  display: inline-block !important;
+  text-align: start !important;
+  -webkit-appearance: textfield !important;
+  background-color: white !important;
+  -webkit-rtl-ordering: logical !important;
+  cursor: text !important;
+  margin: 0em !important;
+  font: 400 13.3333px Arial !important;
+  padding: 1px 0px !important;
+  border-width: 2px !important;
+  border-style: inset !important;
+  border-color: initial !important;
+  border-image: initial !important;
 }
 
 table.hclonely input[type=text] {
-    width: 160px !important;
-    background: #fff !important;
-    margin: 0 !important;
-    font-size: 13px !important;
-    border: 1px solid transparent !important;
-    border-top-color: rgba(0,0,0,.07) !important;
+  width: 160px !important;
+  background: #fff !important;
+  margin: 0 !important;
+  font-size: 13px !important;
+  border: 1px solid transparent !important;
+  border-top-color: rgba(0, 0, 0, .07) !important;
 }
 
 table.hclonely input[type="checkbox"] {
-    background-color: initial !important;
-    cursor: default !important;
-    -webkit-appearance: checkbox !important;
-    box-sizing: border-box !important;
-    margin: 3px 3px 3px 4px !important;
-    padding: initial !important;
-    border: initial !important;
+  background-color: initial !important;
+  cursor: default !important;
+  -webkit-appearance: checkbox !important;
+  box-sizing: border-box !important;
+  margin: 3px 3px 3px 4px !important;
+  padding: initial !important;
+  border: initial !important;
 }
 
-.swal-modal{
-    width: 70%;
+.swal-modal {
+  width: 70%;
 }

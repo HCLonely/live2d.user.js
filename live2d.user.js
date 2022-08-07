@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.2.8
+// @version      1.2.9
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -13,14 +13,14 @@
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 // @require      https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js
 // @require      https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js
-// @require      https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/live2d.core.min.js
-// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/models/modelList.json
-// @resource     style https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.7/style.min.css
-// @resource     eot https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.eot
-// @resource     ttf https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.ttf
-// @resource     woff https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff
-// @resource     woff2 https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.woff2
-// @resource     svg https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@master/source/flat-ui-icons-regular.svg
+// @require      https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.9/live2d.core.min.js
+// @resource     modelList https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.9/models/modelList.json
+// @resource     style https://cdn.jsdelivr.net/gh/hclonely/live2d.user.js@1.2.9/style.min.css
+// @resource     eot https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.2.9/source/flat-ui-icons-regular.eot
+// @resource     ttf https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.2.9/source/flat-ui-icons-regular.ttf
+// @resource     woff https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.2.9/source/flat-ui-icons-regular.woff
+// @resource     woff2 https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.2.9/source/flat-ui-icons-regular.woff2
+// @resource     svg https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.2.9/source/flat-ui-icons-regular.svg
 // @supportURL   https://github.com/HCLonely/live2d.user.js/issues
 // @homepage     https://github.com/HCLonely/live2d.user.js
 // @grant        GM_xmlhttpRequest

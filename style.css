@@ -322,6 +322,34 @@
   content: "\\e631";
 }
 
+.fui-cross::before {
+  content: "\\e609";
+}
+
+.fui-info-circle::before {
+  content: "\\e60f";
+}
+
+.fui-photo::before {
+  content: "\\e62a";
+}
+
+.fui-eye::before {
+  content: "\\e62c";
+}
+
+.fui-chat::before {
+  content: "\\e62d";
+}
+
+.fui-home::before {
+  content: "\\e62e";
+}
+
+.fui-user::before {
+  content: "\\e631";
+}
+
 #l2d-conf {
   margin: 0 !important;
   padding: 0 !important;

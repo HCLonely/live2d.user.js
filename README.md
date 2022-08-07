@@ -6,7 +6,7 @@
 
 基于 nodejs 的后端 api: [live2dNodeApi](https://github.com/HCLonely/live2dNodeApi)
 
-[点此安装](https://raw.githubusercontent.com/HCLonely/live2d.user.js/master/live2d.user.js)
+[点此安装](https://github.com/HCLonely/live2d.user.js/raw/master/live2d.user.js)
 
 ## 模型预览
 

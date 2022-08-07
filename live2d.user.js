@@ -19,7 +19,6 @@
 // @resource     eot https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.eot
 // @resource     ttf https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.ttf
 // @resource     woff https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.woff
-// @resource     woff2 https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.woff2
 // @resource     svg https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.svg
 // @supportURL   https://github.com/HCLonely/live2d.user.js/issues
 // @homepage     https://github.com/HCLonely/live2d.user.js
@@ -245,7 +244,6 @@
 
   GM_addStyle(GM_getResourceText('style')
     .replace(/__EOT__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.eot')
-    .replace(/__WOFF2__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.woff2')
     .replace(/__WOFF__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.woff')
     .replace(/__TTF__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.ttf')
     .replace(/__SVG__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.6/source/flat-ui-icons-regular.svg'))

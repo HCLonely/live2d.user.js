@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         live2D看板娘
 // @namespace    live2d.js
-// @version      1.3.0
+// @version      1.3.1
 // @description  给你的网页添加看板娘
 // @author       HCLonely
 // @include      *://*/*
@@ -248,5 +248,5 @@
     .replace(/__WOFF2__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.0/source/flat-ui-icons-regular.woff2')
     .replace(/__WOFF__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.0/source/flat-ui-icons-regular.woff')
     .replace(/__TTF__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.0/source/flat-ui-icons-regular.ttf')
-    .replace(/__SVG__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.0/source/flat-ui-icons-regular.svg')
+    .replace(/__SVG__/g, 'https://cdn.jsdelivr.net/gh/HCLonely/live2d.user.js@1.3.0/source/flat-ui-icons-regular.svg'))
 })()

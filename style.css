@@ -276,7 +276,6 @@
   font-family: 'Flat-UI-Icons';
   src: url('__EOT__');
   src: url('__EOT__?#iefix') format('embedded-opentype'),
-    url('__WOFF2__') format('woff2'),
     url('__WOFF__') format('woff'),
     url('__TTF__') format('truetype'),
     url('__SVG__#flat-ui-icons-regular') format('svg');

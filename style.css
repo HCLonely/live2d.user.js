@@ -390,7 +390,6 @@ table.hclonely a {
 table.hclonely input {
   -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto !important;
-  color: initial !important;
   letter-spacing: normal !important;
   word-spacing: normal !important;
   text-transform: none !important;
@@ -407,8 +406,6 @@ table.hclonely input {
   padding: 1px 0px !important;
   border-width: 2px !important;
   border-style: inset !important;
-  border-color: initial !important;
-  border-image: initial !important;
 }
 
 table.hclonely input[type=text] {
@@ -421,13 +418,10 @@ table.hclonely input[type=text] {
 }
 
 table.hclonely input[type="checkbox"] {
-  background-color: initial !important;
   cursor: default !important;
   -webkit-appearance: checkbox !important;
   box-sizing: border-box !important;
   margin: 3px 3px 3px 4px !important;
-  padding: initial !important;
-  border: initial !important;
 }
 
 .swal-modal {
